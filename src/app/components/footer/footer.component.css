@@ -4,10 +4,16 @@
     font-size: 0.9rem;
     color: #333;
 }
+.footer-section h4 {
+    font-size: 1.2rem; /* Adjusted for "Your E-commerce Platform" */
+    font-weight: bold;
+    margin-bottom: 0;
+}
 .footer-section h5 {
-    font-size: 1rem;
+    font-size: 0.95rem; /* Slightly smaller for section titles */
     font-weight: bold;
     margin-bottom: 20px;
+    color: #333; /* Ensure consistent color */
 }
 .footer-section ul {
     list-style: none;
@@ -29,6 +35,7 @@
     margin-bottom: 10px;
     color: #555;
     text-decoration: none;
+    font-size: 0.9rem; /* Match text size */
 }
 .social-link:hover {
     color: #007bff;
@@ -36,34 +43,52 @@
 .social-link i {
     margin-right: 8px;
     font-size: 1.1rem;
+    width: 20px; /* Give icons a fixed width for alignment */
+    text-align: center;
 }
 .app-store-btn {
-    display: block;
+    display: flex; /* Changed to flex for better control of content alignment */
+    align-items: center;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 8px 15px;
-    text-align: center;
     color: #333;
     text-decoration: none;
     background-color: #fff;
+    transition: background-color 0.2s ease-in-out;
 }
 .app-store-btn:hover {
     background-color: #f0f0f0;
 }
 .app-store-btn img {
-    height: 20px;
-    margin-right: 8px;
+    height: 25px; /* Slightly larger image */
+    margin-right: 12px; /* More space from text */
 }
 .app-store-btn span {
-    font-size: 0.85rem;
+    font-size: 0.9rem; /* Main text size */
     display: block;
     line-height: 1.2;
 }
 .app-store-btn .title {
-    font-size: 0.7rem;
+    font-size: 0.75rem; /* Smaller title text */
     color: #777;
 }
 .footer-brand img {
     max-height: 40px;
+}
+.footer-contact-info .fa-map-marker-alt,
+.footer-contact-info .fa-envelope,
+.footer-contact-info .fa-phone-alt {
+    color: #555; /* Icon color */
+    width: 20px; /* Align icons */
+    text-align: center;
+    margin-top: 3px; /* Adjust vertical alignment for address icon */
+}
+.footer-contact-info a {
+    color: #555;
+    text-decoration: none;
+}
+.footer-contact-info a:hover {
+    color: #007bff;
 }
