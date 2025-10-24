@@ -798,3 +798,178 @@ body {
   background-color: #c82333;
   border-color: #bd2130;
 }
+/* ==================== QFREEMART ORDERING APP SECTION ==================== */
+/* ==================== QFREEMART ORDERING APP SECTION ==================== */
+.qfreemart-section {
+    padding: 80px 20px;
+    background-color: #fff;
+    font-family: "Poppins", Arial, sans-serif; /* Assuming Poppins is linked */
+}
+
+.qfreemart-section .badge {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qfreemart-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.qfreemart-section h2 span {
+    color: #dc3545; /* Red color */
+}
+
+/* ==================== Left Column ==================== */
+.qfreemart-section .col-lg-4 h5 {
+    color: #dc3545;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.qfreemart-section h3 {
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.qfreemart-section p {
+    color: #6c757d;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.qfreemart-section .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    padding: 10px 30px;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.qfreemart-section .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+/* ==================== Center Image ==================== */
+.qfreemart-section img {
+    max-height: 550px;
+    width: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Right Column ==================== */
+/* Right column main title/feature heading */
+.qfreemart-section h5 { 
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-left: 4px solid #dc3545;
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.qfreemart-section ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.qfreemart-section ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.qfreemart-section ul li i {
+    color: #dc3545;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1200px) {
+    .qfreemart-section h3 {
+        font-size: 1.6rem;
+    }
+    .qfreemart-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .qfreemart-section .row {
+        text-align: center;
+    }
+
+    /* Override to make left column content centered on smaller screens */
+    .qfreemart-section .col-lg-4 {
+        text-align: center !important;
+    }
+
+    .qfreemart-section img {
+        max-height: 420px;
+    }
+
+    /* To properly center the unstyled list on mobile */
+    .qfreemart-section ul {
+        text-align: left;
+        display: inline-block;
+    }
+
+    /* Change the feature heading border from left to top on mobile */
+    .qfreemart-section h5 {
+        text-align: center;
+        border-left: none;
+        border-top: 3px solid #dc3545;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .qfreemart-section {
+        padding: 60px 15px;
+    }
+
+    .qfreemart-section img {
+        max-height: 380px;
+    }
+
+    .qfreemart-section h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .qfreemart-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .qfreemart-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .qfreemart-section img {
+        max-height: 300px;
+    }
+
+    .qfreemart-section p {
+        font-size: 0.95rem;
+    }
+
+    .qfreemart-section ul li {
+        font-size: 0.9rem;
+    }
+}
