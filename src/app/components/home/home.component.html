@@ -32,69 +32,396 @@
         Your browser does not support the video tag.
     </video>
 </div>
+
+
+<!-- <div class="video-container"  style="display:none;">
+    <div class="oci-integration-section">
+        <div class="oci-tag">
+            <span><i class="bi bi-gear-fill"></i> OCI Technology <i class="bi bi-x-lg"></i></span>
+        </div>
+
+        <div class="oci-header">
+            <h1>The Power of Integration with OCI™</h1>
+            <p>OCI™ transforms the way businesses and customers interact. By connecting every touchpoint—retail, supply
+                chain, services, and analytics—it creates a single, powerful ecosystem for commerce.</p>
+        </div>
+    </div>
+    <video id="backgroundVideo" loop muted playsinline class="background-video">
+        <source src="assets/OCI.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div> -->
+
+
 <section class="qfreemart-section container py-5">
-  <div class="text-center mb-5">
-    <span class="badge bg-light text-dark px-3 py-2 mb-2">
-      <i class="bi bi-phone"></i> Complete Mobile Application Suite
-    </span>
-    <h2 class="fw-bold mt-3">
-      Four Powerful Apps for <span class="text-danger">Complete Business Success</span>
-    </h2>
-  </div>
-
-  <div class="row align-items-center justify-content-between g-5">
-    <!-- LEFT: App Details -->
-    <div class="col-lg-4 text-lg-start text-center">
-      <div class="d-flex align-items-center justify-content-lg-start justify-content-center mb-3">
-        <i class="bi bi-cart-check-fill text-danger fs-3 me-2"></i>
-        <h5 class="fw-bold mb-0">QFREEMART ORDERING APP</h5>
-      </div>
-      <h3 class="fw-bold mb-3">Seamless Shopping Experience</h3>
-      <p class="text-muted mb-4">
-        Discover products effortlessly with intelligent search, category filters,
-        exclusive deals, and nearby store access—all in one app.
-      </p>
-      <button class="btn btn-danger rounded-pill px-4">Explore App</button>
+    <div class="text-center mb-5">
+        <span class="badge bg-light text-dark px-3 py-2 mb-2" style="border: 1px solid #e0e0e0; font-weight: 500;">
+            <i class="bi bi-phone"></i> Complete Mobile Application Suite
+        </span>
+        <h2 class="fw-bold mt-3">
+            Four Powerful Apps for
+            <span class="text-danger">Complete Business Success</span>
+        </h2>
     </div>
 
-    <!-- CENTER: Image -->
-    <div class="col-lg-4 col-md-6 text-center">
-      <img
-        src="assets/appimage.png"
-        alt="App Screenshot"
-        class="img-fluid shadow-lg rounded-4"
-      />
+    <div class="row align-items-center justify-content-center g-5">
+        <!-- LEFT: App Details -->
+        <div class="col-lg-4 text-lg-start text-center">
+            <div class="d-flex align-items-center justify-content-lg-start justify-content-center mb-3">
+                <div
+                    style="background-color: #fcebeb; border-radius: 8px; padding: 8px; display: inline-block; margin-right: 12px;">
+                    <img src="../../../assets/icon.png" alt="QFreemart Logo" style="height: 32px; width: auto;" />
+                </div>
+                <h5 class="fw-bold mb-0" style="font-size: 0.9rem; color: #555;">
+                    QFREEMART ORDERING APP
+                </h5>
+            </div>
+            <h3 class="fw-bold mb-3 display-6">Seamless Shopping Experience</h3>
+            <p class="text-muted mb-4">
+                Discover products effortlessly with intelligent search, category filters,
+                exclusive deals, and nearby store access—all in one app.
+            </p>
+            <button class="btn btn-danger px-4 py-2">Explore App</button>
+        </div>
+
+        <!-- CENTER: Video -->
+        <!-- CENTER: Video -->
+        <div class="col-lg-4 col-md-6 text-center">
+            <video #appVideo loop muted playsinline autoplay class="img-fluid rounded shadow"
+                style="max-height: 900px; width: 100%; object-fit: cover;">
+                <source src="assets/CustomerApp/1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+
+        <!-- RIGHT: Feature List -->
+        <div class="col-lg-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item active" data-video="assets/CustomerApp/1.mp4">
+                    Locate trusted sellers, service providers, or delivery hubs near you.
+                </li>
+                <li class="list-group-item" data-video="assets/CustomerApp/2.mp4">
+                    View detailed product info, pricing, reviews, and available offers.
+                </li>
+                <li class="list-group-item" data-video="assets/CustomerApp/3.mp4">
+                    Easily manage selected items and review them before checkout.
+                </li>
+                <li class="list-group-item" data-video="assets/CustomerApp/4.mp4">
+                    Connect directly with sellers to get the best price for your purchase.
+                </li>
+                <li class="list-group-item" data-video="assets/CustomerApp/5.mp4">
+                    Request a specific item or service when it's not listed on the app.
+                </li>
+                <li class="list-group-item" data-video="assets/CustomerApp/6.mp4">
+                    Additional feature description here.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="container">
+    <!-- Main Card Wrapper -->
+    <div class="card plan-card p-4" style="max-width: 900px; margin: auto;">
+        <div class="card-body">
+
+            <!-- Header -->
+            <p class="text-uppercase text-danger fw-bold mb-2">
+                <i class="bi bi-star-fill me-1"></i> Choose Your Perfect Plan <i class="bi bi-star-fill ms-1"></i>
+            </p>
+            <h1 class="section-title mb-3">Subscription</h1>
+            <p class="section-subtitle mb-4">
+                Transform your business with QFreemart's comprehensive marketplace solutions.
+                <br>
+                <span class="text-danger fw-bold">Join 10,000+ successful businesses</span> already growing with us.
+            </p>
+
+            <!-- B2C/B2B Switcher -->
+            <div class="d-flex justify-content-center mb-4 plan-type-switcher">
+                <div class="btn-group" role="group" aria-label="Plan Type">
+                    <button type="button" class="btn btn-light active me-3">
+                        <i class="bi bi-person-fill me-2"></i> B2C
+                    </button>
+                    <button type="button" class="btn btn-light">
+                        <i class="bi bi-building-fill me-2"></i> B2B
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pricing Table (Inside Card) -->
+            <div class="row g-3 justify-content-center mb-4">
+                <!-- Monthly Plan -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="plan-details p-3 border rounded">
+                        <h5 class="text-start">Monthly</h5>
+                        <p class="price text-start">₹289</p>
+                        <p class="text-start mb-2">
+                            <span class="original-price me-2">₹399</span>
+                            <span class="discount-badge">30% Off</span>
+                        </p>
+                        <button class="btn subscribe-btn w-100">Subscribe</button>
+                        <p class="commission text-center mt-2">Commission: 5%</p>
+                    </div>
+                </div>
+
+                <!-- Quarterly Plan -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="plan-details p-3 border rounded">
+                        <h5 class="text-start">Quarterly</h5>
+                        <p class="price text-start">₹899</p>
+                        <p class="text-start mb-2">
+                            <span class="original-price me-2">₹1299</span>
+                            <span class="discount-badge">30% Off</span>
+                        </p>
+                        <button class="btn subscribe-btn w-100">Subscribe</button>
+                        <p class="commission text-center mt-2">Commission: 4%</p>
+                    </div>
+                </div>
+
+                <!-- Semi-Annual Plan -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="plan-details p-3 border rounded">
+                        <h5 class="text-start">Semi-Annual</h5>
+                        <p class="price text-start">₹1799</p>
+                        <p class="text-start mb-2">
+                            <span class="original-price me-2">₹2199</span>
+                            <span class="discount-badge">30% Off</span>
+                        </p>
+                        <button class="btn subscribe-btn w-100">Subscribe</button>
+                        <p class="commission text-center mt-2">Commission: 3%</p>
+                    </div>
+                </div>
+
+                <!-- Annual Plan -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="plan-details p-3 border rounded">
+                        <h5 class="text-start">Annual</h5>
+                        <p class="price text-start">₹3599</p>
+                        <p class="text-start mb-2">
+                            <span class="original-price me-2">₹3672</span>
+                            <span class="discount-badge">2% Off</span>
+                        </p>
+                        <button class="btn subscribe-btn w-100">Subscribe</button>
+                        <p class="commission text-center mt-2">Commission: 2%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section p-3 mt-3 border rounded">
+                <h5 class="text-center mb-3">All Plans Include These Features</h5>
+                <div class="row text-start">
+                    <div class="col-md-6">
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Online Presence for your
+                            Store</div>
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Listing of Products &
+                            Services</div>
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Multiple Categories of
+                            Products & Services</div>
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Monitoring Multiple
+                            Stores</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Hyper Local Listing</div>
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Remote Queue Management
+                        </div>
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Analytics for Sellers
+                        </div>
+                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> B2C & B2B Marketplace
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">What Are People Saying About Us</h2>
+        <div class="navigation-arrows">
+            <button class="arrow-btn left-arrow">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="arrow-btn right-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-item app-showcase">
+                <img src="/assets/handOverlay.png" alt="App Screenshot" class="app-screenshot">
+                <div class="hand-holding-phone"></div> <!-- For the hand overlay -->
+            </div>
+
+            <div class="testimonial-item">
+                <div class="stars">
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                </div>
+                <h3>Great Design!</h3>
+                <p>Shopping on Qtreemart is so easy! I love how quickly my orders get delivered. Great deals and smooth
+                    checkout process.</p>
+                <div class="user-info">
+                    <div class="avatar"></div>
+                    <span>Ananya S.</span>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="stars">
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                </div>
+                <h3>User-friendly!</h3>
+                <p>The app is super user-friendly, and tracking my order is hassle-free. Qtreemart helped me grow my
+                    business online without any extra hassle.</p>
+                <div class="user-info">
+                    <div class="avatar"></div>
+                    <span>Rahul M.</span>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="stars">
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                </div>
+                <h3>Great deals!</h3>
+                <p>Managing orders and payments is simple, and support is always responsive.Thanks to Qtreemart, I've
+                    reached more customers than ever before.</p>
+                <div class="user-info">
+                    <div class="avatar"></div>
+                    <span>Priya K.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="faq-section">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-description">Find quick answers to the most common queries about shopping, selling, and
+            delivering with Qtreemart.</p>
+
+        <div class="faq-content">
+            <div class="faq-sidebar">
+                <div class="table-of-content">
+                    <h4>Table of content</h4>
+                    <ul>
+                        <li class="active">General</li>
+                        <li>Customer App FAQs</li>
+                        <li>Seller App FAQs</li>
+                        <li>Delivery/Executer App FAQs</li>
+                        <li>Security & Privacy FAQs</li>
+                        <li>Technical & Troubleshooting FAQs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="accordion-item open">
+                    <div class="accordion-header">
+                        What is Qtreemart?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Qtreemart is an all-in-one e-commerce platform that connects customers, sellers, and delivery
+                            partners on a single app. It makes shopping, selling, and delivering simple, fast, and
+                            secure. <a href="#">Read More</a></p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How does Qtreemart work?
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Content for How does Qtreemart work?</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Which services are available on Qtreemart?
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Content for Which services are available on Qtreemart?</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How do I download the Qtreemart app?
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Content for How do I download the Qtreemart app?</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Is Qtreemart available in my city?
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Content for Is Qtreemart available in my city?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="contact-fullscreen d-flex flex-column flex-lg-row">
+    <!-- Left Half - Image -->
+    <div class="half-screen image-side">
+        <img src="/assets/img.png" alt="Customer support" />
     </div>
 
-    <!-- RIGHT: Feature List -->
-    <div class="col-lg-4 text-lg-start text-center">
-      <h5 class="fw-bold border-start border-3 border-danger ps-3 mb-4 d-inline-block">
-        Search Product and Advance Search Feature
-      </h5>
-      <ul class="list-unstyled d-inline-block text-start">
-        <li class="mb-3 d-flex">
-          <i class="bi bi-geo-alt-fill text-danger me-2 fs-5"></i>
-          <span>Locate trusted sellers, service providers, or delivery hubs near you.</span>
-        </li>
-        <li class="mb-3 d-flex">
-          <i class="bi bi-card-text text-danger me-2 fs-5"></i>
-          <span>View detailed product info, pricing, reviews, and available offers.</span>
-        </li>
-        <li class="mb-3 d-flex">
-          <i class="bi bi-bag-check-fill text-danger me-2 fs-5"></i>
-          <span>Easily manage selected items and review them before checkout.</span>
-        </li>
-        <li class="mb-3 d-flex">
-          <i class="bi bi-chat-dots-fill text-danger me-2 fs-5"></i>
-          <span>Connect directly with sellers to get the best price for your purchase.</span>
-        </li>
-        <li class="d-flex">
-          <i class="bi bi-search text-danger me-2 fs-5"></i>
-          <span>Request a specific item or service when it's not listed on the app.</span>
-        </li>
-      </ul>
+    <!-- Right Half - Form -->
+    <div class="half-screen form-side d-flex align-items-center justify-content-center">
+        <div class="form-wrapper">
+            <h2 class="mb-3">We empower businesses to go digital.</h2>
+            <p class="lead mb-4">
+                With smartphone usage at an all-time high, online shopping has
+                become the preferred choice for today's consumers.
+            </p>
+
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control mb-3" placeholder="First Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control mb-3" placeholder="Last Name" />
+                    </div>
+                </div>
+
+                <input type="text" class="form-control mb-3" placeholder="Subject" />
+                <textarea class="form-control mb-4" rows="4" placeholder="Your Message"></textarea>
+
+                <button type="submit" class="btn btn-danger btn-lg w-100">Send a Message</button>
+            </form>
+        </div>
     </div>
-  </div>
 </section>
 
 <div class="container">

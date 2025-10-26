@@ -1,9 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-interface FaqItem {
-  question: string;
-  answer: string;
-  isOpen: boolean;
-}
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -13,38 +9,71 @@ interface FaqItem {
 })
 export class HomeComponent implements AfterViewInit {
 
+  @ViewChild('appVideo') videoRef!: ElementRef<HTMLVideoElement>;
   ngAfterViewInit(): void {
-    const playButton = document.getElementById('playButton') as HTMLButtonElement;
-    const videoContainer = document.getElementById('videoContainer') as HTMLDivElement;
-    const heroOverlay = document.getElementById('heroOverlay') as HTMLDivElement;
-    const video = document.getElementById('backgroundVideo') as HTMLVideoElement;
+    const video = this.videoRef.nativeElement;
+    const listItems = document.querySelectorAll<HTMLLIElement>('.list-group-item');
 
-    playButton?.addEventListener('click', () => {
-      // Hide overlay and play button
-      // heroOverlay.style.display = 'none';
-      // Show video container
-      videoContainer.style.display = 'block';
-      // Play the video
-      video.play();
+    if (!video) return;
+
+    // Play first video
+    video.src = 'assets/CustomerApp/1.mp4';
+    video.load();
+    video.play().catch(err => console.warn('Autoplay blocked:', err));
+
+    // Handle list clicks
+    listItems.forEach(item => {
+      item.addEventListener('click', () => {
+        listItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+
+        const newSrc = item.getAttribute('data-video');
+        if (!newSrc) return;
+
+        // Only change if different
+        if (!video.src.includes(newSrc)) {
+          video.pause();
+          video.src = newSrc;  // relative path is fine
+          video.load();
+        }
+        video.currentTime = 0;
+        video.play().catch(err => console.warn('Play blocked:', err));
+      });
     });
   }
-  faqs: FaqItem[] = [
-    { question: 'What is Qtreemart?', answer: 'Qtreemart is an all-in-one e-commerce platform that connects customers, sellers, and delivery partners on a single app. It makes shopping, selling, and delivering simple, fast, and secure. <a href="#">Read More</a>', isOpen: true },
-    { question: 'How does Qtreemart work?', answer: 'Content for How does Qtreemart work?', isOpen: false },
-    { question: 'Which services are available on Qtreemart?', answer: 'Content for Which services are available on Qtreemart?', isOpen: false },
-    { question: 'How do I download the Qtreemart app?', answer: 'Content for How do I download the Qtreemart app?', isOpen: false },
-    { question: 'Is Qtreemart available in my city?', answer: 'Content for Is Qtreemart available in my city?', isOpen: false },
-  ];
 
-  toggleAccordion(item: FaqItem): void {
-    item.isOpen = !item.isOpen;
-  }
+  // ngAfterViewInit(): void {
+  //   const video = this.videoRef.nativeElement;
+  //   const listItems = document.querySelectorAll<HTMLLIElement>('.list-group-item');
 
-  // For sidebar navigation (optional, could filter FAQs or scroll)
-  activeSidebarItem: string = 'General';
-  selectSidebarItem(item: string): void {
-    this.activeSidebarItem = item;
-    // Logic to filter FAQs or scroll to a section
-  }
+  //   if (!video) return;
 
+  //   // Play first video
+  //   video.src = '/assets/CustomerApp/1.mp4';
+  //   video.load();
+  //   video.play().catch(err => console.warn('Autoplay blocked:', err));
+
+  //   // Handle list clicks
+  //   listItems.forEach(item => {
+  //     item.addEventListener('click', () => {
+  //       listItems.forEach(li => li.classList.remove('active'));
+  //       item.classList.add('active');
+
+  //       const newSrc = item.getAttribute('data-video');
+  //       if (!newSrc) return;
+
+  //       // Change video source safely
+  //       if (video.src.endsWith(newSrc)) {
+  //         video.currentTime = 0;
+  //         video.play();
+  //         return;
+  //       }
+
+  //       video.pause();
+  //       video.src = `/${newSrc.replace(/^\/+/, '')}`;
+  //       video.load();
+  //       video.onloadedmetadata = () => video.play();
+  //     });
+  //   });
+  // }
 }
