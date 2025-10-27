@@ -975,9 +975,6 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-
-
-
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1200px) {
   .qfreemart-section h3 {
