@@ -957,8 +957,10 @@ body {
 
 .video-container {
   position: relative;
-  width: 100vw;       /* Full viewport width */
-  height: 100vh;      /* Full viewport height */
+  width: 100vw;
+  /* Full viewport width */
+  height: 100vh;
+  /* Full viewport height */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -971,10 +973,12 @@ body {
   left: 50%;
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* Video covers the container fully */
+  object-fit: cover;
+  /* Video covers the container fully */
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1200px) {
   .qfreemart-section h3 {
@@ -1049,5 +1053,107 @@ body {
 
   .qfreemart-section ul li {
     font-size: 0.9rem;
+  }
+}
+
+/* CONTACT SECTION REFINED */
+.contact-fullscreen {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.half-screen {
+  width: 50%;
+  height: 100vh;
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.form-wrapper p {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.form-control {
+  border-radius: 50px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+textarea.form-control {
+  border-radius: 20px;
+  resize: none;
+}
+
+.form-control:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.1);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #b02a37;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .contact-fullscreen {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .half-screen {
+    width: 100%;
+    height: auto;
+  }
+
+  .form-wrapper {
+    max-width: 90%;
+    margin: 2rem auto;
   }
 }
