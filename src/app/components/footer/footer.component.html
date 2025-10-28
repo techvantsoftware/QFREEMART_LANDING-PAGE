@@ -1,111 +1,137 @@
 <!-- footer.component.html -->
 <footer class="footer-section">
   <div class="container">
-    <div class="row align-items-center mb-4">
-      <div class="col-md-8 mb-3 mb-md-0">
-        <h4 class="mb-0">Your E-commerce Platform</h4>
+    <div class="row align-items-center justify-content-between mb-4">
+      <!-- Left: Title -->
+      <div class="col-md-8 col-8">
+        <h4 class="footer-title mb-0">Your E-commerce Platform</h4>
       </div>
-      <div class="col-md-4 text-md-end footer-brand">
-        <img src="/assets/icon.png" alt="qfreemart Logo">
+      <!-- Right: Logo -->
+      <div class="col-md-4 col-4 text-end footer-brand">
+        <img src="/assets/fullicon.png" alt="Qfreemart Logo" />
       </div>
     </div>
-
     <hr class="my-4"> <!-- Add margin to the HR -->
 
     <div class="row py-4">
       <!-- Social Links -->
-      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 d-flex flex-column"> <!-- Use flex-column for vertical alignment -->
-        <a href="https://www.linkedin.com/" class="social-link" target="_blank">
-          <i class="fab fa-linkedin"></i> LinkedIn <i class="fas fa-external-link-alt ms-auto" style="font-size: 0.7em;"></i> <!-- Added external link icon -->
-        </a>
-        <a href="https://www.instagram.com/" class="social-link" target="_blank">
-          <i class="fab fa-instagram"></i> Instagram <i class="fas fa-external-link-alt ms-auto" style="font-size: 0.7em;"></i>
-        </a>
-        <a href="https://twitter.com/" class="social-link" target="_blank">
-          <i class="fab fa-twitter"></i> Twitter <i class="fas fa-external-link-alt ms-auto" style="font-size: 0.7em;"></i>
-        </a>
-        <a href="https://www.facebook.com/" class="social-link" target="_blank">
-          <i class="fab fa-facebook-f"></i> Facebook <i class="fas fa-external-link-alt ms-auto" style="font-size: 0.7em;"></i>
-        </a>
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="social-links-container">
+          <a href="https://www.linkedin.com/" class="social-link" target="_blank">
+            <span class="social-icon-wrapper">
+              <i class="fab fa-linkedin-in"></i>
+            </span>
+            <span class="social-text">LinkedIn</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="https://www.instagram.com/" class="social-link" target="_blank">
+            <span class="social-icon-wrapper">
+              <i class="fab fa-instagram"></i>
+            </span>
+            <span class="social-text">Instagram</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="https://twitter.com/" class="social-link" target="_blank">
+            <span class="social-icon-wrapper">
+              <i class="fab fa-twitter"></i>
+            </span>
+            <span class="social-text">Twitter</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="https://www.facebook.com/" class="social-link" target="_blank">
+            <span class="social-icon-wrapper">
+              <i class="fab fa-facebook-f"></i>
+            </span>
+            <span class="social-text">Facebook</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
       </div>
 
-      <!-- Products -->
-      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-        <h5>PRODUCTS</h5>
-        <ul>
-          <li><a routerLink="#">Customer App</a></li>
-          <li><a routerLink="#">Seller App</a></li>
-          <li><a routerLink="#">Delivery/Executer App</a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-        <h5>COMPANY</h5>
-        <ul>
-          <li><a routerLink="/">Home</a></li>
-          <li><a routerLink="/about">About Us</a></li>
-          <li><a routerLink="/why-choose-us">Why Choose Us</a></li>
-          <li><a routerLink="/subscription">Subscription</a></li>
-          <li><a routerLink="/contact">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-        <h5>LEGAL</h5>
-        <ul>
-          <li><a routerLink="/vendor-agreement">Vendor Agreement</a></li>
-          <li><a routerLink="/terms">Terms & Conditions</a></li>
-          <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
-          <li><a routerLink="/refund-policy">Refund Policy</a></li>
-        </ul>
-      </div>
-
-      <!-- App Download -->
-      <div class="col-lg-3 col-md-6">
-        <h5>APP DOWNLOAD</h5>
-        <a href="https://play.google.com/store" class="app-store-btn" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-          <div>
-            <span class="title">GET IT ON</span>
-            <span>Google Play</span>
-          </div>
-        </a>
-        <a href="https://www.apple.com/app-store/" class="app-store-btn" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
-          <div>
-            <span class="title">Download on the</span>
-            <span>App Store</span>
-          </div>
-        </a>
+      <hr class="my-4"> <!-- Add margin to the HR -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="social-links-container">
+          <a>
+            <h5>PRODUCTS</h5>
+            <ul>
+              <li><a routerLink="#">Customer App</a></li>
+              <li><a routerLink="#">Seller App</a></li>
+              <li><a routerLink="#">Delivery/Executer App</a></li>
+            </ul>
+          </a>
+          <a>
+            <h5>COMPANY</h5>
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/about">About Us</a></li>
+              <li><a routerLink="/why-choose-us">Why Choose Us</a></li>
+              <li><a routerLink="/subscription">Subscription</a></li>
+              <li><a routerLink="/contact">Contact Us</a></li>
+            </ul>
+          </a>
+          <a>
+            <h5>LEGAL</h5>
+            <ul>
+              <li><a routerLink="/vendor-agreement">Vendor Agreement</a></li>
+              <li><a routerLink="/terms">Terms & Conditions</a></li>
+              <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+              <li><a routerLink="/refund-policy">Refund Policy</a></li>
+            </ul>
+          </a>
+          <a>
+            <h5>APP DOWNLOAD</h5>
+            <a href="https://play.google.com/store" class="app-store-btn" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Google Play">
+              <div>
+                <span class="title">GET IT ON</span>
+                <span>Google Play</span>
+              </div>
+            </a>
+            <a href="https://www.apple.com/app-store/" class="app-store-btn" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                alt="App Store">
+              <div>
+                <span class="title">Download on the</span>
+                <span>App Store</span>
+              </div>
+            </a>
+          </a>
+        </div>
       </div>
     </div>
 
     <hr class="my-4"> <!-- Add margin to the HR -->
-
-    <div class="row py-3 align-items-center footer-contact-info">
-      <div class="col-lg-6 mb-3 mb-lg-0">
-        <div class="d-flex align-items-start mb-2">
-          <i class="fas fa-map-marker-alt me-2 mt-1"></i>
-          <div>
-            2/164, Main Road,Siva Kalyan Complex<br>
-            Paramaswarapuram, Radhapuram Taluka,<br>
-            Tirunelveli, Tamil Nadu, India - 627111
-          </div>
-        </div>
-        <div class="d-flex align-items-center mb-2">
-          <i class="far fa-envelope me-2"></i>
-          <a href="mailto:contact.us@qfreemart.in">contact.us&#64;qfreemart.in</a>
-        </div>
-        <div class="d-flex align-items-center">
-          <i class="fas fa-phone-alt me-2"></i>
-          <a href="tel:+919545247666">+91 95452 47666</a>
+    <!-- Footer Contact Section -->
+    <!-- Left: Address, Email, Phone -->
+    <div class="col-lg-8 col-md-7 col-12">
+      <div class="d-flex align-items-start mb-2">
+        <i class="fas fa-map-marker-alt me-2 mt-1"></i>
+        <div>
+          2/164, Main Road, Siva Kalyan Complex<br>
+          Paramaswarapuram, Radhapuram Taluka,<br>
+          Tirunelveli, Tamil Nadu, India - 627111
         </div>
       </div>
-      <div class="col-lg-6 text-lg-end">
-        <p class="mb-0">Copyright © Shree Samarth Innovative Technologies Private Limited, 2023-2024 All Rights Reserved.</p>
+
+      <div class="d-flex align-items-center mb-2">
+        <i class="far fa-envelope me-2"></i>
+        <a href="mailto:contact.us@qfreemart.in">contact.us&#64;qfreemart.in</a>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <i class="fas fa-phone-alt me-2"></i>
+        <a href="tel:+919545247666">+91 95452 47666</a>
       </div>
     </div>
+
+    <!-- Right: Copyright -->
+    <div class="col-lg-4 col-md-5 col-12 text-md-end text-center mt-3 mt-md-0">
+      <p class="mb-0 copyright-text">
+        © Shree Samarth Innovative Technologies Pvt. Ltd. 2023–2024<br>
+        All Rights Reserved.
+      </p>
+    </div>
+
   </div>
 </footer>
