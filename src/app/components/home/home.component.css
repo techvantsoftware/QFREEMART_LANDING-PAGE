@@ -262,69 +262,7 @@
   border-color: #f1f1f1;
 }
 
-.card.plan-card {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-  height: 100%;
-  /* Ensure cards have equal height */
-}
 
-.card.plan-card:hover {
-  transform: translateY(-5px);
-}
-
-.plan-card .card-header {
-  background-color: white;
-  border-bottom: none;
-  font-weight: bold;
-  font-size: 1.25rem;
-  padding-bottom: 0;
-}
-
-.plan-card .price {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.plan-card .original-price {
-  text-decoration: line-through;
-  color: #999;
-  font-size: 0.9rem;
-}
-
-.plan-card .discount-badge {
-  background-color: #28a745;
-  /* Green for discount */
-  color: white;
-  padding: 3px 8px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-.plan-card .subscribe-btn {
-  background-color: #dc3545;
-  /* Red for subscribe */
-  border-color: #dc3545;
-  color: white;
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.plan-card .subscribe-btn:hover {
-  background-color: #c82333;
-  border-color: #bd2130;
-}
-
-.plan-card .commission {
-  color: #6c757d;
-  font-size: 0.9rem;
-  margin-top: 15px;
-}
 
 .features-section {
   background-color: white;
@@ -1155,5 +1093,484 @@ textarea.form-control {
   .form-wrapper {
     max-width: 90%;
     margin: 2rem auto;
+  }
+}
+
+/* Paste the CSS code you provided here */
+.subscription-section {
+  padding: 50px 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.plan-type-switcher .btn {
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-weight: bold;
+}
+
+.plan-type-switcher .btn.active {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.plan-type-switcher .btn:not(.active) {
+  background-color: #f1f1f1;
+  color: #555;
+  border-color: #f1f1f1;
+}
+
+/* A new card style for the main container */
+.subscription-container-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.card.plan-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  height: 100%;
+}
+
+.card.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+.plan-card .card-header {
+  background-color: white;
+  border-bottom: none;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-bottom: 0;
+}
+
+.plan-card .price {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.plan-card .original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1rem;
+}
+
+.plan-card .discount-badge {
+  color: white;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.plan-card .subscribe-btn {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.plan-card .subscribe-btn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.plan-features-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.plan-features-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.plan-features-list li i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.features-section {
+  background-color: #f8f9fa;
+  /* Slightly off-white background */
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.features-section h5 {
+  font-weight: bold;
+  margin-bottom: 25px;
+  font-size: 1.25rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.feature-item i {
+  color: #dc3545;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.feature-item span {
+  color: #333;
+}
+
+
+:host {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Make container full height and centered */
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures full screen height */
+  background-color: #fff; /* optional */
+}
+
+/* Limit content width */
+.subscription-box {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+/* "Choose Your Perfect Plan" badge styling */
+.badge-pill-container {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  color: #d9534f;
+  background-color: #fff;
+}
+
+/* Main "Subscription" title */
+.subscription-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Red underline for the title */
+.title-underline {
+  height: 4px;
+  width: 100px;
+  background-color: #d9534f;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Red highlighted text in the paragraph */
+.text-highlight {
+  color: #d9534f;
+  font-weight: 600;
+}
+
+/* Toggle button group styling */
+.subscription-toggle {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  padding: 5px;
+}
+
+/* Buttons styling */
+.subscription-toggle .btn-custom {
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #495057;
+  border-radius: 8px !important;
+  transition: all 0.3s ease;
+}
+
+.subscription-toggle .btn-custom.active {
+  background-color: #d9534f;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(217, 83, 79, 0.4);
+}
+
+.subscription-toggle .btn-custom:not(.active):hover {
+  background-color: #e9ecef;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .subscription-title {
+    font-size: 2.5rem;
+  }
+  .lead {
+    font-size: 1rem;
+  }
+  .subscription-toggle .btn-custom {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+
+.badge-pill-container {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  color: #ef4747;
+}
+
+.pricing-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-table .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.plan-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 270px;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.plan-header {
+  margin-bottom: 20px;
+}
+
+.plan-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.plan-price {
+  font-size: 2rem;
+  color: #007bff;
+  margin: 0;
+}
+
+.plan-duration {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.plan-features li {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.plan-card .btn {
+  margin-top: 15px;
+  padding: 8px 25px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .plan-card {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .plan-card {
+    max-width: 100%;
+  }
+}
+.pricing-plans-section {
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Pricing Card Styling */
+.pricing-card {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.plan-title {
+  font-weight: 500;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.plan-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 10px 0;
+}
+
+.original-price {
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.original-price del {
+  margin-right: 10px;
+}
+
+.discount-badge {
+  background-color: #cceee4;
+  color: #167755;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.btn-subscribe {
+  background-color: #ef474b;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+
+.btn-subscribe:hover {
+  background-color: #d83b3f;
+  color: #ffffff;
+}
+
+/* Features Section Styling */
+.features-title-badge {
+  display: inline-block;
+  background-color: #ffffff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  color: #495057;
+  font-weight: 500;
+}
+
+.all-plans-title {
+  font-weight: 600;
+  color: #343a40;
+}
+
+.features-list li {
+  margin-bottom: 12px;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.features-list .icon-tick,
+.features-list .icon-cross {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.icon-tick {
+  color: #ef474b;
+}
+
+.icon-cross {
+  color: #ced4da;
+}
+
+/* Common features section alignment */
+.common-features {
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* ==================== PRICING SECTION ==================== */
+.pricing-section {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+  position: relative;
+  z-index: 5; /* Ensures it's above hero if stacked */
+}
+
+.pricing-section .plan-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.pricing-section .plan-card:hover {
+  transform: translateY(-8px);
+}
+
+.btn-subscribe {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: 0.3s ease;
+}
+
+.btn-subscribe:hover {
+  background-color: #b02a37;
+}
+
+/* Responsive layout fix */
+@media (max-width: 992px) {
+  .pricing-section .row {
+    flex-wrap: wrap;
   }
 }

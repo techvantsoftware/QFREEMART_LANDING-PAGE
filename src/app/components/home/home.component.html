@@ -167,123 +167,126 @@
         </div>
     </div>
 </section>
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center subscription-box">
 
-<div class="container">
-    <!-- Main Card Wrapper -->
-    <div class="card plan-card p-4" style="max-width: 900px; margin: auto;">
-        <div class="card-body">
-
-            <!-- Header -->
-            <p class="text-uppercase text-danger fw-bold mb-2">
-                <i class="bi bi-star-fill me-1"></i> Choose Your Perfect Plan <i class="bi bi-star-fill ms-1"></i>
-            </p>
-            <h1 class="section-title mb-3">Subscription</h1>
-            <p class="section-subtitle mb-4">
-                Transform your business with QFreemart's comprehensive marketplace solutions.
-                <br>
-                <span class="text-danger fw-bold">Join 10,000+ successful businesses</span> already growing with us.
-            </p>
-
-            <!-- B2C/B2B Switcher -->
-            <div class="d-flex justify-content-center mb-4 plan-type-switcher">
-                <div class="btn-group" role="group" aria-label="Plan Type">
-                    <button type="button" class="btn btn-light active me-3">
-                        <i class="bi bi-person-fill me-2"></i> B2C
-                    </button>
-                    <button type="button" class="btn btn-light">
-                        <i class="bi bi-building-fill me-2"></i> B2B
-                    </button>
-                </div>
-            </div>
-
-            <!-- Pricing Table (Inside Card) -->
-            <div class="row g-3 justify-content-center mb-4">
-                <!-- Monthly Plan -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="plan-details p-3 border rounded">
-                        <h5 class="text-start">Monthly</h5>
-                        <p class="price text-start">₹289</p>
-                        <p class="text-start mb-2">
-                            <span class="original-price me-2">₹399</span>
-                            <span class="discount-badge">30% Off</span>
-                        </p>
-                        <button class="btn subscribe-btn w-100">Subscribe</button>
-                        <p class="commission text-center mt-2">Commission: 5%</p>
-                    </div>
-                </div>
-
-                <!-- Quarterly Plan -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="plan-details p-3 border rounded">
-                        <h5 class="text-start">Quarterly</h5>
-                        <p class="price text-start">₹899</p>
-                        <p class="text-start mb-2">
-                            <span class="original-price me-2">₹1299</span>
-                            <span class="discount-badge">30% Off</span>
-                        </p>
-                        <button class="btn subscribe-btn w-100">Subscribe</button>
-                        <p class="commission text-center mt-2">Commission: 4%</p>
-                    </div>
-                </div>
-
-                <!-- Semi-Annual Plan -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="plan-details p-3 border rounded">
-                        <h5 class="text-start">Semi-Annual</h5>
-                        <p class="price text-start">₹1799</p>
-                        <p class="text-start mb-2">
-                            <span class="original-price me-2">₹2199</span>
-                            <span class="discount-badge">30% Off</span>
-                        </p>
-                        <button class="btn subscribe-btn w-100">Subscribe</button>
-                        <p class="commission text-center mt-2">Commission: 3%</p>
-                    </div>
-                </div>
-
-                <!-- Annual Plan -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="plan-details p-3 border rounded">
-                        <h5 class="text-start">Annual</h5>
-                        <p class="price text-start">₹3599</p>
-                        <p class="text-start mb-2">
-                            <span class="original-price me-2">₹3672</span>
-                            <span class="discount-badge">2% Off</span>
-                        </p>
-                        <button class="btn subscribe-btn w-100">Subscribe</button>
-                        <p class="commission text-center mt-2">Commission: 2%</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Features Section -->
-            <div class="features-section p-3 mt-3 border rounded">
-                <h5 class="text-center mb-3">All Plans Include These Features</h5>
-                <div class="row text-start">
-                    <div class="col-md-6">
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Online Presence for your
-                            Store</div>
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Listing of Products &
-                            Services</div>
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Multiple Categories of
-                            Products & Services</div>
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Monitoring Multiple
-                            Stores</div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Hyper Local Listing</div>
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Remote Queue Management
-                        </div>
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> Analytics for Sellers
-                        </div>
-                        <div class="feature-item"><i class="bi bi-check-circle-fill me-2"></i> B2C & B2B Marketplace
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Top "Choose Plan" Badge -->
+        <div class="badge-pill-container shadow-sm mb-4">
+            <i class="fas fa-crown"></i>
+            <span class="mx-2">Choose Your Perfect Plan</span>
+            <i class="fas fa-magic-wand-sparkles"></i>
         </div>
+
+        <!-- Main Heading -->
+        <h1 class="subscription-title">Subscription</h1>
+        <div class="title-underline"></div>
+
+        <!-- Sub-heading Text -->
+        <p class="lead text-muted mt-4">
+            Transform your business with Qfreemart's comprehensive marketplace solutions.
+            <br>
+            <span class="text-highlight">Join 10,000+ successful businesses</span> already growing with us.
+        </p>
+
+        <!-- B2C / B2B Toggle Buttons -->
+        <div class="d-flex justify-content-center mt-5">
+            <div class="btn-group subscription-toggle" role="group">
+                <button type="button" class="btn btn-custom active">
+                    <i class="fas fa-user-friends me-2"></i> B2C
+                </button>
+                <button type="button" class="btn btn-custom">
+                    <i class="fas fa-handshake me-2"></i> B2B
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
+<div class="container pricing-table py-5">
+  <div class="row justify-content-center gx-4 gy-4">
+    <!-- Monthly Plan -->
+    <div class="col-lg-3 col-md-6">
+      <div class="plan-card text-center">
+        <h5 class="plan-title">Monthly</h5>
+        <h2 class="plan-price">₹289</h2>
+        <p class="plan-original-price">
+          <span class="text-muted text-decoration-line-through">₹599</span>
+          <span class="badge bg-success">50% Off</span>
+        </p>
+        <button class="btn btn-subscribe">Subscribe</button>
+
+        <hr />
+        <ul class="list-unstyled text-start px-4">
+          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 5%</li>
+          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Quarterly Plan -->
+    <div class="col-lg-3 col-md-6">
+     <div class="plan-card text-center">
+        <h5 class="plan-title">Quarterly</h5>
+        <h2 class="plan-price">₹899</h2>
+        <p class="plan-original-price">
+          <span class="text-muted text-decoration-line-through">₹1799</span>
+          <span class="badge bg-success">50% Off</span>
+        </p>
+        <button class="btn btn-subscribe">Subscribe</button>
+
+        <hr />
+        <ul class="list-unstyled text-start px-4">
+          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 4%</li>
+          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Half-Yearly Plan -->
+    <div class="col-lg-3 col-md-6">
+     <div class="plan-card text-center">
+        <h5 class="plan-title">Semi-Annual</h5>
+        <h2 class="plan-price">₹1799</h2>
+        <p class="plan-original-price">
+          <span class="text-muted text-decoration-line-through">₹3599</span>
+          <span class="badge bg-success">50% Off</span>
+        </p>
+        <button class="btn btn-subscribe">Subscribe</button>
+
+        <hr />
+        <ul class="list-unstyled text-start px-4">
+          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 3%</li>
+          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Yearly Plan -->
+    <div class="col-lg-3 col-md-6">
+     <div class="plan-card text-center">
+        <h5 class="plan-title">Annual</h5>
+        <h2 class="plan-price">₹3599</h2>
+        <p class="plan-original-price">
+          <span class="text-muted text-decoration-line-through">₹7199</span>
+          <span class="badge bg-success">50% Off</span>
+        </p>
+        <button class="btn btn-subscribe">Subscribe</button>
+
+        <hr />
+        <ul class="list-unstyled text-start px-4">
+          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 2%</li>
+          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="testimonials-section">
     <div class="container">
         <h2 class="section-title">What Are People Saying About Us</h2>
@@ -435,81 +438,60 @@
 </div>
 
 <section class="contact-fullscreen d-flex flex-wrap">
-  <!-- Left Half - Image -->
-  <div class="half-screen image-side d-flex align-items-center justify-content-center">
-    <img
-      src="/assets/imgcontact.png"
-      alt="Customer support agent smiling with headset"
-      class="img-fluid contact-image"
-    />
-  </div>
-
-  <!-- Right Half - Form -->
-  <div class="half-screen form-side d-flex align-items-center">
-    <div class="form-wrapper mx-auto p-5">
-      <h2 class="mb-3 fw-bold">We empower businesses to go digital.</h2>
-      <p class="lead mb-4 text-muted">
-        With smartphone usage at an all-time high, online shopping has become
-        the preferred choice for today's consumers.
-      </p>
-
-      <form class="needs-validation" novalidate>
-        <!-- Row: First + Last Name -->
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label for="firstName" class="form-label fw-semibold">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              class="form-control"
-              placeholder="Enter your first name"
-              required
-            />
-          </div>
-
-          <div class="col-md-6">
-            <label for="lastName" class="form-label fw-semibold">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              class="form-control"
-              placeholder="Enter your last name"
-              required
-            />
-          </div>
-        </div>
-
-        <!-- Subject -->
-        <div class="mt-3">
-          <label for="subject" class="form-label fw-semibold">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            class="form-control"
-            placeholder="Enter subject"
-            required
-          />
-        </div>
-
-        <!-- Message -->
-        <div class="mt-3">
-          <label for="message" class="form-label fw-semibold">Message</label>
-          <textarea
-            id="message"
-            class="form-control"
-            rows="4"
-            placeholder="Write your message..."
-            required
-          ></textarea>
-        </div>
-
-        <!-- Button -->
-        <div class="mt-4 text-center">
-          <button type="submit" class="btn btn-danger rounded-pill px-5 py-2">
-            Send Message
-          </button>
-        </div>
-      </form>
+    <!-- Left Half - Image -->
+    <div class="half-screen image-side d-flex align-items-center justify-content-center">
+        <img src="/assets/imgcontact.png" alt="Customer support agent smiling with headset"
+            class="img-fluid contact-image" />
     </div>
-  </div>
+
+    <!-- Right Half - Form -->
+    <div class="half-screen form-side d-flex align-items-center">
+        <div class="form-wrapper mx-auto p-5">
+            <h2 class="mb-3 fw-bold">We empower businesses to go digital.</h2>
+            <p class="lead mb-4 text-muted">
+                With smartphone usage at an all-time high, online shopping has become
+                the preferred choice for today's consumers.
+            </p>
+
+            <form class="needs-validation" novalidate>
+                <!-- Row: First + Last Name -->
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label fw-semibold">First Name</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="Enter your first name"
+                            required />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label fw-semibold">Last Name</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Enter your last name"
+                            required />
+                    </div>
+                </div>
+
+                <!-- Subject -->
+                <div class="mt-3">
+                    <label for="subject" class="form-label fw-semibold">Subject</label>
+                    <input type="text" id="subject" class="form-control" placeholder="Enter subject" required />
+                </div>
+
+                <!-- Message -->
+                <div class="mt-3">
+                    <label for="message" class="form-label fw-semibold">Message</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Write your message..."
+                        required></textarea>
+                </div>
+
+                <!-- Button -->
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-danger rounded-pill px-5 py-2">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
+
+
+
