@@ -1,20 +1,26 @@
 <header class="header-container">
-    <div class="logo-container">
-        <!-- Replace with your actual logo image -->
-      <img src="fullicon.png" alt="QPREEMART Logo" class="logo">
-    </div>
-    <nav class="nav-links">
-        <ul>
-            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-            <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
-            <li><a routerLink="/why-choose-us" routerLinkActive="active">Why Choose Us</a></li>
-            <li><a routerLink="/subscription" routerLinkActive="active">Subscription</a></li>
-            <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
-        </ul>
-    </nav>
-    <div class="call-to-action">
-        <button class="call-now-button">
-            <i class="fas fa-phone"></i> Call Now
-        </button>
-    </div>
+  <div class="logo-container">
+    <img src="fullicon.png" alt="QPREEMART Logo" class="logo">
+  </div>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <nav class="nav-links" [class.active]="isMenuOpen">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+      <li><a routerLink="/why-choose-us" routerLinkActive="active">Why Choose Us</a></li>
+      <li><a routerLink="/subscription" routerLinkActive="active">Subscription</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="call-to-action">
+    <button class="call-now-button">
+      <i class="fas fa-phone"></i> Call Now
+    </button>
+  </div>
 </header>

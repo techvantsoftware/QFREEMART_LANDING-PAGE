@@ -1,7 +1,9 @@
 /* ==================== HERO SECTION ==================== */
+
+
 .hero-section {
   position: relative;
-  width: 96%;
+  width: 100%;
   height: 100vh;
   background: url("/assets/home.png") center center / cover no-repeat;
   display: flex;
@@ -28,13 +30,12 @@
   max-width: 450px;
   text-align: left;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   padding: 30px 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   border: 2px solid #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
-
 .hero-content .subtitle {
   font-size: 0.95rem;
   color: #d1d1d1;
@@ -138,12 +139,21 @@
 
 /* ==================== VIDEO CONTAINER ==================== */
 .video-container {
-  width: 100%;
-  max-width: 1300px;
-  margin: 40px auto;
-  border-radius: 12px;
+  position: relative;
+  width: 100vw; /* Full width */
+  height: 110vh; /* Slightly taller than the screen */
   overflow: hidden;
-  display: none;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 110%; /* Add extra height for full coverage */
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .background-video {
@@ -151,7 +161,53 @@
   height: 100%;
   object-fit: cover;
 }
+.oci-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  color: #fff;
+  max-width: 800px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+@media (max-width: 992px) {
+  .hero-section,
+  .hero-overlay {
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
 
+  .hero-content {
+    max-width: 450px;
+    text-align: left;
+    padding: 30px 40px;
+  }
+
+  .hero-content .title {
+    font-size: 2.6rem;
+  }
+
+  .hero-content .description {
+    font-size: 1.1rem;
+  }
+
+  .video-container {
+    height: 100vh;
+  }
+
+  .oci-overlay {
+    padding: 20px 30px;
+  }
+}
+
+/* Prevent image/video distortion on very small screens */
+@media (max-width: 600px) {
+  .hero-section,
+  .video-container {
+    height: 100vh;
+  }
+}
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 992px) {
 
@@ -1254,8 +1310,10 @@ textarea.form-control {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures full screen height */
-  background-color: #fff; /* optional */
+  min-height: 100vh;
+  /* Ensures full screen height */
+  background-color: #fff;
+  /* optional */
 }
 
 /* Limit content width */
@@ -1335,9 +1393,11 @@ textarea.form-control {
   .subscription-title {
     font-size: 2.5rem;
   }
+
   .lead {
     font-size: 1rem;
   }
+
   .subscription-toggle .btn-custom {
     padding: 0.6rem 1.5rem;
     font-size: 1rem;
@@ -1427,6 +1487,7 @@ textarea.form-control {
     max-width: 100%;
   }
 }
+
 .pricing-plans-section {
   background-color: #f8f9fa;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -1536,12 +1597,14 @@ textarea.form-control {
   max-width: 900px;
   margin: 0 auto;
 }
+
 /* ==================== PRICING SECTION ==================== */
 .pricing-section {
   background-color: #f8f9fa;
   padding: 80px 0;
   position: relative;
-  z-index: 5; /* Ensures it's above hero if stacked */
+  z-index: 5;
+  /* Ensures it's above hero if stacked */
 }
 
 .pricing-section .plan-card {

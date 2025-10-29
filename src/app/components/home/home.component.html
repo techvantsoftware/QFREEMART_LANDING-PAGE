@@ -1,5 +1,6 @@
-<div class="hero-section container-fluid" id="heroSection">
-    <div class="hero-overlay" id="heroOverlay">
+<!-- HERO SECTION -->
+<div class="hero-section" id="heroSection">
+    <div class="hero-overlay">
         <div class="hero-content text-white">
             <h6 class="subtitle">All-in-One E-Commerce Made Simple</h6>
             <h1 class="title">Every Shop’s Right to go Digital</h1>
@@ -7,6 +8,7 @@
                 With customer, seller, and delivery apps, Qfreemart makes e-commerce faster, smarter, and unstoppable.
             </p>
         </div>
+
         <div class="play-button-container">
             <button class="play-button" id="playButton">
                 <i class="bi bi-play-fill"></i>
@@ -14,24 +16,33 @@
         </div>
     </div>
 </div>
-
-<div class="video-container" id="videoContainer">
-    <div class="oci-integration-section">
+<div class="video-container">
+    <div class="oci-overlay">
         <div class="oci-tag">
             <span><i class="bi bi-gear-fill"></i> OCI Technology <i class="bi bi-x-lg"></i></span>
         </div>
-
         <div class="oci-header">
             <h1>The Power of Integration with OCI™</h1>
-            <p>OCI™ transforms the way businesses and customers interact. By connecting every touchpoint—retail, supply
-                chain, services, and analytics—it creates a single, powerful ecosystem for commerce.</p>
+            <p>
+                OCI™ transforms the way businesses and customers interact. By connecting every touchpoint—retail, supply
+                chain,
+                services, and analytics—it creates a single, powerful ecosystem for commerce.
+            </p>
         </div>
     </div>
-    <video id="backgroundVideo" loop muted playsinline class="background-video" autoplay>
-        <source src="assets/OCI.mp4" type="video/mp4">
+</div>
+<!-- VIDEO SECTION -->
+<div class="video-container" id="videoContainer">
+
+    <video  autoplay muted loop playsinline>
+        <source src="assets/OCI.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
 </div>
+<!-- <video autoplay muted loop playsinline>
+    <source src="assets/OCI.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+</video> -->
 
 <section class="qfreemart-section container py-5">
     <div class="text-center mb-5">
@@ -203,88 +214,88 @@
     </div>
 </div>
 <div class="container pricing-table py-5">
-  <div class="row justify-content-center gx-4 gy-4">
-    <!-- Monthly Plan -->
-    <div class="col-lg-3 col-md-6">
-      <div class="plan-card text-center">
-        <h5 class="plan-title">Monthly</h5>
-        <h2 class="plan-price">₹289</h2>
-        <p class="plan-original-price">
-          <span class="text-muted text-decoration-line-through">₹599</span>
-          <span class="badge bg-success">50% Off</span>
-        </p>
-        <button class="btn btn-subscribe">Subscribe</button>
+    <div class="row justify-content-center gx-4 gy-4">
+        <!-- Monthly Plan -->
+        <div class="col-lg-3 col-md-6">
+            <div class="plan-card text-center">
+                <h5 class="plan-title">Monthly</h5>
+                <h2 class="plan-price">₹289</h2>
+                <p class="plan-original-price">
+                    <span class="text-muted text-decoration-line-through">₹599</span>
+                    <span class="badge bg-success">50% Off</span>
+                </p>
+                <button class="btn btn-subscribe">Subscribe</button>
 
-        <hr />
-        <ul class="list-unstyled text-start px-4">
-          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 5%</li>
-          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
-          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
-        </ul>
-      </div>
+                <hr />
+                <ul class="list-unstyled text-start px-4">
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 5%</li>
+                    <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+                    <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quarterly Plan -->
+        <div class="col-lg-3 col-md-6">
+            <div class="plan-card text-center">
+                <h5 class="plan-title">Quarterly</h5>
+                <h2 class="plan-price">₹899</h2>
+                <p class="plan-original-price">
+                    <span class="text-muted text-decoration-line-through">₹1799</span>
+                    <span class="badge bg-success">50% Off</span>
+                </p>
+                <button class="btn btn-subscribe">Subscribe</button>
+
+                <hr />
+                <ul class="list-unstyled text-start px-4">
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 4%</li>
+                    <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+                    <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Half-Yearly Plan -->
+        <div class="col-lg-3 col-md-6">
+            <div class="plan-card text-center">
+                <h5 class="plan-title">Semi-Annual</h5>
+                <h2 class="plan-price">₹1799</h2>
+                <p class="plan-original-price">
+                    <span class="text-muted text-decoration-line-through">₹3599</span>
+                    <span class="badge bg-success">50% Off</span>
+                </p>
+                <button class="btn btn-subscribe">Subscribe</button>
+
+                <hr />
+                <ul class="list-unstyled text-start px-4">
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 3%</li>
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Yearly Plan -->
+        <div class="col-lg-3 col-md-6">
+            <div class="plan-card text-center">
+                <h5 class="plan-title">Annual</h5>
+                <h2 class="plan-price">₹3599</h2>
+                <p class="plan-original-price">
+                    <span class="text-muted text-decoration-line-through">₹7199</span>
+                    <span class="badge bg-success">50% Off</span>
+                </p>
+                <button class="btn btn-subscribe">Subscribe</button>
+
+                <hr />
+                <ul class="list-unstyled text-start px-4">
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 2%</li>
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+                    <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <!-- Quarterly Plan -->
-    <div class="col-lg-3 col-md-6">
-     <div class="plan-card text-center">
-        <h5 class="plan-title">Quarterly</h5>
-        <h2 class="plan-price">₹899</h2>
-        <p class="plan-original-price">
-          <span class="text-muted text-decoration-line-through">₹1799</span>
-          <span class="badge bg-success">50% Off</span>
-        </p>
-        <button class="btn btn-subscribe">Subscribe</button>
-
-        <hr />
-        <ul class="list-unstyled text-start px-4">
-          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 4%</li>
-          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
-          <li><i class="bi bi-x-circle-fill text-muted"></i> dummy text</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Half-Yearly Plan -->
-    <div class="col-lg-3 col-md-6">
-     <div class="plan-card text-center">
-        <h5 class="plan-title">Semi-Annual</h5>
-        <h2 class="plan-price">₹1799</h2>
-        <p class="plan-original-price">
-          <span class="text-muted text-decoration-line-through">₹3599</span>
-          <span class="badge bg-success">50% Off</span>
-        </p>
-        <button class="btn btn-subscribe">Subscribe</button>
-
-        <hr />
-        <ul class="list-unstyled text-start px-4">
-          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 3%</li>
-          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
-          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Yearly Plan -->
-    <div class="col-lg-3 col-md-6">
-     <div class="plan-card text-center">
-        <h5 class="plan-title">Annual</h5>
-        <h2 class="plan-price">₹3599</h2>
-        <p class="plan-original-price">
-          <span class="text-muted text-decoration-line-through">₹7199</span>
-          <span class="badge bg-success">50% Off</span>
-        </p>
-        <button class="btn btn-subscribe">Subscribe</button>
-
-        <hr />
-        <ul class="list-unstyled text-start px-4">
-          <li><i class="bi bi-check-circle-fill text-danger"></i> Commission: 2%</li>
-          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
-          <li><i class="bi bi-check-circle-fill text-danger"></i> dummy text</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="testimonials-section">
@@ -492,6 +503,3 @@
         </div>
     </div>
 </section>
-
-
-
