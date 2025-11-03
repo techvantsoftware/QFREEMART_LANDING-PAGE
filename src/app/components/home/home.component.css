@@ -89,7 +89,68 @@
   color: white;
   font-size: 3em;
 }
+@media (max-width: 992px) {
+  .hero-content .title {
+    font-size: 2.2rem;
+  }
+  .hero-content .description {
+    font-size: 1rem;
+  }
+  .oci-header h1 {
+    font-size: 2rem;
+  }
+}
 
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px;
+    height: 90vh;
+  }
+
+  .hero-content .title {
+    font-size: 1.8rem;
+  }
+
+  .hero-content .description {
+    font-size: 0.95rem;
+  }
+
+  .play-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .oci-overlay {
+    padding: 15px;
+  }
+
+  .oci-header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content .title {
+    font-size: 1.5rem;
+  }
+
+  .hero-content .description {
+    font-size: 0.9rem;
+  }
+
+  .play-button {
+    width: 55px;
+    height: 55px;
+  }
+
+  .oci-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .oci-header p {
+    font-size: 0.9rem;
+  }
+}
 /* ==================== OCI INTEGRATION SECTION ==================== */
 .oci-integration-section {
   font-family: Arial, sans-serif;
