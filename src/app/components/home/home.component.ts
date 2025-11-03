@@ -25,8 +25,19 @@ export class HomeComponent implements AfterViewInit {
         const firstVideoSrc = firstItem.getAttribute('data-video');
         if (firstVideoSrc) {
           videoElement.src = firstVideoSrc;
+          videoElement.muted = true; // ensure muted for autoplay
+          videoElement.autoplay = true;
+          videoElement.playsInline = true;
+
           videoElement.load();
-          videoElement.play().catch(err => console.warn('Autoplay blocked:', err));
+
+          // Try autoplay with fallback
+          videoElement.play().catch(err => {
+            console.warn('Autoplay blocked:', err);
+            // fallback: play on user interaction
+            document.body.addEventListener('click', () => videoElement.play(), { once: true });
+          });
+
           firstItem.classList.add('active');
         }
       }
@@ -45,6 +56,7 @@ export class HomeComponent implements AfterViewInit {
             videoElement.src = newSrc;
             videoElement.load();
           }
+
           videoElement.currentTime = 0;
           videoElement.play().catch(err => console.warn('Play blocked:', err));
         });
