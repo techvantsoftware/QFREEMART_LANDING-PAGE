@@ -1,0 +1,242 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.pricing-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- Subscription Intro Section --- */
+.subscription-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subscription-box {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge-pill-container {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-weight: 600;
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.badge-pill-container .fas {
+  margin: 0 8px;
+}
+
+.subscription-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background-color: #ef4444;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.subscription-description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.text-highlight {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.toggle-container {
+  margin-top: 30px;
+}
+
+.subscription-toggle {
+  display: inline-flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.subscription-toggle .btn-custom {
+  background-color: #f8f9fa;
+  border: none;
+  color: #333;
+  font-weight: 600;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.subscription-toggle .btn-custom .fas {
+  margin-right: 8px;
+}
+
+.subscription-toggle .btn-custom.active,
+.subscription-toggle .btn-custom:hover {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+/* --- Plans Section --- */
+.plans {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.plan {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  width: 23%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.plan h3 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.plan .price {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #000;
+  margin: 10px 0;
+}
+
+.plan .original-price {
+  color: #888;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.plan .strikethrough {
+  text-decoration: line-through;
+}
+
+.plan .discount {
+  background-color: #e6f7f2;
+  color: #009688;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.subscribe-btn {
+  background-color: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.subscribe-btn:hover {
+    background-color: #d83a3a;
+}
+
+/* --- Features Sections --- */
+.features-section, .all-plans-features {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  padding-top: 40px;
+}
+
+.section-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 8px 20px;
+  font-size: 1rem;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-weight: normal;
+}
+
+.features-grid, .included-features-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.feature-list {
+  width: 23%;
+}
+
+.feature-list ul, .included-features-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li, .included-features-grid li {
+  margin-bottom: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.tick-icon, .cross-icon {
+  margin-right: 10px;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.tick-icon {
+  background-color: #ef4444;
+}
+
+.cross-icon {
+  background-color: #ccc;
+}
+
+.all-plans-features .included-features-grid {
+  justify-content: space-evenly;
+  padding: 10px 20px;
+}

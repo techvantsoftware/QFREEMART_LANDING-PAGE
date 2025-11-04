@@ -1,10 +1,11 @@
 import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
 import { OciComponent } from '../oci/oci.component';
+import { SubscriptionComponent } from '../subscription/subscription.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [OciComponent],
+  imports: [OciComponent,SubscriptionComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
