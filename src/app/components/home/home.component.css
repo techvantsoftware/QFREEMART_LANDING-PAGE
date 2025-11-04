@@ -1182,7 +1182,48 @@ body {
     font-size: 0.9rem;
   }
 }
+.qfreemart-section .list-group {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
 
+.qfreemart-section .list-group-item {
+    background-color: #f8f9fa; /* Light grey for skeleton effect */
+    color: #333;
+    padding: 15px 20px;
+    margin-bottom: -1px; /* Overlap borders */
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500; /* Bolder text */
+    position: relative; /* For the active indicator */
+}
+
+/* This will be the active state, similar to the first item in the image */
+.qfreemart-section .list-group-item.active {
+    background-color: #fff;
+    color: #dc3545; /* Red text for active item */
+    border-color: #e0e0e0;
+    border-right: 4px solid #dc3545; /* Red left border for active item */
+    font-weight: bold;
+    z-index: 2;
+}
+
+.qfreemart-section .list-group-item:not(.active):hover {
+    background-color: #f1f3f5;
+}
+
+/* Remove border-radius from individual items to make it look like one block */
+.qfreemart-section .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.qfreemart-section .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
 /* CONTACT SECTION REFINED */
 .contact-fullscreen {
   display: flex;
