@@ -240,3 +240,55 @@ body {
   justify-content: space-evenly;
   padding: 10px 20px;
 }
+@media (max-width: 600px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .subscription-title {
+    font-size: 1.8rem;
+  }
+
+  .title-underline {
+    width: 60px;
+  }
+
+  .subscription-description {
+    font-size: 0.95rem;
+  }
+
+  .subscription-toggle {
+    flex-direction: column;
+  }
+
+  .subscription-toggle .btn-custom {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan {
+    flex: 1 1 90%;
+    max-width: 90%;
+  }
+
+  .features-grid,
+  .included-features-grid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-list {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+}
