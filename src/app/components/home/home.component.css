@@ -1,41 +1,40 @@
 /* ==================== HERO SECTION ==================== */
-
-
 .hero-section {
   position: relative;
-  width: 100%;
   height: 100vh;
-  background: url("/assets/home.png") center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 50px;
-  overflow: hidden;
+  padding: 0 50px;
+  background-image: url("/assets/home.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    background-image: url("/assets/home.png");
+    justify-content: center;
+    padding: 0 20px;
+  }
 }
 
 .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 50px;
   z-index: 1;
 }
 
 .hero-content {
   max-width: 450px;
   text-align: left;
-  z-index: 2;
   background: rgba(0, 0, 0, 0.6);
   padding: 30px 40px;
   border-radius: 12px;
   border: 2px solid #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+
 .hero-content .subtitle {
   font-size: 0.95rem;
   color: #d1d1d1;
@@ -82,29 +81,89 @@
 }
 
 .play-button:hover {
-  transform: translateX(-50%) scale(1.05);
+  transform: scale(1.05);
 }
 
 .play-button i {
   color: white;
-  font-size: 3em;
-}
-@media (max-width: 992px) {
-  .hero-content .title {
-    font-size: 2.2rem;
-  }
-  .hero-content .description {
-    font-size: 1rem;
-  }
-  .oci-header h1 {
-    font-size: 2rem;
-  }
+  font-size: 2.5em;
+  /* Adjusted for better centering */
+  line-height: 1;
 }
 
+
+/* ==================== VIDEO CONTAINER & OCI OVERLAY ==================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.oci-overlay {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: left;
+  max-width: 700px;
+  padding: 20px 30px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+}
+
+/* Tag above heading */
+.oci-tag {
+  display: inline-block;
+  background: #e63946;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.oci-tag i {
+  font-size: 0.8rem;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.oci-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.oci-header p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+
+
+
+/* For Mobile Phones */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 20px;
     height: 90vh;
+    /* Slightly shorter hero on mobile */
   }
 
   .hero-content .title {
@@ -120,15 +179,25 @@
     height: 60px;
   }
 
+  .play-button i {
+    font-size: 2em;
+  }
+
   .oci-overlay {
-    padding: 15px;
+    padding: 20px 15px;
+    max-width: 90%;
   }
 
   .oci-header h1 {
     font-size: 1.6rem;
   }
+
+  .oci-header p {
+    font-size: 0.95rem;
+  }
 }
 
+/* For Small Mobile Phones */
 @media (max-width: 480px) {
   .hero-content .title {
     font-size: 1.5rem;
@@ -138,19 +207,16 @@
     font-size: 0.9rem;
   }
 
-  .play-button {
-    width: 55px;
-    height: 55px;
-  }
-
   .oci-header h1 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .oci-header p {
     font-size: 0.9rem;
   }
 }
+
+
 /* ==================== OCI INTEGRATION SECTION ==================== */
 .oci-integration-section {
   font-family: Arial, sans-serif;
@@ -158,24 +224,6 @@
   padding: 60px 20px;
   text-align: center;
   color: #343a40;
-}
-
-.oci-tag {
-  display: inline-block;
-  background-color: #ffeef2;
-  color: #ff3366;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.oci-tag i {
-  font-size: 0.8rem;
-  vertical-align: middle;
-  margin: 0 5px;
 }
 
 .oci-header {
@@ -201,9 +249,12 @@
 /* ==================== VIDEO CONTAINER ==================== */
 .video-container {
   position: relative;
-  width: 100vw; /* Full width */
-  height: 110vh; /* Slightly taller than the screen */
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-container video {
@@ -211,7 +262,7 @@
   top: 50%;
   left: 50%;
   width: 100%;
-  height: 110%; /* Add extra height for full coverage */
+  height: 100%;
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -222,7 +273,8 @@
   height: 100%;
   object-fit: cover;
 }
-.oci-overlay {
+
+/* .oci-overlay {
   position: relative;
   z-index: 2;
   padding: 20px;
@@ -231,8 +283,9 @@
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
-}
+} */
 @media (max-width: 992px) {
+
   .hero-section,
   .hero-overlay {
     justify-content: flex-start;
@@ -264,11 +317,66 @@
 
 /* Prevent image/video distortion on very small screens */
 @media (max-width: 600px) {
+
   .hero-section,
   .video-container {
     height: 100vh;
   }
 }
+
+/* ============= RESPONSIVE FIXES ============= */
+@media (max-width: 992px) {
+  .oci-header h1 {
+    font-size: 2rem;
+  }
+
+  .oci-header p {
+    font-size: 1rem;
+  }
+
+  .oci-overlay {
+    max-width: 90%;
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    height: auto;
+    min-height: 60vh;
+    flex-direction: column;
+  }
+
+  .video-container video {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none;
+    object-fit: cover;
+  }
+
+  .oci-overlay {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    max-width: 95%;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .oci-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .oci-header p {
+    font-size: 0.9rem;
+  }
+
+  .oci-tag {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 992px) {
 
@@ -291,13 +399,6 @@
   .hero-content .description {
     font-size: 1rem;
   }
-
-  .video-container {
-    width: 300px;
-    height: 300px;
-    bottom: 20px;
-    transform: translateX(50%);
-  }
 }
 
 @media (max-width: 576px) {
@@ -313,10 +414,8 @@
     font-size: 0.95rem;
   }
 
-  .video-container {
-    width: 200px;
-    height: 200px;
-    bottom: 10px;
+ .video-container {
+    height: 60vh; /* Further reduce height for small phones */
   }
 
   .oci-integration-section {
@@ -1009,31 +1108,6 @@ body {
 }
 
 
-
-.video-container {
-  position: relative;
-  width: 100vw;
-  /* Full viewport width */
-  height: 100vh;
-  /* Full viewport height */
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Video covers the container fully */
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1200px) {
   .qfreemart-section h3 {
@@ -1212,6 +1286,21 @@ textarea.form-control {
     margin: 2rem auto;
   }
 }
+@media (max-width: 992px) {
+  .video-container {
+    width: 100%;
+    height: auto;
+    min-height: 60vh;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    transform: none;
+  }
+}
 
 /* Paste the CSS code you provided here */
 .subscription-section {
@@ -1329,20 +1418,6 @@ textarea.form-control {
 .plan-features-list li i {
   margin-right: 8px;
   font-size: 1.1rem;
-}
-
-.features-section {
-  background-color: #f8f9fa;
-  /* Slightly off-white background */
-  border-radius: 10px;
-  padding: 30px;
-  margin-top: 40px;
-}
-
-.features-section h5 {
-  font-weight: bold;
-  margin-bottom: 25px;
-  font-size: 1.25rem;
 }
 
 .feature-item {
@@ -1696,5 +1771,217 @@ textarea.form-control {
 @media (max-width: 992px) {
   .pricing-section .row {
     flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   ✅ UNIVERSAL RESPONSIVE STYLES
+   Covers: hero, video, oci, subscription, testimonials, faq,
+   contact, qfreemart
+   ========================================================= */
+
+/* ------------------------------
+   LARGE DEVICES (≤ 1200px)
+-------------------------------- */
+@media (max-width: 1200px) {
+  .hero-content {
+    max-width: 500px;
+    padding: 25px 35px;
+  }
+
+  .subscription-card {
+    padding: 25px;
+  }
+
+  .faq-section .accordion-button {
+    font-size: 1rem;
+  }
+}
+
+/* ------------------------------
+   MEDIUM DEVICES (≤ 992px)
+   Tablets and small laptops
+-------------------------------- */
+@media (max-width: 992px) {
+  .hero-section {
+    height: 90vh;
+    justify-content: center;
+    padding: 0 30px;
+    background-position: center;
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 20px 25px;
+    max-width: 420px;
+  }
+
+  .hero-content .title {
+    font-size: 2rem;
+  }
+
+  .oci-overlay {
+    padding: 40px 20px;
+  }
+
+  .subscription-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscription-card {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .testimonials-section .card {
+    margin-bottom: 15px;
+  }
+
+  .contact-fullscreen {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .qfreemart-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .qfreemart-section .text-container {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* ------------------------------
+   SMALL DEVICES (≤ 768px)
+   Landscape phones & small tablets
+-------------------------------- */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 80vh;
+    padding: 0 20px;
+    background-image: url("/assets/home.png");
+    background-position: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 15px 20px;
+  }
+
+  .hero-content .title {
+    font-size: 1.8rem;
+  }
+
+  .oci-tag {
+    font-size: 0.9rem;
+    padding: 5px 12px;
+  }
+
+  .subscription-card {
+    width: 90%;
+  }
+
+  .faq-section .accordion-button {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .contact-fullscreen {
+    height: auto;
+  }
+
+  .qfreemart-section h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ------------------------------
+   EXTRA SMALL DEVICES (≤ 576px)
+   Portrait phones
+-------------------------------- */
+@media (max-width: 576px) {
+  .hero-section {
+    height: auto;
+    padding: 60px 15px;
+    background-image: url("/assets/home.png");
+    background-size: cover;
+  }
+
+  .hero-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .hero-content .title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .hero-content .description {
+    font-size: 0.95rem;
+  }
+
+  .video-container {
+    height: 60vh;
+  }
+
+  .subscription-card {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .faq-section {
+    padding: 40px 15px;
+  }
+
+  .contact-fullscreen {
+    padding: 30px 15px;
+  }
+
+  .qfreemart-section {
+    padding: 50px 15px;
+  }
+
+  .qfreemart-section .btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* ------------------------------
+   EXTRA NARROW DEVICES (≤ 480px)
+-------------------------------- */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 15px;
+  }
+
+  .hero-content .title {
+    font-size: 1.3rem;
+  }
+
+  .hero-content .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .subscription-card h4 {
+    font-size: 1rem;
+  }
+
+  .faq-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .qfreemart-section h1 {
+    font-size: 1.6rem;
   }
 }
