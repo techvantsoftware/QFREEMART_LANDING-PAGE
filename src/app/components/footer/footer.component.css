@@ -214,8 +214,15 @@
   color: #007bff;
 }
 
+/* Copyright */
 .copyright-text {
   font-size: 0.9rem;
   color: #555;
-  line-height: 1.4;
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .copyright-text {
+    text-align: center;
+    margin-top: 15px;
+  }
 }
