@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,27 @@ import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@
 })
 export class HomeComponent implements AfterViewInit {
 
+  // Reference to all app videos inside sections
   @ViewChildren('appVideo') videoRefs!: QueryList<ElementRef<HTMLVideoElement>>;
 
+  // Reference to the main OCI video
+  @ViewChild('ociVideo') ociVideoRef!: ElementRef<HTMLVideoElement>;
+
   ngAfterViewInit(): void {
+    // ===== PLAY MAIN OCI VIDEO =====
+    const ociVideo = this.ociVideoRef?.nativeElement;
+    if (ociVideo) {
+      ociVideo.muted = true;
+      ociVideo.autoplay = true;
+      ociVideo.playsInline = true;
+      ociVideo.load();
+      ociVideo.play().catch(err => {
+        console.warn('OCI autoplay blocked:', err);
+        document.body.addEventListener('click', () => ociVideo.play(), { once: true });
+      });
+    }
+
+    // ===== HANDLE OTHER SECTION VIDEOS =====
     const sections = document.querySelectorAll<HTMLElement>('section.qfreemart-section');
 
     sections.forEach((section, index) => {
@@ -25,16 +43,13 @@ export class HomeComponent implements AfterViewInit {
         const firstVideoSrc = firstItem.getAttribute('data-video');
         if (firstVideoSrc) {
           videoElement.src = firstVideoSrc;
-          videoElement.muted = true; // ensure muted for autoplay
+          videoElement.muted = true;
           videoElement.autoplay = true;
           videoElement.playsInline = true;
-
           videoElement.load();
 
-          // Try autoplay with fallback
           videoElement.play().catch(err => {
             console.warn('Autoplay blocked:', err);
-            // fallback: play on user interaction
             document.body.addEventListener('click', () => videoElement.play(), { once: true });
           });
 
@@ -42,7 +57,7 @@ export class HomeComponent implements AfterViewInit {
         }
       }
 
-      // Handle item clicks for that section only
+      // Handle list item clicks
       listItems.forEach(item => {
         item.addEventListener('click', () => {
           listItems.forEach(li => li.classList.remove('active'));
