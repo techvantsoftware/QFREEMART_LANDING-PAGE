@@ -880,11 +880,9 @@ body {
 }
 
 .contact-fullscreen {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  min-height: 600px;
-  width: 100vw;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
 }
 
 .half-screen {
