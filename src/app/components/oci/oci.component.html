@@ -1,0 +1,47 @@
+<!-- OCI HEADER SECTION -->
+<div class="oci-header-section">
+  <div class="oci-tag">
+    <span><i class="bi bi-gear-fill"></i> OCI Technology <i class="bi bi-x-lg"></i></span>
+  </div>
+
+  <h1 class="oci-title">The Power of Integration with OCI™</h1>
+  <p class="oci-description">
+    OCI™ transforms the way businesses and customers interact. By connecting every touchpoint—retail, supply chain,
+    services, and analytics—it creates a single, powerful ecosystem for commerce.
+  </p>
+</div>
+
+<!-- DIAGRAM SECTION -->
+<div class="diagram-container">
+  <div class="center-circle">
+    <!-- Rotating rings -->
+    <div class="ring outer-ring"></div>
+    <div class="ring middle-ring"></div>
+
+    <!-- Inner core -->
+    <div class="inner-circle">
+      <div class="text-oci">OCI</div>
+      <div class="text-tech">Technology</div>
+    </div>
+  </div>
+
+  <!-- Features around the circle -->
+  <div class="features-wrapper">
+    <div
+      class="feature-item"
+      *ngFor="let feature of features; let i = index"
+      [style.--i]="i"
+      [ngStyle]="{
+        transform:
+          'rotate(' +
+          i * (360 / features.length) +
+          'deg) translate(310px) rotate(' +
+          -i * (360 / features.length) +
+          'deg)'
+      }"
+    >
+      <div class="icon">{{ feature.icon }}</div>
+      <div class="text">{{ feature.text }}</div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,10 @@
 import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
+import { OciComponent } from '../oci/oci.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [OciComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -78,4 +80,7 @@ export class HomeComponent implements AfterViewInit {
       });
     });
   }
+
+
+
 }
