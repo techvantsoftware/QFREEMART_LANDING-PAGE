@@ -26,12 +26,12 @@
 
   <!-- Dynamic cards -->
   <div class="features-wrapper">
-    <div
-      class="feature-item"
-      *ngFor="let feature of features; let i = index"
-      [style.--i]="i"
-      [style.--count]="features.length"
-    >
+    <div class="lines-wrapper">
+      <div class="feature-line" *ngFor="let feature of features; let i = index" [style.--i]="i"
+        [style.--count]="features.length"></div>
+    </div>
+    <div class="feature-item" *ngFor="let feature of features; let i = index" [style.--i]="i"
+      [style.--count]="features.length">
       <div class="icon">{{ feature.icon }}</div>
       <div class="text">{{ feature.text }}</div>
     </div>
