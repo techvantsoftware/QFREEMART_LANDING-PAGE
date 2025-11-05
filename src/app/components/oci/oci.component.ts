@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./oci.component.css']
 })
 export class OciComponent {
+  
   features = [
     { icon: '📦', text: 'Stock Toggle System' },
     { icon: '🙏', text: 'Local Trust Ecosystem' },
