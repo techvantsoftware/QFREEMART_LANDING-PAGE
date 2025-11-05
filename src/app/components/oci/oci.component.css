@@ -2,32 +2,90 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
   background-color: #f4f7fc;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 60px 20px;
-  box-sizing: border-box;
 }
 
-/* Container */
+/* --- Header --- */
+.oci-header-section {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 750px;
+}
+
+.oci-tag {
+  display: inline-block;
+  background-color: #f4edff;
+  color: #E7000B;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.oci-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.oci-description {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- Diagram container --- */
 .diagram-container {
   position: relative;
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  /* Base layer */
 }
 
-/* Center core */
+/* --- Rings and center --- */
 .center-circle {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInCenter 1s ease forwards;
+  z-index: 5;
+  /* Above lines */
+}
+
+.inner-circle {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, #7f5eff, #5773ff);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 7px solid #e8e6f9;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.text-oci {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.text-tech {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 /* --- Rings --- */
@@ -37,79 +95,37 @@
   border: 2px dashed #d0cde4;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
 }
 
 .outer-ring {
-  width: 420px;
-  height: 420px;
-  animation: rotate-clockwise 30s linear infinite;
+  width: 300px;
+  /* was 520px */
+  height: 300px;
+  animation: showRing 1s 1s ease forwards, rotate-clockwise 30s linear infinite;
 }
 
 .middle-ring {
-  width: 300px;
-  height: 300px;
+  width: 220px;
+  /* was 380px */
+  height: 220px;
   border: 2px solid rgba(180, 160, 255, 0.3);
-  animation: rotate-anticlockwise 20s linear infinite;
+  animation: showRing 1s 1.5s ease forwards, rotate-anticlockwise 20s linear infinite;
 }
 
-/* --- Inner Circle --- */
-.inner-circle {
-  width: 180px;
-  height: 180px;
-  background: linear-gradient(135deg, #7f5eff, #5773ff);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  z-index: 10;
-  border: 8px solid #e8e6f9;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+/* .outer-ring {
+  width: 520px;
+  height: 520px;
+  animation: showRing 1s 1s ease forwards, rotate-clockwise 30s linear infinite;
 }
 
-.text-oci {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.text-tech {
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
-
-/* --- Animation --- */
-@keyframes rotate-clockwise {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes rotate-anticlockwise {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(-360deg); }
-}
-
-/* --- Dots --- */
-.dots {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 120px;
-  z-index: 5;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: block;
-}
+.middle-ring {
+  width: 380px;
+  height: 380px;
+  border: 2px solid rgba(180, 160, 255, 0.3);
+  animation: showRing 1s 1.5s ease forwards, rotate-anticlockwise 20s linear infinite;
+} */
 
 /* --- Features --- */
 .features-wrapper {
@@ -118,6 +134,8 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 1;
+  /* Base layer for features and lines */
 }
 
 .feature-item {
@@ -136,73 +154,87 @@
   align-items: center;
   text-align: center;
   padding: 10px;
-  transition: transform 0.3s ease;
+  transform-origin: 60px 60px;
+  opacity: 0;
+  animation: showFeature 0.6s ease forwards;
+  animation-delay: calc(2s + var(--i) * 0.5s);
+
+   z-index: 5; 
 }
 
-.oci-header-section {
-  text-align: center;
-  margin-bottom: 50px;
-  max-width: 750px;
-}
-
-.oci-tag {
-  display: inline-block;
-  background-color: #f4edff;
-  color:#E7000B;
-  font-weight: 600;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(127, 94, 255, 0.15);
-}
-
-.oci-tag i {
-  font-size: 0.85rem;
-  vertical-align: middle;
-}
-
-.oci-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-.oci-description {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 680px;
-  margin: 0 auto;
-}
-/* --- Connect lines directly from center circle --- */
+/* --- Connecting lines --- */
+/* --- Connecting lines --- */
 .feature-item::before {
   content: '';
   position: absolute;
   top: 50%;
-  left: 50%;
+  /* Position the RIGHT edge of the line at the center of the feature box */
+  right: 50%;
+  /* The line's length is the distance from the center */
+  width: 200px;
   height: 2px;
-  background: linear-gradient(to right, #7f5eff, #a7a2ff);
-  transform-origin: left center;
-  width: 130px; /* covers distance from center to feature card */
-  transform: translateY(-50%) rotate(calc(var(--i) * (360deg / 11))) translateX(-210px);
-  z-index: -1;
-  opacity: 0.7;
+  background: linear-gradient(to left, #c4b5fd, #7c3aed);
+  transform-origin: right center;
+  transform: rotate(calc(var(--i) * (360deg / var(--count)))) translateY(-50%);
+
+  opacity: 0;
+  animation: showLine 0.6s ease forwards;
+  animation-delay: calc(1.6s + var(--i) * 0.5s);
+   z-index: 0; /* Keep lines below cards */
+  /* Ensure the line is behind the feature box */
 }
 
-.icon {
-  font-size: 2.5rem;
-  margin-bottom: 8px;
+/* --- Animate cards in correct orbit --- */
+@keyframes showFeature {
+  to {
+    opacity: 1;
+    transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(300px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+  }
 }
 
-.text {
-  font-size: 0.85rem;
-  color: #333;
-  font-weight: 500;
-}
-
+/* --- Hover --- */
 .feature-item:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.1) rotate(calc(var(--i) * (360deg / var(--count)))) translate(260px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
   z-index: 20;
+}
+
+/* --- Animations --- */
+@keyframes fadeInCenter {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes showRing {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes showLine {
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes rotate-clockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-anticlockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
 }

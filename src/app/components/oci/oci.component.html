@@ -13,32 +13,24 @@
 
 <!-- DIAGRAM SECTION -->
 <div class="diagram-container">
-  <div class="center-circle">
-    <!-- Rotating rings -->
-    <div class="ring outer-ring"></div>
-    <div class="ring middle-ring"></div>
-
-    <!-- Inner core -->
+  <!-- Center with rings -->
+  <div class="center-circle show">
     <div class="inner-circle">
       <div class="text-oci">OCI</div>
       <div class="text-tech">Technology</div>
     </div>
+
+    <div class="ring outer-ring"></div>
+    <div class="ring middle-ring"></div>
   </div>
 
-  <!-- Features around the circle -->
+  <!-- Dynamic cards -->
   <div class="features-wrapper">
     <div
       class="feature-item"
       *ngFor="let feature of features; let i = index"
       [style.--i]="i"
-      [ngStyle]="{
-        transform:
-          'rotate(' +
-          i * (360 / features.length) +
-          'deg) translate(310px) rotate(' +
-          -i * (360 / features.length) +
-          'deg)'
-      }"
+      [style.--count]="features.length"
     >
       <div class="icon">{{ feature.icon }}</div>
       <div class="text">{{ feature.text }}</div>
