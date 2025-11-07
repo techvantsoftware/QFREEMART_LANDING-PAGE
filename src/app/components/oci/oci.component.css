@@ -31,14 +31,15 @@
 /* --- Diagram container --- */
 .diagram-container {
   position: relative;
-  width: 800px; /* Increased size */
-  height: 800px; /* Increased size */
+  width: 800px;
+  height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: restartLoop 6s linear infinite;
 }
 
-/* --- Rings and center --- */
+/* --- Center Circle --- */
 .center-circle {
   position: relative;
   width: 200px;
@@ -49,7 +50,7 @@
   z-index: 10;
   opacity: 0;
   transform: scale(0.8);
-  animation: fadeInCenter 0.8s ease forwards;
+  animation: fadeInCenter 0.5s ease forwards, fadeOutFeature 6s linear infinite;
 }
 
 .inner-circle {
@@ -91,7 +92,9 @@
 .outer-ring {
   width: 400px;
   height: 400px;
-  animation: showRing 1s 0.5s ease forwards, rotate-clockwise 40s linear infinite;
+  animation: showRing 0.4s 0.1s ease forwards,
+             rotate-clockwise 6s linear infinite,
+             fadeOutFeature 6s linear infinite;
 }
 
 .middle-ring {
@@ -99,9 +102,10 @@
   height: 280px;
   border-style: solid;
   border-color: rgba(180, 160, 255, 0.2);
-  animation: showRing 1s 0.8s ease forwards, rotate-anticlockwise 30s linear infinite;
+  animation: showRing 0.4s 0.2s ease forwards,
+             rotate-anticlockwise 6s linear infinite,
+             fadeOutFeature 6s linear infinite;
 }
-
 
 /* --- Features --- */
 .features-wrapper {
@@ -116,30 +120,29 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 2; /* Below cards */
+  z-index: 2;
 }
 
 .feature-line {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30%; /* 🔹 Increased from 25% to 30% for longer lines */
-  height: 3px; /* 🔹 Increased from 2px to 3px for thicker lines */
+  width: 30%;
+  height: 3px;
   background: linear-gradient(to left, transparent, #a89be2);
   transform-origin: left center;
   opacity: 0;
   transform: translateY(-50%) rotate(calc(var(--i) * (360deg / var(--count))));
-  animation: showLine 0.7s ease forwards;
-  animation-delay: calc(1.5s + var(--i) * 0.15s);
+  animation: showLine 0.3s ease forwards, fadeOutFeature 6s linear infinite;
+  animation-delay: calc(0.6s + var(--i) * 0.1s);
 }
-
 
 .feature-item {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -65px; /* half of height */
-  margin-left: -65px; /* half of width */
+  margin-top: -65px;
+  margin-left: -65px;
   width: 130px;
   height: 130px;
   background: white;
@@ -152,35 +155,35 @@
   text-align: center;
   padding: 15px;
   opacity: 0;
-  z-index: 5; /* Above lines */
+  z-index: 5;
   pointer-events: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: showFeature 0.7s ease forwards;
-  animation-delay: calc(1.5s + var(--i) * 0.15s);
+  animation: showFeature 0.4s ease forwards, fadeOutFeature 6s linear infinite;
+  animation-delay: calc(0.8s + var(--i) * 0.1s);
 }
 
 .feature-item.active,
 .feature-item:hover {
-    transform: rotate(calc(var(--i) * (360deg / var(--count))))
-             translate(350px) /* orbit radius */
-             rotate(calc(-1 * var(--i) * (360deg / var(--count))))
-             scale(1.1);
-    z-index: 50;
-    box-shadow: 0 12px 35px rgba(100, 100, 150, 0.15);
+  transform: rotate(calc(var(--i) * (360deg / var(--count))))
+           translate(350px)
+           rotate(calc(-1 * var(--i) * (360deg / var(--count))))
+           scale(1.1);
+  z-index: 50;
+  box-shadow: 0 12px 35px rgba(100, 100, 150, 0.15);
 }
 
 .feature-icon {
-    margin-bottom: 10px;
-    color: #7f5eff;
+  margin-bottom: 10px;
+  color: #7f5eff;
 }
 
 .feature-text {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #444;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
 }
 
-/* Red border for a specific item */
+/* Highlighted feature */
 .feature-item:nth-child(5) {
   border: 2px solid #E7000B;
 }
@@ -202,20 +205,20 @@
 
 @keyframes showLine {
   to {
-    opacity: 0.8; /* was 0.5 */
+    opacity: 0.8;
   }
 }
-
 
 @keyframes showFeature {
   to {
     opacity: 1;
     transform: rotate(calc(var(--i) * (360deg / var(--count))))
-               translate(350px) /* orbit radius */
+               translate(350px)
                rotate(calc(-1 * var(--i) * (360deg / var(--count))));
   }
 }
 
+/* Rotation */
 @keyframes rotate-clockwise {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -226,4 +229,15 @@
   to { transform: translate(-50%, -50%) rotate(-360deg); }
 }
 
+/* --- Fade-out before restart --- */
+@keyframes fadeOutFeature {
+  0%, 75% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
 
+/* --- Full diagram restart --- */
+@keyframes restartLoop {
+  0% { opacity: 0; transform: scale(0.95); }
+  5%, 85% { opacity: 1; transform: scale(1); }
+  90%, 100% { opacity: 0; transform: scale(0.95); }
+}
