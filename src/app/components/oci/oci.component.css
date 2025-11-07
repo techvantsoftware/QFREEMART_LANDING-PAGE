@@ -2,71 +2,59 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f4f7fc;
+  background-color: #f8f9fe;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 60px 20px;
+  box-sizing: border-box;
 }
 
 /* --- Header --- */
 .oci-header-section {
   text-align: center;
-  margin-bottom: 50px;
-  max-width: 750px;
-}
-
-.oci-tag {
-  display: inline-block;
-  background-color: #f4edff;
-  color: #E7000B;
-  font-weight: 600;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+  margin-bottom: 60px;
+  max-width: 800px;
 }
 
 .oci-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #222;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .oci-description {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.6;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
 /* --- Diagram container --- */
 .diagram-container {
   position: relative;
-  width: 600px;
-  height: 600px;
+  width: 800px; /* Increased size */
+  height: 800px; /* Increased size */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
-  /* Base layer */
 }
 
 /* --- Rings and center --- */
 .center-circle {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
   opacity: 0;
   transform: scale(0.8);
-  animation: fadeInCenter 1s ease forwards;
-  z-index: 5;
-  /* Above lines */
+  animation: fadeInCenter 0.8s ease forwards;
 }
 
 .inner-circle {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   background: linear-gradient(135deg, #7f5eff, #5773ff);
   border-radius: 50%;
   display: flex;
@@ -74,17 +62,17 @@
   justify-content: center;
   align-items: center;
   color: white;
-  border: 7px solid #e8e6f9;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 10px solid #e8e6f9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .text-oci {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .text-tech {
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 1px;
 }
 
@@ -95,37 +83,25 @@
   border: 2px dashed #d0cde4;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
+  z-index: 1;
 }
 
 .outer-ring {
-  width: 300px;
-  /* was 520px */
-  height: 300px;
-  animation: showRing 1s 1s ease forwards, rotate-clockwise 30s linear infinite;
+  width: 400px;
+  height: 400px;
+  animation: showRing 1s 0.5s ease forwards, rotate-clockwise 40s linear infinite;
 }
 
 .middle-ring {
-  width: 220px;
-  /* was 380px */
-  height: 220px;
-  border: 2px solid rgba(180, 160, 255, 0.3);
-  animation: showRing 1s 1.5s ease forwards, rotate-anticlockwise 20s linear infinite;
+  width: 280px;
+  height: 280px;
+  border-style: solid;
+  border-color: rgba(180, 160, 255, 0.2);
+  animation: showRing 1s 0.8s ease forwards, rotate-anticlockwise 30s linear infinite;
 }
 
-/* .outer-ring {
-  width: 520px;
-  height: 520px;
-  animation: showRing 1s 1s ease forwards, rotate-clockwise 30s linear infinite;
-}
-
-.middle-ring {
-  width: 380px;
-  height: 380px;
-  border: 2px solid rgba(180, 160, 255, 0.3);
-  animation: showRing 1s 1.5s ease forwards, rotate-anticlockwise 20s linear infinite;
-} */
 
 /* --- Features --- */
 .features-wrapper {
@@ -134,69 +110,79 @@
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
-  /* Base layer for features and lines */
 }
+
+.lines-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2; /* Below cards */
+}
+
+.feature-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%; /* 🔹 Increased from 25% to 30% for longer lines */
+  height: 3px; /* 🔹 Increased from 2px to 3px for thicker lines */
+  background: linear-gradient(to left, transparent, #a89be2);
+  transform-origin: left center;
+  opacity: 0;
+  transform: translateY(-50%) rotate(calc(var(--i) * (360deg / var(--count))));
+  animation: showLine 0.7s ease forwards;
+  animation-delay: calc(1.5s + var(--i) * 0.15s);
+}
+
 
 .feature-item {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -60px;
-  width: 120px;
-  height: 120px;
+  margin-top: -65px; /* half of height */
+  margin-left: -65px; /* half of width */
+  width: 130px;
+  height: 130px;
   background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10px;
-  transform-origin: 60px 60px;
+  padding: 15px;
   opacity: 0;
-  animation: showFeature 0.6s ease forwards;
-  animation-delay: calc(2s + var(--i) * 0.5s);
-
-   z-index: 5; 
+  z-index: 5; /* Above lines */
+  pointer-events: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: showFeature 0.7s ease forwards;
+  animation-delay: calc(1.5s + var(--i) * 0.15s);
 }
 
-/* --- Connecting lines --- */
-/* --- Connecting lines --- */
-.feature-item::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  /* Position the RIGHT edge of the line at the center of the feature box */
-  right: 50%;
-  /* The line's length is the distance from the center */
-  width: 200px;
-  height: 2px;
-  background: linear-gradient(to left, #c4b5fd, #7c3aed);
-  /* Adjusted gradient for better visibility */
-  transform-origin: right center;
-  transform: rotate(calc(var(--i) * (360deg / var(--count)))) translateY(-50%);
-
-  opacity: 0;
-  animation: showLine 0.6s ease forwards;
-  animation-delay: calc(1.6s + var(--i) * 0.5s);
-   z-index: 0; /* Keep lines below cards */
-  /* Ensure the line is behind the feature box */
-}
-
-/* --- Animate cards in correct orbit --- */
-@keyframes showFeature {
-  to {
-    opacity: 1;
-    transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(300px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
-  }
-}
-
-/* --- Hover --- */
+.feature-item.active,
 .feature-item:hover {
-  transform: scale(1.1) rotate(calc(var(--i) * (360deg / var(--count)))) translate(260px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
-  z-index: 20;
+    transform: rotate(calc(var(--i) * (360deg / var(--count))))
+             translate(350px) /* orbit radius */
+             rotate(calc(-1 * var(--i) * (360deg / var(--count))))
+             scale(1.1);
+    z-index: 50;
+    box-shadow: 0 12px 35px rgba(100, 100, 150, 0.15);
+}
+
+.feature-icon {
+    margin-bottom: 10px;
+    color: #7f5eff;
+}
+
+.feature-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Red border for a specific item */
+.feature-item:nth-child(5) {
+  border: 2px solid #E7000B;
 }
 
 /* --- Animations --- */
@@ -216,26 +202,28 @@
 
 @keyframes showLine {
   to {
-    opacity: 0.7;
+    opacity: 0.8; /* was 0.5 */
+  }
+}
+
+
+@keyframes showFeature {
+  to {
+    opacity: 1;
+    transform: rotate(calc(var(--i) * (360deg / var(--count))))
+               translate(350px) /* orbit radius */
+               rotate(calc(-1 * var(--i) * (360deg / var(--count))));
   }
 }
 
 @keyframes rotate-clockwise {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @keyframes rotate-anticlockwise {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(-360deg);
-  }
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
 }
+
+
