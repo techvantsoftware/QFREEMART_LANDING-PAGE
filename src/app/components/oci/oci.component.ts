@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,8 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./oci.component.css']
 })
 export class OciComponent {
-  
-  features = [
+  allFeatures = [
     { icon: '📦', text: 'Stock Toggle System' },
     { icon: '🙏', text: 'Local Trust Ecosystem' },
     { icon: '∞', text: 'Truly Omniversal' },
@@ -24,5 +23,24 @@ export class OciComponent {
     { icon: '💳', text: 'Payments & Deliveries' }
   ];
 
-  
+  features = this.allFeatures; // will be filtered based on screen width
+
+  ngOnInit() {
+    this.updateFeatures(window.innerWidth);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateFeatures(event.target.innerWidth);
+  }
+
+  private updateFeatures(width: number) {
+    if (width <= 768) {
+      // Mobile — show only first 6 cards
+      this.features = this.allFeatures.slice(0, 7);
+    } else {
+      // Tablet/Desktop — show all cards
+      this.features = this.allFeatures;
+    }
+  }
 }

@@ -74,11 +74,15 @@
 
 .text-oci {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
 }
 
+
 .text-tech {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   letter-spacing: 1px;
 }
 
@@ -316,6 +320,20 @@
 
 /* --- Responsive Adjustments for Mobile --- */
 @media (max-width: 768px) {
+  .inner-circle {
+    width: 75%;
+    height: 75%;
+    border-width: 6px;
+  }
+
+  .text-oci {
+    font-size: 1.8rem;
+  }
+
+  .text-tech {
+    font-size: 0.9rem;
+  }
+
   .oci-title {
     font-size: 1.8rem;
   }
@@ -339,15 +357,15 @@
   .outer-ring {
     width: 55vw;
     height: 55vw;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 130px;
+    max-height: 130px;
   }
 
   .middle-ring {
     width: 38vw;
     height: 38vw;
-    max-width: 180px;
-    max-height: 180px;
+    max-width: 110px;
+    max-height: 110px;
   }
 
   .feature-item {
@@ -358,7 +376,6 @@
     padding: 10px;
     border-radius: 12px;
     animation-name: showFeatureMobile;
-    /* Change to mobile animation */
   }
 
   .feature-text {
@@ -367,16 +384,13 @@
 
   .feature-item:hover {
     transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(150px)
-      /* Hover distance for mobile */
       rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.05);
   }
 
-  /* Animation for mobile layout */
   @keyframes showFeatureMobile {
     to {
       opacity: 1;
       transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(140px)
-        /* Closer distance for mobile */
         rotate(calc(-1 * var(--i) * (360deg / var(--count))));
     }
   }
