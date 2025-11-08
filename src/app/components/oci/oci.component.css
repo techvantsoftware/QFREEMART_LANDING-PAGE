@@ -33,6 +33,7 @@
   position: relative;
   width: 100%;
   max-width: 800px;
+  /* Max width for desktop */
   height: auto;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -97,22 +98,28 @@
   width: 70vw;
   height: 70vw;
   max-width: 400px;
+  /* Adjusted for larger desktop view */
   max-height: 400px;
+  /* Adjusted for larger desktop view */
   animation: showRing 0.4s 0.1s ease forwards,
-             rotate-clockwise 6s linear infinite,
-             fadeOutFeature 6s linear infinite;
+    rotate-clockwise 12s linear infinite,
+    /* Slower rotation */
+    fadeOutFeature 6s linear infinite;
 }
 
 .middle-ring {
   width: 50vw;
   height: 50vw;
-  max-width: 280px;
-  max-height: 280px;
+  max-width: 260px;
+  /* Adjusted for larger desktop view */
+  max-height: 260px;
+  /* Adjusted for larger desktop view */
   border-style: solid;
   border-color: rgba(180, 160, 255, 0.2);
   animation: showRing 0.4s 0.2s ease forwards,
-             rotate-anticlockwise 6s linear infinite,
-             fadeOutFeature 6s linear infinite;
+    rotate-anticlockwise 12s linear infinite,
+    /* Slower rotation */
+    fadeOutFeature 6s linear infinite;
 }
 
 /* --- Features --- */
@@ -145,6 +152,7 @@
   animation-delay: calc(0.6s + var(--i) * 0.1s);
 }
 
+/* Default Desktop Styles */
 .feature-item {
   position: absolute;
   top: 50%;
@@ -166,18 +174,8 @@
   z-index: 5;
   pointer-events: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: showFeature 0.4s ease forwards, fadeOutFeature 6s linear infinite;
+  animation: showFeatureDesktop 0.4s ease forwards, fadeOutFeature 6s linear infinite;
   animation-delay: calc(0.8s + var(--i) * 0.1s);
-}
-
-.feature-item.active,
-.feature-item:hover {
-  transform: rotate(calc(var(--i) * (360deg / var(--count))))
-           translate(350px)
-           rotate(calc(-1 * var(--i) * (360deg / var(--count))))
-           scale(1.1);
-  z-index: 50;
-  box-shadow: 0 12px 35px rgba(100, 100, 150, 0.15);
 }
 
 .feature-icon {
@@ -217,41 +215,106 @@
   }
 }
 
-@keyframes showFeature {
+/* Desktop animation */
+/* Desktop animation – cards slightly farther */
+@keyframes showFeatureDesktop {
   to {
     opacity: 1;
-    transform: rotate(calc(var(--i) * (360deg / var(--count))))
-               translate(350px)
-               rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+    transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(340px)
+      /* increased from 300px */
+      rotate(calc(-1 * var(--i) * (360deg / var(--count))));
   }
 }
 
+/* Hover state – match distance */
+.feature-item:hover {
+  transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(350px)
+    /* increased from 310px */
+    rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.1);
+  z-index: 50;
+  box-shadow: 0 12px 35px rgba(100, 100, 150, 0.15);
+}
+
+
 /* Rotation */
 @keyframes rotate-clockwise {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 @keyframes rotate-anticlockwise {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(-360deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
 }
 
-/* --- Fade-out before restart --- */
 @keyframes fadeOutFeature {
-  0%, 75% { opacity: 1; }
-  85%, 100% { opacity: 0; }
+
+  0%,
+  75% {
+    opacity: 1;
+  }
+
+  85%,
+  100% {
+    opacity: 0;
+  }
 }
 
-/* --- Full diagram restart --- */
 @keyframes restartLoop {
-  0% { opacity: 0; transform: scale(0.95); }
-  5%, 85% { opacity: 1; transform: scale(1); }
-  90%, 100% { opacity: 0; transform: scale(0.95); }
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  5%,
+  85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
+
+
+/* --- Responsive Adjustments for Tablets (e.g., iPads) --- */
+@media (max-width: 992px) {
+  .feature-item {
+    animation-name: showFeatureTablet;
+    /* Use tablet animation */
+  }
+
+  .feature-item:hover {
+    transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(230px)
+      /* Hover distance for tablet */
+      rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.05);
+  }
+
+  @keyframes showFeatureTablet {
+    to {
+      opacity: 1;
+      transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(220px)
+        /* Distance for tablet */
+        rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+    }
+  }
+}
+
 
 /* --- Responsive Adjustments for Mobile --- */
-/* --- Responsive Adjustments for Tablets and Mobile --- */
 @media (max-width: 768px) {
   .oci-title {
     font-size: 1.8rem;
@@ -273,6 +336,20 @@
     max-height: 150px;
   }
 
+  .outer-ring {
+    width: 55vw;
+    height: 55vw;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .middle-ring {
+    width: 38vw;
+    height: 38vw;
+    max-width: 180px;
+    max-height: 180px;
+  }
+
   .feature-item {
     width: 90px;
     height: 90px;
@@ -280,82 +357,27 @@
     margin-left: -45px;
     padding: 10px;
     border-radius: 12px;
+    animation-name: showFeatureMobile;
+    /* Change to mobile animation */
   }
 
   .feature-text {
     font-size: 0.8rem;
   }
 
-  /* Closer to center */
-  .feature-item.active,
   .feature-item:hover {
-    transform: rotate(calc(var(--i) * (360deg / var(--count))))
-             translate(18vw)  /* reduced from 25vw */
-             rotate(calc(-1 * var(--i) * (360deg / var(--count))))
-             scale(1.05);
+    transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(150px)
+      /* Hover distance for mobile */
+      rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.05);
   }
 
-  @keyframes showFeature {
+  /* Animation for mobile layout */
+  @keyframes showFeatureMobile {
     to {
       opacity: 1;
-      transform: rotate(calc(var(--i) * (360deg / var(--count))))
-                 translate(18vw)  /* reduced for smaller radius */
-                 rotate(calc(-1 * var(--i) * (360deg / var(--count))));
-    }
-  }
-}
-
-
-/* --- Mobile View (Perfectly Adjusted) --- */
-@media (max-width: 480px) {
-  .oci-title {
-    font-size: 1.4rem;
-  }
-
-  .oci-description {
-    font-size: 0.9rem;
-  }
-
-  .diagram-container {
-    width: 100vw;
-    height: 100vw;
-  }
-
-  .center-circle {
-    width: 32vw;
-    height: 32vw;
-    max-width: 110px;
-    max-height: 110px;
-  }
-
-  .feature-item {
-    width: 65px;
-    height: 65px;
-    margin-top: -32px;
-    margin-left: -32px;
-    padding: 5px;
-    border-radius: 10px;
-  }
-
-  .feature-text {
-    font-size: 0.65rem;
-  }
-
-  /* 🚀 Cards now much closer to OCI */
-  .feature-item.active,
-  .feature-item:hover {
-    transform: rotate(calc(var(--i) * (360deg / var(--count))))
-             translate(9vw)   /* reduced distance for phone */
-             rotate(calc(-1 * var(--i) * (360deg / var(--count))))
-             scale(1.05);
-  }
-
-  @keyframes showFeature {
-    to {
-      opacity: 1;
-      transform: rotate(calc(var(--i) * (360deg / var(--count))))
-                 translate(9vw)   /* very close for mobile */
-                 rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+      transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(140px)
+        /* Closer distance for mobile */
+        rotate(calc(-1 * var(--i) * (360deg / var(--count))));
     }
   }
 }
