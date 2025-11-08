@@ -414,8 +414,9 @@
     font-size: 0.95rem;
   }
 
- .video-container {
-    height: 60vh; /* Further reduce height for small phones */
+  .video-container {
+    height: 60vh;
+    /* Further reduce height for small phones */
   }
 
   .oci-integration-section {
@@ -682,7 +683,7 @@ body {
 
 /* FAQ Section */
 .faq-section {
-  padding: 60px 0;
+  padding: 60px 20px;
   background-color: #f8f8f8;
 }
 
@@ -693,7 +694,7 @@ body {
   gap: 30px;
   margin-top: 40px;
 }
-
+.faq-section .container { max-width: 1200px; margin: 0 auto; }
 .faq-sidebar {
   flex: 0 0 280px;
   /* Fixed width for sidebar */
@@ -1105,7 +1106,205 @@ body {
   flex-shrink: 0;
 }
 
+/* ==================== FAQ Section ==================== */
+.faq-section {
+  padding: 60px 20px;
+  background-color: #f8f8f8;
+}
 
+.faq-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-section .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.faq-section .section-description {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #666;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-content {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.faq-sidebar {
+  flex: 0 0 280px; /* Fixed width on larger screens */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  align-self: flex-start; /* Prevents sidebar from stretching */
+}
+
+.faq-sidebar h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+}
+
+.faq-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-sidebar li {
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.faq-sidebar li:hover:not(.active) {
+  background-color: #f0f0f0;
+}
+
+.faq-sidebar li.active {
+  background-color: #e6f0ff;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.faq-accordion {
+  flex: 1; /* Takes remaining space */
+}
+
+.accordion-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 18px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid transparent; /* Prepare for transition */
+  transition: border-color 0.3s ease;
+}
+
+.accordion-item.open .accordion-header {
+  border-bottom-color: #eee;
+}
+
+.accordion-header i {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-header i {
+  transform: rotate(0deg);
+}
+
+.accordion-item:not(.open) .accordion-header i {
+  transform: rotate(-90deg);
+}
+
+.accordion-body {
+  padding: 0 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.accordion-item.open .accordion-body {
+  max-height: 300px; /* Increased max-height for more content */
+  padding-bottom: 20px;
+}
+
+.accordion-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.accordion-body a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.accordion-body a:hover {
+  text-decoration: underline;
+}
+
+/* ==================== FAQ RESPONSIVE ADJUSTMENTS ==================== */
+
+/* For Tablets and Smaller Laptops */
+@media (max-width: 992px) {
+  .faq-content {
+    flex-direction: column;
+  }
+
+  .faq-sidebar {
+    flex: 1 1 auto; /* Allow sidebar to take full width */
+    width: 100%;
+  }
+
+  .faq-section .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 15px;
+  }
+
+  .faq-section .section-title {
+    font-size: 1.8rem;
+  }
+   .faq-section .section-description {
+    font-size: 0.95rem;
+  }
+
+  .accordion-header {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+
+  .accordion-body p {
+    font-size: 0.9rem;
+  }
+   .accordion-item.open .accordion-body {
+    padding-bottom: 15px;
+  }
+}
+
+/* For Small Mobile Phones */
+@media (max-width: 480px) {
+  .faq-section .section-title {
+    font-size: 1.6rem;
+  }
+
+  .accordion-header {
+    font-size: 0.95rem;
+  }
+}
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1200px) {
   .qfreemart-section h3 {
@@ -1182,48 +1381,56 @@ body {
     font-size: 0.9rem;
   }
 }
+
 .qfreemart-section .list-group {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .qfreemart-section .list-group-item {
-    background-color: #f8f9fa; /* Light grey for skeleton effect */
-    color: #333;
-    padding: 15px 20px;
-    margin-bottom: -1px; /* Overlap borders */
-    border: 1px solid #e0e0e0;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: 500; /* Bolder text */
-    position: relative; /* For the active indicator */
+  background-color: #f8f9fa;
+  /* Light grey for skeleton effect */
+  color: #333;
+  padding: 15px 20px;
+  margin-bottom: -1px;
+  /* Overlap borders */
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+  /* Bolder text */
+  position: relative;
+  /* For the active indicator */
 }
 
 /* This will be the active state, similar to the first item in the image */
 .qfreemart-section .list-group-item.active {
-    background-color: #fff;
-    color: #dc3545; /* Red text for active item */
-    border-color: #e0e0e0;
-    border-right: 4px solid #dc3545; /* Red left border for active item */
-    font-weight: bold;
-    z-index: 2;
+  background-color: #fff;
+  color: #dc3545;
+  /* Red text for active item */
+  border-color: #e0e0e0;
+  border-right: 4px solid #dc3545;
+  /* Red left border for active item */
+  font-weight: bold;
+  z-index: 2;
 }
 
 .qfreemart-section .list-group-item:not(.active):hover {
-    background-color: #f1f3f5;
+  background-color: #f1f3f5;
 }
 
 /* Remove border-radius from individual items to make it look like one block */
 .qfreemart-section .list-group-item:first-child {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .qfreemart-section .list-group-item:last-child {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
+
 /* CONTACT SECTION REFINED */
 .contact-fullscreen {
   display: flex;
@@ -1325,6 +1532,7 @@ textarea.form-control {
     margin: 2rem auto;
   }
 }
+
 @media (max-width: 992px) {
   .video-container {
     width: 100%;
@@ -1942,59 +2150,6 @@ textarea.form-control {
    EXTRA SMALL DEVICES (≤ 576px)
    Portrait phones
 -------------------------------- */
-@media (max-width: 576px) {
-  .hero-section {
-    height: auto;
-    padding: 60px 15px;
-    background-image: url("/assets/home.png");
-    background-size: cover;
-  }
-
-  .hero-content {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  .hero-content .title {
-    font-size: 1.5rem;
-    line-height: 1.3;
-  }
-
-  .hero-content .description {
-    font-size: 0.95rem;
-  }
-
-  .video-container {
-    height: 60vh;
-  }
-
-  .subscription-card {
-    width: 95%;
-    padding: 20px;
-  }
-
-  .testimonials-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .faq-section {
-    padding: 40px 15px;
-  }
-
-  .contact-fullscreen {
-    padding: 30px 15px;
-  }
-
-  .qfreemart-section {
-    padding: 50px 15px;
-  }
-
-  .qfreemart-section .btn {
-    width: 100%;
-    padding: 10px;
-  }
-}
 
 /* ------------------------------
    EXTRA NARROW DEVICES (≤ 480px)
@@ -2024,9 +2179,3 @@ textarea.form-control {
     font-size: 1.6rem;
   }
 }
-
-
-
-
-
-
