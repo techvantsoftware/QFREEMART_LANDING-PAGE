@@ -37,7 +37,7 @@ export class OciComponent {
   private updateFeatures(width: number) {
     if (width <= 768) {
       // Mobile — show only first 6 cards
-      this.features = this.allFeatures.slice(0, 7);
+      this.features = this.allFeatures.slice(0, 6);
     } else {
       // Tablet/Desktop — show all cards
       this.features = this.allFeatures;
