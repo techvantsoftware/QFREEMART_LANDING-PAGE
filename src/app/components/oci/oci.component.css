@@ -31,8 +31,10 @@
 /* --- Diagram container --- */
 .diagram-container {
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,8 +44,10 @@
 /* --- Center Circle --- */
 .center-circle {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 30vw;
+  height: 30vw;
+  max-width: 200px;
+  max-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,8 +58,8 @@
 }
 
 .inner-circle {
-  width: 180px;
-  height: 180px;
+  width: 90%;
+  height: 90%;
   background: linear-gradient(135deg, #7f5eff, #5773ff);
   border-radius: 50%;
   display: flex;
@@ -90,16 +94,20 @@
 }
 
 .outer-ring {
-  width: 400px;
-  height: 400px;
+  width: 70vw;
+  height: 70vw;
+  max-width: 400px;
+  max-height: 400px;
   animation: showRing 0.4s 0.1s ease forwards,
              rotate-clockwise 6s linear infinite,
              fadeOutFeature 6s linear infinite;
 }
 
 .middle-ring {
-  width: 280px;
-  height: 280px;
+  width: 50vw;
+  height: 50vw;
+  max-width: 280px;
+  max-height: 280px;
   border-style: solid;
   border-color: rgba(180, 160, 255, 0.2);
   animation: showRing 0.4s 0.2s ease forwards,
@@ -240,4 +248,114 @@
   0% { opacity: 0; transform: scale(0.95); }
   5%, 85% { opacity: 1; transform: scale(1); }
   90%, 100% { opacity: 0; transform: scale(0.95); }
+}
+
+/* --- Responsive Adjustments for Mobile --- */
+/* --- Responsive Adjustments for Tablets and Mobile --- */
+@media (max-width: 768px) {
+  .oci-title {
+    font-size: 1.8rem;
+  }
+
+  .oci-description {
+    font-size: 1rem;
+  }
+
+  .diagram-container {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .center-circle {
+    width: 25vw;
+    height: 25vw;
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .feature-item {
+    width: 90px;
+    height: 90px;
+    margin-top: -45px;
+    margin-left: -45px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .feature-text {
+    font-size: 0.8rem;
+  }
+
+  /* Closer to center */
+  .feature-item.active,
+  .feature-item:hover {
+    transform: rotate(calc(var(--i) * (360deg / var(--count))))
+             translate(18vw)  /* reduced from 25vw */
+             rotate(calc(-1 * var(--i) * (360deg / var(--count))))
+             scale(1.05);
+  }
+
+  @keyframes showFeature {
+    to {
+      opacity: 1;
+      transform: rotate(calc(var(--i) * (360deg / var(--count))))
+                 translate(18vw)  /* reduced for smaller radius */
+                 rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+    }
+  }
+}
+
+
+/* --- Mobile View (Perfectly Adjusted) --- */
+@media (max-width: 480px) {
+  .oci-title {
+    font-size: 1.4rem;
+  }
+
+  .oci-description {
+    font-size: 0.9rem;
+  }
+
+  .diagram-container {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  .center-circle {
+    width: 32vw;
+    height: 32vw;
+    max-width: 110px;
+    max-height: 110px;
+  }
+
+  .feature-item {
+    width: 65px;
+    height: 65px;
+    margin-top: -32px;
+    margin-left: -32px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .feature-text {
+    font-size: 0.65rem;
+  }
+
+  /* 🚀 Cards now much closer to OCI */
+  .feature-item.active,
+  .feature-item:hover {
+    transform: rotate(calc(var(--i) * (360deg / var(--count))))
+             translate(9vw)   /* reduced distance for phone */
+             rotate(calc(-1 * var(--i) * (360deg / var(--count))))
+             scale(1.05);
+  }
+
+  @keyframes showFeature {
+    to {
+      opacity: 1;
+      transform: rotate(calc(var(--i) * (360deg / var(--count))))
+                 translate(9vw)   /* very close for mobile */
+                 rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+    }
+  }
 }
