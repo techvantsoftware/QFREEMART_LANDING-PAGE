@@ -1,4 +1,8 @@
 /* ==================== HERO SECTION ==================== */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 .hero-section {
   position: relative;
   height: 100vh;
@@ -57,40 +61,89 @@
   margin-top: 20px;
 }
 
-/* Play button */
+/* ==================== PLAY BUTTON ==================== */
 .play-button-container {
   position: absolute;
-  bottom: 30px;
+  bottom: -60px;
+  /* adjust vertical position */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
+/* Circular play button */
 .play-button {
-  background-color: #ff0000;
-  border: none;
+  background: #E7000B;
+  /* red background */
+  border: 11px solid #fff;
+  /* white border */
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 32px 51.1px -26px #FFFFFF87;
+  opacity: 1;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
+/* Hover effect */
 .play-button:hover {
   transform: scale(1.05);
+  box-shadow: 0px 40px 60px -20px #FFFFFFA0;
 }
 
+/* Play icon inside */
 .play-button i {
-  color: white;
-  font-size: 2.5em;
-  /* Adjusted for better centering */
+  color: #fff;
+  font-size: 60px;
+  /* adjust for proportion */
   line-height: 1;
+  padding-left: 5px;
 }
 
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .play-button {
+    width: 100px;
+    height: 100px;
+    border-width: 6px;
+  }
+
+  .play-button i {
+    font-size: 36px;
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+.app-section {
+  background-color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.app-header h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.3;
+  /* Adjusted for better spacing */
+  letter-spacing: -1.58px;
+  color: #0b1120;
+  margin-bottom: 60px;
+  text-align: center;
+  /* Added to center the heading */
+}
+
+.app-header .highlight {
+  display: block;
+  /* This forces the text onto a new line */
+  color: #E7000B;
+  font-weight: 700;
+  /* Made text slightly bolder to match the image */
+}
 
 /* ==================== VIDEO CONTAINER & OCI OVERLAY ==================== */
 .video-container {
@@ -153,6 +206,33 @@
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F3F4F6;
+  border: 2px solid #e0e0e0;
+  border-radius: 9999px;
+  /* modern equivalent of 16777200px */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-badge i {
+  font-size: 1.1rem;
+  color: #333;
+  /* matches play button red */
+}
+
+.hero-badge:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
 }
 
 /* ==================== RESPONSIVE ADJUSTMENTS ==================== */
@@ -507,13 +587,6 @@
   font-size: 1.1rem;
 }
 
-/* General Styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f8f8f8;
-  color: #333;
-}
 
 .container {
   max-width: 1200px;
@@ -694,7 +767,12 @@ body {
   gap: 30px;
   margin-top: 40px;
 }
-.faq-section .container { max-width: 1200px; margin: 0 auto; }
+
+.faq-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .faq-sidebar {
   flex: 0 0 280px;
   /* Fixed width for sidebar */
@@ -1037,7 +1115,6 @@ body {
 
 /* ==================== Left Column ==================== */
 .qfreemart-section .col-lg-4 h5 {
-  color: #dc3545;
   font-size: 1rem;
   text-transform: uppercase;
 }
@@ -1073,7 +1150,7 @@ body {
   max-height: 550px;
   width: auto;
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); */
 }
 
 /* ==================== Right Column ==================== */
@@ -1081,7 +1158,6 @@ body {
 .qfreemart-section h5 {
   font-weight: 700;
   font-size: 1.2rem;
-  border-left: 4px solid #dc3545;
   padding-left: 15px;
   margin-bottom: 25px;
 }
@@ -1141,12 +1217,14 @@ body {
 }
 
 .faq-sidebar {
-  flex: 0 0 280px; /* Fixed width on larger screens */
+  flex: 0 0 280px;
+  /* Fixed width on larger screens */
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   padding: 20px;
-  align-self: flex-start; /* Prevents sidebar from stretching */
+  align-self: flex-start;
+  /* Prevents sidebar from stretching */
 }
 
 .faq-sidebar h4 {
@@ -1178,12 +1256,41 @@ body {
 
 .faq-sidebar li.active {
   background-color: #e6f0ff;
-  color: #007bff;
+  color: #EF4444;
   font-weight: 600;
 }
 
 .faq-accordion {
-  flex: 1; /* Takes remaining space */
+  flex: 1;
+  /* Takes remaining space */
+}
+
+.app-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  gap: 12px;
+}
+
+.app-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-icon img {
+  width: 38px;
+  height: 38px;
+}
+
+.app-badge h5 {
+  font-size: 0.9rem;
+  color: #515151;
+  font-weight: 700;
+  margin: 0;
 }
 
 .accordion-item {
@@ -1203,7 +1310,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid transparent; /* Prepare for transition */
+  border-bottom: 1px solid transparent;
+  /* Prepare for transition */
   transition: border-color 0.3s ease;
 }
 
@@ -1231,7 +1339,8 @@ body {
 }
 
 .accordion-item.open .accordion-body {
-  max-height: 300px; /* Increased max-height for more content */
+  max-height: 300px;
+  /* Increased max-height for more content */
   padding-bottom: 20px;
 }
 
@@ -1243,7 +1352,7 @@ body {
 }
 
 .accordion-body a {
-  color: #007bff;
+  color: #EF4444;
   text-decoration: none;
 }
 
@@ -1260,7 +1369,8 @@ body {
   }
 
   .faq-sidebar {
-    flex: 1 1 auto; /* Allow sidebar to take full width */
+    flex: 1 1 auto;
+    /* Allow sidebar to take full width */
     width: 100%;
   }
 
@@ -1278,7 +1388,8 @@ body {
   .faq-section .section-title {
     font-size: 1.8rem;
   }
-   .faq-section .section-description {
+
+  .faq-section .section-description {
     font-size: 0.95rem;
   }
 
@@ -1290,7 +1401,8 @@ body {
   .accordion-body p {
     font-size: 0.9rem;
   }
-   .accordion-item.open .accordion-body {
+
+  .accordion-item.open .accordion-body {
     padding-bottom: 15px;
   }
 }
@@ -1305,6 +1417,7 @@ body {
     font-size: 0.95rem;
   }
 }
+
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1200px) {
   .qfreemart-section h3 {
@@ -1340,7 +1453,6 @@ body {
   .qfreemart-section h5 {
     text-align: center;
     border-left: none;
-    border-top: 3px solid #dc3545;
     padding-left: 0;
     padding-top: 10px;
   }
@@ -1407,10 +1519,8 @@ body {
 /* This will be the active state, similar to the first item in the image */
 .qfreemart-section .list-group-item.active {
   background-color: #fff;
-  color: #dc3545;
   /* Red text for active item */
   border-color: #e0e0e0;
-  border-right: 4px solid #dc3545;
   /* Red left border for active item */
   font-weight: bold;
   z-index: 2;
