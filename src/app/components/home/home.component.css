@@ -609,7 +609,7 @@ body {
 
 /* Testimonials Section */
 .testimonials-section {
-  background-color: #fff;
+  background-color: #F8F9FA;
   padding: 60px 0;
   position: relative;
   overflow: hidden;
@@ -636,17 +636,16 @@ body {
 }
 
 .arrow-btn {
-  background-color: #eee;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 18px;
-  color: #666;
+  color: #E7000B;
   transition: background-color 0.3s ease;
 }
 
@@ -662,7 +661,7 @@ body {
 }
 
 .testimonial-item {
-  background-color: #fefefe;
+  background-color: #F2F4F5;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -671,16 +670,6 @@ body {
   justify-content: space-between;
 }
 
-.testimonial-item.app-showcase {
-  background-color: transparent;
-  box-shadow: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  min-height: 250px;
-  /* Ensure it takes up space */
-}
 
 .app-screenshot {
   max-width: 100%;
@@ -730,7 +719,7 @@ body {
 }
 
 .stars .fas.fa-star.filled {
-  color: #ffc107;
+  color: #E7000B;;
   /* Gold color for filled stars */
 }
 
@@ -757,7 +746,6 @@ body {
 /* FAQ Section */
 .faq-section {
   padding: 60px 20px;
-  background-color: #f8f8f8;
 }
 
 .faq-content {
@@ -1120,30 +1108,56 @@ body {
 }
 
 .qfreemart-section h3 {
-  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 57.68px;
+  letter-spacing: 0;
+  color: #0A0A0A;
   margin-top: 10px;
-  font-size: 1.8rem;
+  vertical-align: middle;
+  text-align: left;
+  /* ✅ Added for left alignment */
 }
 
 .qfreemart-section p {
-  color: #6c757d;
-  line-height: 1.7;
-  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #5C5C5C;
+  text-align: left;
+}
+
+.qfreemart-section {
+  text-align: left;
 }
 
 .qfreemart-section .btn-danger {
   background-color: #dc3545;
   border-color: #dc3545;
-  padding: 10px 30px;
+  color: #fff;
+  width: 180px;
+  height: 44px;
+  font-family: 'Lato', sans-serif;
   font-weight: 500;
-  border-radius: 50px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 4px;
+  padding: 10px 30px;
   transition: 0.3s ease;
+  opacity: 1;
 }
 
 .qfreemart-section .btn-danger:hover {
   background-color: #c82333;
   border-color: #c82333;
+  transform: translateY(-2px);
 }
+
 
 /* ==================== Center Image ==================== */
 .qfreemart-section img {
@@ -1158,7 +1172,6 @@ body {
 .qfreemart-section h5 {
   font-weight: 700;
   font-size: 1.2rem;
-  padding-left: 15px;
   margin-bottom: 25px;
 }
 
@@ -1183,10 +1196,6 @@ body {
 }
 
 /* ==================== FAQ Section ==================== */
-.faq-section {
-  padding: 60px 20px;
-  background-color: #f8f8f8;
-}
 
 .faq-section .container {
   max-width: 1200px;
@@ -1495,35 +1504,36 @@ body {
 }
 
 .qfreemart-section .list-group {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
+  border: none;
+  /* Removes the box border around the whole list */
+  border-radius: 0;
 }
 
 .qfreemart-section .list-group-item {
-  background-color: #f8f9fa;
-  /* Light grey for skeleton effect */
+  /* Light grey background for all items */
   color: #333;
-  padding: 15px 20px;
-  margin-bottom: -1px;
-  /* Overlap borders */
-  border: 1px solid #e0e0e0;
+  padding: 18px 20px;
+  /* Adjust padding as needed */
+  border: none;
+  /* Remove individual borders */
+  border-bottom: 1px solid #e9ecef;
+  /* Add a separator line at the bottom */
   cursor: pointer;
   transition: background-color 0.3s;
   font-weight: 500;
-  /* Bolder text */
   position: relative;
-  /* For the active indicator */
+  /* Needed for the active indicator */
 }
 
-/* This will be the active state, similar to the first item in the image */
 .qfreemart-section .list-group-item.active {
-  background-color: #fff;
-  /* Red text for active item */
-  border-color: #e0e0e0;
-  /* Red left border for active item */
+  background-color: #f8f9fa;
+  /* Keep the background the same as others */
+  color: #000;
+  /* Make text slightly darker for emphasis */
   font-weight: bold;
-  z-index: 2;
+
+  /* This creates the red bar on the right side */
+  border-right: 4px solid #E7000B;
 }
 
 .qfreemart-section .list-group-item:not(.active):hover {
@@ -1531,9 +1541,9 @@ body {
 }
 
 /* Remove border-radius from individual items to make it look like one block */
+/* Add a top border to the very first item */
 .qfreemart-section .list-group-item:first-child {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-top: 1px solid #e9ecef;
 }
 
 .qfreemart-section .list-group-item:last-child {
@@ -2289,3 +2299,4 @@ textarea.form-control {
     font-size: 1.6rem;
   }
 }
+
