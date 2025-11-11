@@ -344,6 +344,12 @@
 
 /* --- Responsive Adjustments for Mobile --- */
 @media (max-width: 768px) {
+   .diagram-container {
+    position: relative;
+    width: 90vw;
+    height: 90vw;
+    overflow: visible; /* ✅ prevents ring clipping */
+  }
   .inner-circle {
     width: 75%;
     height: 75%;
@@ -378,20 +384,34 @@
     max-height: 150px;
   }
 
-  .outer-ring {
+ .outer-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75vw;
+    height: 75vw;
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px dashed #d0cde4;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  /* ✅ Middle ring proportional to outer ring */
+  .middle-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 55vw;
     height: 55vw;
     max-width: 130px;
-    max-height: 10px;
+    max-height: 130px;
+    border: 2px solid rgba(180, 160, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
-
-  .middle-ring {
-    width: 38vw;
-    height: 38vw;
-    max-width: 110px;
-    max-height: 110px;
-  }
-
   .feature-item {
     width: 90px;
     height: 90px;
