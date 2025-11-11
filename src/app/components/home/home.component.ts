@@ -2,11 +2,12 @@ import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRe
 import { OciComponent } from '../oci/oci.component';
 import { SubscriptionComponent } from '../subscription/subscription.component';
 import { ContactformComponent } from '../contactform/contactform.component';
+import { AboutusComponent } from '../aboutus/aboutus.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [OciComponent,SubscriptionComponent,ContactformComponent],
+  imports: [OciComponent,SubscriptionComponent,ContactformComponent,AboutusComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

@@ -1,6 +1,14 @@
 :host {
   display: block;
 }
+form label {
+  display: block;
+  margin-bottom: 6px; /* space between label and input */
+}
+
+form .form-control {
+  margin-bottom: 12px; /* space between inputs vertically */
+}
 
 .contact-section .row {
   display: flex;
@@ -53,14 +61,17 @@ h1 {
 .form-label {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 14px; /* You can increase to 16px if too small */
+  line-height: 17px; /* Derived from height: 17 */
   color: #515978;
+  opacity: 1; /* Matches opacity: 1 */
+  display: block; /* Ensures label sits above the input */
+  transform: rotate(0deg); /* angle: 0 deg (optional) */
   margin-bottom: 8px;
 }
 
 .form-control {
   width: 100%;
-  height: 22px;
   border: 1px solid #D5D8E2;
   border-radius: 12px;
   padding: 13px 16px;
@@ -108,4 +119,9 @@ textarea.form-control {
   .send-message-btn {
     width: 100%;
   }
+}
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
