@@ -1,0 +1,111 @@
+:host {
+  display: block;
+}
+
+.contact-section .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Image Column */
+.image-column {
+  background-image: url('/assets/imgcontact.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* ensure full height of viewport */
+  width: 100%;
+}
+
+/* Form Column */
+.form-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #FFFFFF;
+}
+
+.form-container {
+  max-width: 540px;
+  width: 100%;
+}
+
+/* Headings */
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 1.2;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #515978;
+  margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.form-label {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #515978;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  width: 100%;
+  height: 22px;
+  border: 1px solid #D5D8E2;
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  border-color: #FB2C36;
+  box-shadow: 0 0 0 0.2rem rgba(251, 44, 54, 0.2);
+}
+
+textarea.form-control {
+  height: 160px;
+  resize: none;
+}
+
+/* Button */
+.send-message-btn {
+  width: 200px;
+  height: 44px;
+  border-radius: 12px;
+  background: #FB2C36;
+  border: none;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.send-message-btn:hover {
+  background-color: #d9242f;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .image-column {
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 36px;
+  }
+  .send-message-btn {
+    width: 100%;
+  }
+}
