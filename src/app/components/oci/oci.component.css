@@ -417,3 +417,95 @@
     }
   }
 }
+
+/* ✨ Decorative Sparkle Bubble */
+.sparkle {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(1px) drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  animation: sparkleMove 6s ease-in-out infinite, sparkleColor 4s linear infinite;
+}
+
+/* Alternate direction for even lines */
+.feature-line:nth-child(even) .sparkle {
+  animation-name: sparkleMoveReverse, sparkleColor;
+}
+
+/* Add variation in timing */
+.feature-line:nth-child(1) .sparkle { animation-delay: 0s, 0s; }
+.feature-line:nth-child(2) .sparkle { animation-delay: 0.8s, 0.8s; }
+.feature-line:nth-child(3) .sparkle { animation-delay: 1.6s, 1.6s; }
+.feature-line:nth-child(4) .sparkle { animation-delay: 2.4s, 2.4s; }
+.feature-line:nth-child(5) .sparkle { animation-delay: 3.2s, 3.2s; }
+.feature-line:nth-child(6) .sparkle { animation-delay: 4s, 4s; }
+
+/* 🌈 Gentle sparkle motion (left to right) */
+@keyframes sparkleMove {
+  0% {
+    left: 0%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  10% {
+    opacity: 1;
+    filter: blur(1px) brightness(1.3);
+  }
+  50% {
+    transform: translateY(-55%) scale(1.3);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+}
+
+/* 🌈 Gentle sparkle motion (right to left) */
+@keyframes sparkleMoveReverse {
+  0% {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  10% {
+    opacity: 1;
+    filter: blur(1px) brightness(1.3);
+  }
+  50% {
+    transform: translateY(-45%) scale(1.3);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 0%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+}
+
+/* ✨ Soft glowing color shifts — no white center */
+@keyframes sparkleColor {
+  0% {
+    background: radial-gradient(circle, #ff6ec7 0%, #ffa8e2 60%, rgba(255, 174, 233, 0.6) 100%);
+  }
+  25% {
+    background: radial-gradient(circle, #5ef1ff 0%, #8fdcff 60%, rgba(143, 220, 255, 0.6) 100%);
+  }
+  50% {
+    background: radial-gradient(circle, #7cffcb 0%, #a5ffd6 60%, rgba(165, 255, 214, 0.6) 100%);
+  }
+  75% {
+    background: radial-gradient(circle, #ffd97d 0%, #ffe6a7 60%, rgba(255, 230, 167, 0.6) 100%);
+  }
+  100% {
+    background: radial-gradient(circle, #ff6ec7 0%, #ffa8e2 60%, rgba(255, 174, 233, 0.6) 100%);
+  }
+}
