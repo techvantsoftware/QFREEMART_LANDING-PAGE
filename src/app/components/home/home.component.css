@@ -409,10 +409,11 @@ body {
 
 /* Testimonials Section */
 .testimonials-section {
-  padding: 80px 20px;
-  background: #faf9fc;
-  text-align: center;
+  background-color: #F8F9FA;
+  padding: 60px 0;
   position: relative;
+  overflow: hidden;
+  /* To contain absolute arrows */
 }
 
 .testimonials-section .container {
@@ -1537,7 +1538,62 @@ body {
   .section-title {
     font-size: 1.6rem;
   }
+
   .navigation-arrows {
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .testimonials-grid {
+    /* Stack all items into a single column */
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card,
+  .testimonial-item {
+    /* Ensure all cards take up the full width of the new single column */
+    grid-column: span 1;
+  }
+
+  .testimonials-section .section-title {
+    text-align: center;
+  }
+
+  .navigation-arrows {
+    /* Move arrows below the title in the center */
+    position: static;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+/* --- For Mobile Phones (≤ 768px) --- */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card-inner {
+    /* Stack the image and content vertically on the main card */
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    padding: 30px;
+  }
+
+  .card-image img {
+    max-width: 200px;
+    /* Control image size */
+  }
+
+  .card-content,
+  .testimonial-item {
+    padding: 25px;
   }
 }
