@@ -421,17 +421,29 @@ body {
 }
 
 .testimonials-section .section-title {
+  grid-column: span 6;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 63.98px;
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums proportional-nums;
+  color: #283646;
   text-align: left;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
+
+.testimonials-header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  margin-bottom: 40px;
+}
 .navigation-arrows {
-  position: absolute;
-  top: 0;
-  /* Align with title */
-  right: 20px;
-  /* Adjust as needed */
+  grid-column: span 6;
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
 }
 
@@ -446,20 +458,26 @@ body {
   cursor: pointer;
   font-size: 18px;
   color: #E7000B;
-  transition: background-color 0.3s ease;
+  background: none; /* ✅ No background */
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
+.arrow-btn i {
+  font-size: 24px; /* bigger arrow */
+  font-weight: 900; /* make it thicker (Font Awesome solid style) */
+  color: #E7000B;
+}
 .arrow-btn:hover {
-  background-color: #ddd;
+  background: none; /* ✅ Still no background on hover */
+  transform: scale(1.1) rotate(-90deg); /* ✅ Slight hover zoom effect */
 }
 
+/* Testimonials Grid */
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
   margin-top: 40px;
 }
-
 .testimonial-item h3 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -794,27 +812,32 @@ body {
   text-align: left;
 }
 
-.qfreemart-section .btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
-  color: #fff;
+.qfreemart-section .btn-explore {
+  background-color: #FB2C36; /* Button background color */
+  border: none; /* Remove default border */
+  color: #FFFFFF; /* Text color */
   width: 180px;
   height: 44px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
   border-radius: 4px;
-  padding: 10px 30px;
-  transition: 0.3s ease;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal; /* Regular style */
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: 0;
+  text-align: center; /* Center the text inside button */
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease;
   opacity: 1;
 }
 
-.qfreemart-section .btn-danger:hover {
-  background-color: #c82333;
-  border-color: #c82333;
+/* Hover effect */
+.qfreemart-section .btn-explore:hover {
+  background-color: #e3252e; /* Slightly darker red on hover */
   transform: translateY(-2px);
 }
+
 
 
 /* ==================== Center Image ==================== */
@@ -940,11 +963,12 @@ body {
 
 .app-badge {
   display: flex;
-  align-items: center; /* Vertically centers the items */
-  justify-content: center; /* Horizontally centers the items */
+  align-items: center;
+  /* Vertically centers the items */
   margin-bottom: 1rem;
   gap: 12px;
-  text-align: center; /* Ensures the text itself is centered if it wraps */
+  text-align: center;
+  /* Ensures the text itself is centered if it wraps */
 }
 
 .app-icon {
@@ -956,8 +980,10 @@ body {
 }
 
 .app-icon img {
-  width: 60px;  /* It's generally better for the image to not be larger than its container */
-  height: 60px; /* Consider adjusting this if needed */
+  width: 60px;
+  /* It's generally better for the image to not be larger than its container */
+  height: 60px;
+  /* Consider adjusting this if needed */
 }
 
 
@@ -965,8 +991,10 @@ body {
   font-size: 0.9rem;
   color: #515151;
   font-weight: 700;
-  margin: 0; /* Removes unwanted spacing */
-  line-height: 1; /* Keeps text centered nicely */
+  margin: 0;
+  /* Removes unwanted spacing */
+  line-height: 1;
+  /* Keeps text centered nicely */
   margin-bottom: 10px;
 }
 
