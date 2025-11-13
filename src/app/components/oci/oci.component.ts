@@ -10,17 +10,17 @@ import { CommonModule } from '@angular/common';
 })
 export class OciComponent {
   allFeatures = [
-    { icon: '📦', text: 'Stock Toggle System' },
-    { icon: '🙏', text: 'Local Trust Ecosystem' },
-    { icon: '∞', text: 'Truly Omniversal' },
-    { icon: '🎁', text: 'Products + Services Together' },
-    { icon: '📅', text: 'Online Appointment Booking' },
-    { icon: '🚚', text: 'Remote Queue Management' },
-    { icon: '🛒', text: 'Multi-Channel Commerce' },
-    { icon: '🌍', text: 'Hyperlocal → Global Reach' },
-    { icon: '🏪', text: 'Smart Store Setup' },
-    { icon: '📊', text: 'Vendor Analytics' },
-    { icon: '💳', text: 'Payments & Deliveries' }
+    { icon: '📦', text: 'Stock Toggle System',details:"Stock" },
+    { icon: '🙏', text: 'Local Trust Ecosystem',details: ""},
+    { icon: '∞', text: 'Truly Omniversal' ,details:""},
+    { icon: '🎁', text: 'Products + Services Together',details: ""},
+    { icon: '📅', text: 'Online Appointment Booking',details:"" },
+    { icon: '🚚', text: 'Remote Queue Management' ,details: ""},
+    { icon: '🛒', text: 'Multi-Channel Commerce' ,details:"" },
+    { icon: '🌍', text: 'Hyperlocal → Global Reach' ,details:"" },
+    { icon: '🏪', text: 'Smart Store Setup' ,details: ""},
+    { icon: '📊', text: 'Vendor Analytics' ,details: ""},
+    { icon: '💳', text: 'Payments & Deliveries',details:"" },
   ];
 
   features = this.allFeatures; // will be filtered based on screen width
