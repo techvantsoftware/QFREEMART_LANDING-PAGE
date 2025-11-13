@@ -43,6 +43,15 @@
   /* Allows links to wrap on smaller screens */
 }
 
+.social-links {
+  display: flex;
+  gap: 200px;
+  /* Adjust gap between social media links */
+  padding-bottom: 25px;
+  align-items: center;
+  /* Vertically align items */
+}
+
 .social-links a {
   font-family: 'Lato', sans-serif;
   font-weight: 500;
@@ -52,12 +61,19 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  /* Gap between icon, text, and arrow */
   transition: color 0.3s;
 }
 
 .social-links a:hover {
   color: #007bff;
+  /* Example hover color */
 }
+.social-links a:hover .external-link-icon {
+  stroke: #007bff;
+  /* Example hover color for the icon */
+}
+
 
 .social-icon-background {
   display: flex;
@@ -83,9 +99,6 @@
   stroke: #555;
 }
 
-.social-links a:hover .external-link-icon {
-  stroke: #007bff;
-}
 
 /* Main Footer Section with Columns */
 .footer-main {
