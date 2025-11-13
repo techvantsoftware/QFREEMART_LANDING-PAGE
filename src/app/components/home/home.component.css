@@ -940,11 +940,11 @@ body {
 
 .app-badge {
   display: flex;
-  align-items: center;
-  /* ✅ Vertically centers image and text */
-  justify-content: flex-start;
+  align-items: center; /* Vertically centers the items */
+  justify-content: center; /* Horizontally centers the items */
   margin-bottom: 1rem;
   gap: 12px;
+  text-align: center; /* Ensures the text itself is centered if it wraps */
 }
 
 .app-icon {
@@ -956,21 +956,18 @@ body {
 }
 
 .app-icon img {
-  width: 60px;
-  height: 60px;
+  width: 60px;  /* It's generally better for the image to not be larger than its container */
+  height: 60px; /* Consider adjusting this if needed */
 }
+
 
 .app-badge h5 {
   font-size: 0.9rem;
   color: #515151;
   font-weight: 700;
-  margin: 0;
-  /* ✅ Removes unwanted spacing */
-  line-height: 1;
-  /* Keeps text centered nicely */
-  display: flex;
-  align-items: center;
-  /* Helps vertically center text even if multi-line */
+  margin: 0; /* Removes unwanted spacing */
+  line-height: 1; /* Keeps text centered nicely */
+  margin-bottom: 10px;
 }
 
 .accordion-item {
@@ -1001,6 +998,7 @@ body {
 .accordion-item.open .accordion-header {
   border-bottom-color: #eee;
 }
+
 
 .accordion-header i {
   transition: transform 0.3s ease;
