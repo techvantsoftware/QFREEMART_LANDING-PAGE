@@ -105,7 +105,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* 4 columns for desktop */
-  gap: 40px;
+  gap: 80px;
   /* Adjusted gap for better spacing */
 }
 
