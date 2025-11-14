@@ -1,3 +1,27 @@
+<!-- <header class="header-container">
+  <div class="logo-container">
+    <img src="fullicon.png" alt="QPREEMART Logo" class="logo">
+  </div>
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <nav class="nav-links" [class.active]="isMenuOpen">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+      <li><a routerLink="/why-choose-us" routerLinkActive="active">Why Choose Us</a></li>
+      <li><a routerLink="/subscription" routerLinkActive="active">Subscription</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="call-to-action">
+    <button class="call-now-button">
+      <i class="fas fa-phone"></i> Call Now
+    </button>
+  </div>
+</header> -->
 <header class="header-container">
   <div class="logo-container">
     <img src="fullicon.png" alt="QPREEMART Logo" class="logo">
@@ -10,11 +34,11 @@
 
   <nav class="nav-links" [class.active]="isMenuOpen">
     <ul>
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-      <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
-      <li><a routerLink="/why-choose-us" routerLinkActive="active">Why Choose Us</a></li>
-      <li><a routerLink="/subscription" routerLinkActive="active">Subscription</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
+      <li><a (click)="scrollTo('heroSection')">Home</a></li>
+      <li><a (click)="scrollTo('aboutSection')">About Us</a></li>
+      <li><a (click)="scrollTo('whyChooseUsSection')">Why Choose Us</a></li>
+      <li><a (click)="scrollTo('subscriptionSection')">Subscription</a></li>
+      <li><a (click)="scrollTo('contactSection')">Contact Us</a></li>
     </ul>
   </nav>
 
