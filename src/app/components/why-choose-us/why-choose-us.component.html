@@ -1,0 +1,692 @@
+<section class="why-choose-section py-5">
+  <!-- Existing Header Section -->
+  <div class="why-choose-header-section">
+    <div class="why-choose-tag">
+      <span><i class="fas fa-bullseye" style="padding:5px;"></i> Why Choose QFreemart</span>
+      <i class="fas fa-wand-magic-sparkles why-icon-right"></i>
+    </div>
+
+    <h2 class="why-title">
+      Why To Choose <span class="text-red">Us</span>
+    </h2>
+    <div class="title-underline"></div>
+
+    <p class="why-subtitle">
+      Discover the advantages that make QFreemart the ultimate choice for your hyperlocal commerce journey.
+    </p>
+    <div class="why-tabs mt-5 d-flex justify-content-center flex-wrap gap-3">
+      <button class="why-tab" [class.active]="activeTab === 'customer'" (click)="setTab('customer')">
+        Customer App
+      </button>
+
+      <button class="why-tab" [class.active]="activeTab === 'seller'" (click)="setTab('seller')">
+        Seller App
+      </button>
+      <button class="why-tab" [class.active]="activeTab === 'executor'" (click)="setTab('executor')">
+        Executor App
+      </button>
+
+      <button class="why-tab" [class.active]="activeTab === 'delivery'" (click)="setTab('delivery')">
+        Delivery App
+      </button>
+    </div>
+  </div>
+</section>
+<div class="contact-section" *ngIf="activeTab === 'customer'">
+  <div class="why-header-wrapper">
+    <h2 class="why-header-title">Shop Local <span class="text-red">Save Time.</span></h2>
+    <p class="why-header-desc">
+      Everything you need from nearby shops and services, delivered fast with full transparency.
+    </p>
+  </div>
+  <div class="contact-container">
+    <!-- Left Image Half -->
+    <div class="image-side">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div id="whyChooseCarousel_customer" class="carousel slide why-carousel-container" data-bs-ride="carousel">
+          <!-- Inner Images -->
+          <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal2.png" class="why-carousel-img" alt="Shop Local App">
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal1.png" class="why-carousel-img" alt="Remote Queueing">
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal3.png" class="why-carousel-img" alt="Fast Delivery">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators why-indicators-below">
+            <button type="button" data-bs-target="#whyChooseCarousel_customer" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel_customer" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel_customer" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Form Half -->
+    <div class="col-lg-6">
+      <div class="features-container">
+
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-bag-shopping"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">All-In-One App</h5>
+            <span class="feature-highlight">Products + services in one place</span>
+            <p class="feature-desc">Order groceries, medicines, salon slots, and services - all from one seamless app.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Remote Queueing</h5>
+            <span class="feature-highlight">Skip waiting at shops</span>
+            <p class="feature-desc">Join queues remotely and arrive only when your turn is near.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-truck-fast"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Fast Local Delivery</h5>
+            <span class="feature-highlight">Quick fulfillment from nearby stores</span>
+            <p class="feature-desc">Get same-hour delivery or instant pickup from trusted local sellers.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Direct-to-Seller Payments</h5>
+            <span class="feature-highlight">Faster, safer transactions</span>
+            <p class="feature-desc">Pay sellers directly for instant settlement and transparent billing.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Secure Delivery Codes</h5>
+            <span class="feature-highlight">Verified, trusted drop-offs</span>
+            <p class="feature-desc">Every order uses a secure OTP to prevent wrong or fraudulent deliveries.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Smart Negotiation</h5>
+            <span class="feature-highlight">No spam, only real pricing</span>
+            <p class="feature-desc">Negotiate with sellers using simple numeric bid/ask - clean and
+              fast.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Accurate Product Info</h5>
+            <span class="feature-highlight">Better data, better shopping</span>
+            <p class="feature-desc">High-quality images, barcodes, and trusted descriptions help
+              you shop confidently.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Real-Time Tracking</h5>
+            <span class="feature-highlight">See every update instantly</span>
+            <p class="feature-desc">Follow your order and queue status live with instant alerts.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Built for Everyone</h5>
+            <span class="feature-highlight">Easy for all age groups</span>
+            <p class="feature-desc">Voice search, local languages, and simple UI for seniors &
+              beginners.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Community Trust</h5>
+            <span class="feature-highlight">Local shops you can rely on</span>
+            <p class="feature-desc">Verified sellers, ratings, badges, and reviews ensure safe
+              purchases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section" *ngIf="activeTab === 'seller'">
+  <div class="why-header-wrapper">
+    <h2 class="why-header-title">Grow Your <span class="text-red">Local Business.</span></h2>
+    <p class="why-header-desc">
+      Bring your shop online in minutes, get customers fast,
+      and keep full control.
+    </p>
+  </div>
+  <div class="contact-container">
+    <!-- Left Image Half -->
+    <div class="image-side">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div id="whyChooseCarousel_seller" class="carousel slide why-carousel-container" data-bs-ride="carousel">
+          <!-- Inner Images -->
+          <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal2.png" class="why-carousel-img" alt="Shop Local App">
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal1.png" class="why-carousel-img" alt="Remote Queueing">
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal3.png" class="why-carousel-img" alt="Fast Delivery">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators why-indicators-below">
+            <button type="button" data-bs-target="#whyChooseCarousel_seller" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel_seller" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel_seller" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Form Half -->
+    <div class="col-lg-6">
+      <div class="features-container">
+
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-bag-shopping"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Quick Store Setup</h5>
+            <span class="feature-highlight">Templates designed for every industry</span>
+            <p class="feature-desc">Create your digital shop in minutes using smart templates and
+              barcode import.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Remote Queueing</h5>
+            <span class="feature-highlight">Skip waiting at shops</span>
+            <p class="feature-desc">Join queues remotely and arrive only when your turn is near.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-truck-fast"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Simple Stock Control</h5>
+            <span class="feature-highlight">No complex inventory needed</span>
+            <p class="feature-desc">Toggle items In/Out of stock anytime - stay flexible and sell more.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Instant Payments</h5>
+            <span class="feature-highlight">No settlement delays</span>
+            <p class="feature-desc">Customers pay you directly - keep your cashflow fast and
+              predictable.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Flexible Plans</h5>
+            <span class="feature-highlight">Low cost, low commission</span>
+            <p class="feature-desc">Choose monthly, quarterly, or yearly plans with decreasing
+              commissions.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Queue & Appointment Manager</h5>
+            <span class="feature-highlight">Reduce waiting lines</span>
+            <p class="feature-desc">Manage walk-ins and remote queues to increase daily
+              throughput.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Access Delivery Pool</h5>
+            <span class="feature-highlight">Find trusted delivery partners</span>
+            <p class="feature-desc">View profiles, negotiate pricing, and assign tasks seamlessly.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Seller Analytics</h5>
+            <span class="feature-highlight">Know what customers want</span>
+            <p class="feature-desc">Track best-sellers, time trends, and area-wise demand for smart
+              stocking.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Trust & Visibility Badges</h5>
+            <span class="feature-highlight">Stand out locally</span>
+            <p class="feature-desc">Earn badges for reliability and boost your shop search ranking.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Assisted Onboarding</h5>
+            <span class="feature-highlight">We upload your catalog</span>
+            <p class="feature-desc">Our team helps with setup, images, and listings - no tech skills
+              needed.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Local Marketing Tools</h5>
+            <span class="feature-highlight">Promote directly to customers</span>
+            <p class="feature-desc">Send targeted notifications and run in-app banner ads anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section" *ngIf="activeTab === 'executor'">
+  <div class="why-header-wrapper">
+    <h2 class="why-header-title">Get Paid for <span class="text-red">Your Skills.</span></h2>
+    <p class="why-header-desc">
+      Everything you need from nearby shops and services, delivered fast with full transparency.
+    </p>
+  </div>
+  <div class="contact-container">
+    <!-- Left Image Half -->
+    <div class="image-side">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div id="whyChooseCarousel_executor" class="carousel slide why-carousel-container" data-bs-ride="carousel">
+          <!-- Inner Images -->
+          <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal2.png" class="why-carousel-img" alt="Shop Local App">
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal1.png" class="why-carousel-img" alt="Remote Queueing">
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal3.png" class="why-carousel-img" alt="Fast Delivery">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators why-indicators-below">
+            <button type="button" data-bs-target="#whyChooseCarousel_executor" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel_executor" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel_executor" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Form Half -->
+    <div class="col-lg-6">
+      <div class="features-container">
+
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-bag-shopping"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Skill-Matched Jobs</h5>
+            <span class="feature-highlight">Work you are good at</span>
+            <p class="feature-desc">Get tasks matched to your skills - salon, technician, repair,
+              installation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Clear Pricing Upfront</h5>
+            <span class="feature-highlight">No surprises</span>
+            <p class="feature-desc">Know the exact payout, task scope, and time estimate before
+              accepting.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-truck-fast"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Appointments + Queues</h5>
+            <span class="feature-highlight">More billed hours</span>
+            <p class="feature-desc">Fill your schedule with remote bookings, on-demand tasks, and
+              repeat jobs.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Higher Skill = Higher Pay</h5>
+            <span class="feature-highlight">Earn premium rates</span>
+            <p class="feature-desc">Specialized services get top pricing and more visibility.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Masked Communication</h5>
+            <span class="feature-highlight">Privacy protected</span>
+            <p class="feature-desc">Call customers through a secure masked number for job details.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Easy Invoicing</h5>
+            <span class="feature-highlight">Proof that protects</span>
+            <p class="feature-desc">Add photos and signatures for dispute-free payments.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Build Your Portfolio</h5>
+            <span class="feature-highlight">Showcase your work</span>
+            <p class="feature-desc">Add photos, reviews, and certifications to win higher-value tasks.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Flexible Work Model</h5>
+            <span class="feature-highlight">You choose how you work</span>
+            <p class="feature-desc">Individual gigs, shop partnerships, or independent execution - all
+              supported.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="contact-section" *ngIf="activeTab === 'delivery'">
+  <div class="why-header-wrapper">
+    <h2 class="why-header-title">Get Paid for <span class="text-red">Your Skills .</span></h2>
+    <p class="why-header-desc">
+      Everything you need from nearby shops and services, delivered fast with full transparency.
+    </p>
+  </div>
+  <div class="contact-container">
+    <!-- Left Image Half -->
+    <div class="image-side">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div id="whyChooseCarousel" class="carousel slide why-carousel-container" data-bs-ride="carousel">
+          <!-- Inner Images -->
+          <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal2.png" class="why-carousel-img" alt="Shop Local App">
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal1.png" class="why-carousel-img" alt="Remote Queueing">
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item h-100">
+              <div class="carousel-img-wrapper">
+                <img src="/assets/carsoal3.png" class="why-carousel-img" alt="Fast Delivery">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators why-indicators-below">
+            <button type="button" data-bs-target="#whyChooseCarousel" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#whyChooseCarousel" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Form Half -->
+    <div class="col-lg-6">
+      <div class="features-container">
+
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-bag-shopping"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Clear Job Cards</h5>
+            <span class="feature-highlight">Know pay before accepting</span>
+            <p class="feature-desc">Every delivery shows distance, payout, and timing upfront.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Better Ratings = More Work</h5>
+            <span class="feature-highlight">Performance drives income</span>
+            <p class="feature-desc">Higher ratings unlock more deliveries and better-paying tasks.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-truck-fast"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Full Flexibility</h5>
+            <span class="feature-highlight">Turn availability on/off</span>
+            <p class="feature-desc">Work whenever you want - full-time or part-time.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Fraud-Proof Deliveries</h5>
+            <span class="feature-highlight">Secured by OTP</span>
+            <p class="feature-desc">Verified handovers protect you from disputes and wrong drops.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Multi-Vehicle Support</h5>
+            <span class="feature-highlight">Deliver anything</span>
+            <p class="feature-desc">From small parcels to large items - choose tasks that fit your
+vehicle.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Transparent Earnings</h5>
+            <span class="feature-highlight">Daily and weekly payouts</span>
+            <p class="feature-desc">View your income breakdown clearly with instant history.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Demand Heatmaps</h5>
+            <span class="feature-highlight">Work smarter</span>
+            <p class="feature-desc">See busy areas and peak times to maximize earnings.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-content">
+            <h5 class="feature-title">Training & Onboarding</h5>
+            <span class="feature-highlight">Success from day one</span>
+            <p class="feature-desc">Short tutorials and support ensure smooth, confident deliveries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
