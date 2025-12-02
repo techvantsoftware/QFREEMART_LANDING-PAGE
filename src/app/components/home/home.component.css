@@ -722,29 +722,59 @@ body {
   }
 }
 
+/* ==================== QFREEMART SECTION & SPACING ==================== */
 
 .qfreemart-section {
-  display: flex;
-  align-items: center;
-  /* vertical centering */
-  justify-content: center;
-  /* horizontal centering */
-  min-height: 100vh;
-  /* full viewport height */
-  padding: 80px 20px;
-  background-color: #fff;
-  font-family: "Poppins", Arial, sans-serif;
-  flex-direction: column;
-  /* stack items vertically on smaller screens */
-  text-align: center;
+    display: flex;
+    align-items: center;      /* Vertically center content */
+    justify-content: center;  /* Horizontally center content */
+    min-height: 100vh;        /* Makes each section at least the height of the screen */
+    /* ✅ ADJUSTED PADDING: Top/Bottom 100px, Left/Right 20px */
+    padding: 100px 20px;      
+    /* ✅ ADDED MARGIN: This creates the gap between sections */
+    margin-bottom: 60px;     
+    background-color: #fff;
+    font-family: "Poppins", Arial, sans-serif;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+/* Removes the margin from the very last section so the footer sits correctly */
+.qfreemart-section:last-of-type {
+    margin-bottom: 0;
 }
 
 .qfreemart-section .row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%; /* Ensure row takes full width */
+}
+
+/* ==================== RESPONSIVE SPACING ==================== */
+
+@media (max-width: 992px) {
+    .qfreemart-section {
+        /* On tablets/laptops, remove full screen height requirement for better scrolling */
+        min-height: auto; 
+        
+        /* Reduce the distance slightly for smaller screens */
+        padding: 80px 20px;
+        margin-bottom: 80px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .qfreemart-section {
+        /* On mobile, standard padding is better than full screen height */
+        padding: 60px 15px;
+        
+        /* Smaller gap between sections on mobile */
+        margin-bottom: 60px;
+    }
 }
 
 .qfreemart-section .col-lg-4,
@@ -785,7 +815,7 @@ body {
 .qfreemart-section h3 {
   font-family: 'Lato', sans-serif;
   font-weight: 600;
-  font-size: 44px;
+  font-size: 36px;
   line-height: 57.68px;
   letter-spacing: 0;
   color: #0A0A0A;
@@ -814,6 +844,7 @@ body {
 
 .qfreemart-section {
   text-align: left;
+  padding-left: 85px;
 }
 
 .qfreemart-section .btn-explore {

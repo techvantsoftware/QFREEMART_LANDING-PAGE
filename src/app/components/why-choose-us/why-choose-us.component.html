@@ -1,19 +1,21 @@
 <section class="why-choose-section py-5">
   <!-- Existing Header Section -->
   <div class="why-choose-header-section">
-    <div class="why-choose-tag">
-      <span><i class="fas fa-bullseye" style="padding:5px;"></i> Why Choose QFreemart</span>
-      <i class="fas fa-wand-magic-sparkles why-icon-right"></i>
+    <div class="why-choose">
+      <div class="why-choose-tag">
+        <span><i class="fas fa-bullseye" style="padding:5px;"></i> Why Choose QFreemart</span>
+        <i class="fas fa-wand-magic-sparkles why-icon-right"></i>
+      </div>
+
+      <h2 class="why-title">
+        Why To Choose <span class="text-red">Us</span>
+      </h2>
+      <div class="title-underline"></div>
+
+      <p class="why-subtitle">
+        Discover the advantages that make QFreemart the ultimate choice for your hyperlocal commerce journey.
+      </p>
     </div>
-
-    <h2 class="why-title">
-      Why To Choose <span class="text-red">Us</span>
-    </h2>
-    <div class="title-underline"></div>
-
-    <p class="why-subtitle">
-      Discover the advantages that make QFreemart the ultimate choice for your hyperlocal commerce journey.
-    </p>
     <div class="why-tabs mt-5 d-flex justify-content-center flex-wrap gap-3">
       <button class="why-tab" [class.active]="activeTab === 'customer'" (click)="setTab('customer')">
         Customer App
@@ -34,7 +36,7 @@
 </section>
 <div class="contact-section" *ngIf="activeTab === 'customer'">
   <div class="why-header-wrapper">
-    <h2 class="why-header-title">Shop Local  <span class="text-red"> Save Time.</span></h2>
+    <h2 class="why-header-title">Shop Local <span class="text-red"> Save Time.</span></h2>
     <p class="why-header-desc">
       Everything you need from nearby shops and services, delivered fast with full transparency.
     </p>
@@ -401,7 +403,7 @@
   <div class="why-header-wrapper">
     <h2 class="why-header-title">Get Paid for <span class="text-red">Your Skills.</span></h2>
     <p class="why-header-desc">
-     Everything you need from nearby shops and services, delivered fast with full transparency.
+      Everything you need from nearby shops and services, delivered fast with full transparency.
     </p>
   </div>
   <div class="contact-container">
