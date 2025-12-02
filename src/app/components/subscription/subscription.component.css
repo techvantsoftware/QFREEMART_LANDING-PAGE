@@ -344,6 +344,44 @@ body {
   justify-content: space-evenly;
   padding: 10px 20px;
 }
+/* --- Mobile Fix for Pricing Cards --- */
+@media (max-width: 600px) {
+  
+  .plans {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .plan {
+    width: 95% !important;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .plan h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .price {
+    font-size: 2.2rem;
+  }
+
+  .original-price {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .subscribe-btn {
+    font-size: 1rem;
+    padding: 12px 0;
+    border-radius: 10px;
+  }
+}
 
 @media (max-width: 600px) {
   body {

@@ -68,7 +68,8 @@
     gap: 12px;
     background: #FFFFFF;
     padding: 20px;
-    border-bottom: 1px solid #E5E7EB; /* Added border */
+    border-bottom: 1px solid #E5E7EB;
+    /* Added border */
 }
 
 
@@ -154,15 +155,17 @@
     /* Slight pop effect */
     box-shadow: 0 2px 6px rgba(231, 0, 11, 0.4);
 }
-.why-choose{
-     background: #FFFFFF;
+
+.why-choose {
+    background: #FFFFFF;
     padding: 20px;
 }
+
 .why-choose-section {
     /* background-color: #ffffff; */
     padding: 80px 0;
     font-family: 'Lato', sans-serif;
-    
+
 }
 
 /* --- Header Section --- */
@@ -264,6 +267,49 @@
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+@media (max-width: 576px) {
+    .feature-card {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .image-side {
+        padding-left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .why-carousel-container {
+        width: 100% !important;
+        /* FULL width of mobile screen */
+        max-width: 100%;
+        /* Remove limit */
+        height: auto;
+        border-radius: 0;
+        /* Optional: remove rounding for clean edges */
+    }
+
+    .why-carousel-img {
+        width: 80%;
+        height: auto;
+        /* Fit perfectly */
+        object-fit: cover;
+        border-radius: 0;
+        /* Optional */
+    }
+
+    .carousel-indicators {
+        margin-right: 32%;
+    }
+
+}
+
 .feature-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -426,24 +472,86 @@
     border-radius: 16px;
 }
 
-/* Responsive */
-@media (max-width: 991.98px) {
-    .image-side {
-        min-height: 50vh;
+/* ===================== RESPONSIVE (MOBILE) ADJUSTMENTS ===================== */
+
+/* Tablet & Mobile (Below 992px) */
+@media (max-width: 991px) {
+
+    /* Reset padding from your original code */
+    .image-side-col {
+        padding-left: 12px !important;
+        /* Bootstrap gutter default */
+        padding-right: 12px !important;
+        margin-bottom: 30px;
+    }
+
+    /* Remove scroll on tablet/mobile, let it stack naturally */
+    .features-container {
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+
+    .why-title {
+        font-size: 40px;
+    }
+
+    .why-header-title {
+        font-size: 2.2rem;
     }
 }
 
-@media (max-width: 767.98px) {
-    h1 {
-        font-size: 36px;
+/* Mobile Specific (Below 768px) */
+@media (max-width: 768px) {
+    .why-title {
+        font-size: 32px;
+        line-height: 1.2;
     }
 
-    .form-row {
-        flex-direction: column;
-        gap: 24px;
+    .title-underline {
+        width: 60px;
     }
 
-    .send-message-btn {
-        width: 100%;
+    .title-underline::before {
+        display: none;
+        /* Remove side line on small screens for cleaner look */
+    }
+
+    .why-subtitle {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .why-header-title {
+        font-size: 1.8rem;
+    }
+
+    .why-header-desc {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .why-tab {
+        width: 45%;
+        /* Make tabs 2-per-row on mobile */
+        min-width: auto;
+        font-size: 0.9rem;
+        padding: 8px 5px;
+    }
+
+    /* Make feature card text wrap nicely */
+    .feature-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .feature-icon-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .feature-icon-box i {
+        font-size: 1rem;
     }
 }
