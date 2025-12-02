@@ -1,21 +1,14 @@
-import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
-import { OciComponent } from '../oci/oci.component';
-import { SubscriptionComponent } from '../subscription/subscription.component';
-import { ContactformComponent } from '../contactform/contactform.component';
-import { WhyChooseUsComponent } from '../why-choose-us/why-choose-us.component';
-import { AppsComponent } from '../apps/apps.component';
-
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-apps',
   standalone: true,
-  imports: [OciComponent,SubscriptionComponent,ContactformComponent,WhyChooseUsComponent,AppsComponent],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  imports: [],
+  templateUrl: './apps.component.html',
+  styleUrl: './apps.component.css'
 })
-export class HomeComponent implements AfterViewInit {
-
-  // Reference to all app videos inside sections
+export class AppsComponent {
+// Reference to all app videos inside sections
   @ViewChildren('appVideo') videoRefs!: QueryList<ElementRef<HTMLVideoElement>>;
 
   // Reference to the main OCI video
@@ -85,7 +78,4 @@ export class HomeComponent implements AfterViewInit {
       });
     });
   }
-
-
-
 }

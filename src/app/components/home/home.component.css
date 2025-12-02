@@ -444,6 +444,7 @@ body {
   align-items: center;
   margin-bottom: 40px;
 }
+
 .navigation-arrows {
   grid-column: span 6;
   display: flex;
@@ -462,17 +463,24 @@ body {
   cursor: pointer;
   font-size: 18px;
   color: #E7000B;
-  background: none; /* ✅ No background */
+  background: none;
+  /* ✅ No background */
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 .arrow-btn i {
-  font-size: 24px; /* bigger arrow */
-  font-weight: 900; /* make it thicker (Font Awesome solid style) */
+  font-size: 24px;
+  /* bigger arrow */
+  font-weight: 900;
+  /* make it thicker (Font Awesome solid style) */
   color: #E7000B;
 }
+
 .arrow-btn:hover {
-  background: none; /* ✅ Still no background on hover */
-  transform: scale(1.1) rotate(-90deg); /* ✅ Slight hover zoom effect */
+  background: none;
+  /* ✅ Still no background on hover */
+  transform: scale(1.1) rotate(-90deg);
+  /* ✅ Slight hover zoom effect */
 }
 
 /* Testimonials Grid */
@@ -482,6 +490,7 @@ body {
   gap: 20px;
   margin-top: 40px;
 }
+
 .testimonial-item h3 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -725,56 +734,60 @@ body {
 /* ==================== QFREEMART SECTION & SPACING ==================== */
 
 .qfreemart-section {
-    display: flex;
-    align-items: center;      /* Vertically center content */
-    justify-content: center;  /* Horizontally center content */
-    min-height: 100vh;        /* Makes each section at least the height of the screen */
-    /* ✅ ADJUSTED PADDING: Top/Bottom 100px, Left/Right 20px */
-    padding: 100px 20px;      
-    /* ✅ ADDED MARGIN: This creates the gap between sections */
-    margin-bottom: 60px;     
-    background-color: #fff;
-    font-family: "Poppins", Arial, sans-serif;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  /* Vertically center content */
+  justify-content: center;
+  /* Horizontally center content */
+  min-height: 100vh;
+  /* Makes each section at least the height of the screen */
+  /* ✅ ADJUSTED PADDING: Top/Bottom 100px, Left/Right 20px */
+  padding: 100px 20px;
+  /* ✅ ADDED MARGIN: This creates the gap between sections */
+  margin-bottom: 60px;
+  background-color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
 }
 
 /* Removes the margin from the very last section so the footer sits correctly */
 .qfreemart-section:last-of-type {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .qfreemart-section .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    width: 100%; /* Ensure row takes full width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  /* Ensure row takes full width */
 }
 
 /* ==================== RESPONSIVE SPACING ==================== */
 
 @media (max-width: 992px) {
-    .qfreemart-section {
-        /* On tablets/laptops, remove full screen height requirement for better scrolling */
-        min-height: auto; 
-        
-        /* Reduce the distance slightly for smaller screens */
-        padding: 80px 20px;
-        margin-bottom: 80px; 
-    }
+  .qfreemart-section {
+    /* On tablets/laptops, remove full screen height requirement for better scrolling */
+    min-height: auto;
+
+    /* Reduce the distance slightly for smaller screens */
+    padding: 80px 20px;
+    margin-bottom: 80px;
+  }
 }
 
 @media (max-width: 768px) {
-    .qfreemart-section {
-        /* On mobile, standard padding is better than full screen height */
-        padding: 60px 15px;
-        
-        /* Smaller gap between sections on mobile */
-        margin-bottom: 60px;
-    }
+  .qfreemart-section {
+    /* On mobile, standard padding is better than full screen height */
+    padding: 60px 15px;
+
+    /* Smaller gap between sections on mobile */
+    margin-bottom: 60px;
+  }
 }
 
 .qfreemart-section .col-lg-4,
@@ -848,19 +861,24 @@ body {
 }
 
 .qfreemart-section .btn-explore {
-  background-color: #FB2C36; /* Button background color */
-  border: none; /* Remove default border */
-  color: #FFFFFF; /* Text color */
+  background-color: #FB2C36;
+  /* Button background color */
+  border: none;
+  /* Remove default border */
+  color: #FFFFFF;
+  /* Text color */
   width: 180px;
   height: 44px;
   border-radius: 4px;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-style: normal; /* Regular style */
+  font-style: normal;
+  /* Regular style */
   font-size: 16px;
   line-height: 25.6px;
   letter-spacing: 0;
-  text-align: center; /* Center the text inside button */
+  text-align: center;
+  /* Center the text inside button */
   vertical-align: middle;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -869,7 +887,8 @@ body {
 
 /* Hover effect */
 .qfreemart-section .btn-explore:hover {
-  background-color: #e3252e; /* Slightly darker red on hover */
+  background-color: #e3252e;
+  /* Slightly darker red on hover */
   transform: translateY(-2px);
 }
 
@@ -1242,6 +1261,18 @@ body {
   border: none;
   /* Removes the box border around the whole list */
   border-radius: 0;
+}
+
+.feature-list .list-group-item {
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 15px 10px;
+  font-size: 15px;
+  color: #444;
+  background: transparent;
+  text-align: left;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 .qfreemart-section .list-group-item {
@@ -1673,3 +1704,62 @@ body {
   }
 }
 
+@media (max-width: 991px) {
+
+  .qfreemart-section {
+    padding: 30px 15px;
+    /* Less padding on mobile */
+  }
+
+  /* 1. Header Adjustments */
+  .qfreemart-section h3.section-title {
+    font-size: 24px;
+    /* Smaller title */
+    margin-bottom: 10px;
+  }
+
+  .qfreemart-section p.text-muted {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* 2. Video Layout (Left Side) */
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+    /* Center in the col-5 */
+    align-items: flex-start;
+  }
+
+
+  /* Video Styling (Desktop Defaults) */
+  .app-video-mockup {
+    width: 100%;
+    max-width: 280px;
+    /* Standard phone width on desktop */
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  /* 3. Feature List Layout (Right Side) */
+  .feature-list .list-group-item {
+    padding: 10px 5px;
+    /* Tighter padding */
+    font-size: 12px;
+    /* Smaller text to fit side-by-side */
+    line-height: 1.4;
+  }
+
+  .feature-list .list-group-item.active {
+    border-right: 3px solid #FB2C36;
+    /* Thinner accent line */
+  }
+
+  /* Optional: Button Adjustment on Mobile */
+  .btn-explore {
+    padding: 10px 0;
+    font-size: 14px;
+
+  }
+}
