@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './why-choose-us.component.css'
 })
 export class WhyChooseUsComponent {
- activeTab: string = 'delivery'; // default tab
+ activeTab: string = 'customer'; // default tab
 
   setTab(tab: string) {
     this.activeTab = tab;

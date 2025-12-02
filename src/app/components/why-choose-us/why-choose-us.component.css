@@ -18,12 +18,13 @@
     position: relative;
     display: block;
 }
+
 .title-underline {
-  width: 80px;
-  height: 4px;
-  background-color: #ef4444;
-  margin: 15px auto;
-  border-radius: 2px;
+    width: 80px;
+    height: 4px;
+    background-color: #ef4444;
+    margin: 15px auto;
+    border-radius: 2px;
 }
 
 /* Wrapper for underlined part */
@@ -123,7 +124,7 @@
     /* Removes them from floating over the image */
     margin-top: 25px;
     /* Adds space between image and dots */
-    margin-bottom: 0;
+    margin-bottom: 10px;
     justify-content: center;
     display: flex;
     gap: 8px;
@@ -152,7 +153,7 @@
 }
 
 .why-choose-section {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     padding: 80px 0;
     font-family: 'Lato', sans-serif;
 }
@@ -192,7 +193,7 @@
     overflow: hidden;
     position: relative;
     margin: 0 auto;
-    box-shadow: 0px 25px 50px -12px #00000040;
+    /* box-shadow: 0px 25px 50px -12px #00000040; */
     max-width: 584px;
     /* Matches your original design */
     margin: 0 auto;
@@ -234,17 +235,28 @@
 }
 
 .feature-card {
+    width: 584px;
+    height: 163px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    opacity: 1;
+
+    /* Layout */
+    padding: 24px;
     display: flex;
     align-items: flex-start;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    /* Subtle border and shadow to make it pop like the image */
-    border: 1px solid #f3f3f3;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    gap: 20px;
+
+    /* Shadows */
+    box-shadow:
+        0px 2px 4px -2px #0000001A,
+        0px 4px 6px -1px #0000001A;
+
+    /* Angle (not used in CSS, only for design tools like Figma) */
+    transform: rotate(0deg);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .feature-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -258,6 +270,8 @@
     height: 52px;
     background-color: #FEF2F2;
     /* Light red background */
+    background: #E11D1E1A;
+    /* Light red transparent */
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -279,27 +293,47 @@
 }
 
 .feature-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #222;
+    font-family: "SF Pro Text", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #101828;
+    /* Dark text */
     margin-bottom: 4px;
 }
 
+
 .feature-highlight {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #E7000B;
-    /* Red Text */
-    margin-bottom: 8px;
+    font-family: "SF Pro Text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #E11D1E;
+    /* Red highlight */
+    background: transparent;
+    margin-bottom: 6px;
 }
 
+
 .feature-desc {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
+    font-family: "SF Pro Text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #4A5565;
+    /* Grey */
     margin: 0;
 }
+
 
 .why-choose-tag {
     display: inline-block;
@@ -378,6 +412,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding-left: 70px;
 }
 
 .why-carousel-img {

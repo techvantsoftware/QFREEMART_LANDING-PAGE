@@ -5,12 +5,14 @@ body {
   justify-content: center;
   align-items: center;
   padding: 40px;
+
 }
 
 .pricing-container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  padding-top: 50px;
 }
 
 /* --- Subscription Intro Section --- */
@@ -215,10 +217,12 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  right: -10px; /* space between columns */
+  right: -10px;
+  /* space between columns */
   width: 0;
   height: 100%;
-  border-right: 2px solid #E5E7EB; /* <-- solid line instead of dashed */
+  border-right: 2px solid #E5E7EB;
+  /* <-- solid line instead of dashed */
   pointer-events: none;
 }
 
@@ -314,6 +318,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .tick-icon,
 .cross-icon {
   margin-right: 10px;
