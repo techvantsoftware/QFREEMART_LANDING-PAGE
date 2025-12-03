@@ -1,41 +1,66 @@
-import { Component, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ViewChildren,
+  ViewChild,
+  QueryList,
+  ElementRef
+} from '@angular/core';
+import { ContactformComponent } from '../contactform/contactform.component';
 import { OciComponent } from '../oci/oci.component';
 import { SubscriptionComponent } from '../subscription/subscription.component';
-import { ContactformComponent } from '../contactform/contactform.component';
 import { WhyChooseUsComponent } from '../why-choose-us/why-choose-us.component';
-import { AppsComponent } from '../apps/apps.component';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [OciComponent,SubscriptionComponent,ContactformComponent,WhyChooseUsComponent,AppsComponent],
+  imports: [
+    OciComponent,
+    SubscriptionComponent,
+    ContactformComponent,
+    WhyChooseUsComponent,
+    CommonModule
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements AfterViewInit {
 
-  // Reference to all app videos inside sections
   @ViewChildren('appVideo') videoRefs!: QueryList<ElementRef<HTMLVideoElement>>;
-
-  // Reference to the main OCI video
   @ViewChild('ociVideo') ociVideoRef!: ElementRef<HTMLVideoElement>;
 
-  ngAfterViewInit(): void {
-    // ===== PLAY MAIN OCI VIDEO =====
-    const ociVideo = this.ociVideoRef?.nativeElement;
-    if (ociVideo) {
-      ociVideo.muted = true;
-      ociVideo.autoplay = true;
-      ociVideo.playsInline = true;
-      ociVideo.load();
-      ociVideo.play().catch(err => {
-        console.warn('OCI autoplay blocked:', err);
-        document.body.addEventListener('click', () => ociVideo.play(), { once: true });
-      });
-    }
+  loading: boolean[] = [];
 
-    // ===== HANDLE OTHER SECTION VIDEOS =====
+  ngAfterViewInit(): void {
+    this.initOCIVideo();
+    this.initSectionVideos();
+  }
+
+  // =========================
+  // FIXED MAIN HERO VIDEO
+  // =========================
+  private initOCIVideo() {
+    const ociVideo = this.ociVideoRef?.nativeElement;
+    if (!ociVideo) return;
+
+    ociVideo.muted = true;
+    ociVideo.autoplay = true;
+    ociVideo.playsInline = true;
+
+    ociVideo.load();
+
+    ociVideo.play().catch(() => {
+      document.body.addEventListener('click', () => {
+        ociVideo.play().catch(() => {});
+      }, { once: true });
+    });
+  }
+
+  // ===================================
+  // FIXED: SECTION VIDEO HANDLER
+  // ===================================
+  private initSectionVideos() {
     const sections = document.querySelectorAll<HTMLElement>('section.qfreemart-section');
 
     sections.forEach((section, index) => {
@@ -44,48 +69,50 @@ export class HomeComponent implements AfterViewInit {
 
       if (!videoElement) return;
 
-      // Play first video in each section
+      this.loading[index] = true;
+
+      videoElement.addEventListener('playing', () => {
+        this.loading[index] = false;
+      });
+
       const firstItem = listItems[0];
       if (firstItem) {
-        const firstVideoSrc = firstItem.getAttribute('data-video');
-        if (firstVideoSrc) {
-          videoElement.src = firstVideoSrc;
-          videoElement.muted = true;
-          videoElement.autoplay = true;
-          videoElement.playsInline = true;
-          videoElement.load();
-
-          videoElement.play().catch(err => {
-            console.warn('Autoplay blocked:', err);
-            document.body.addEventListener('click', () => videoElement.play(), { once: true });
-          });
-
-          firstItem.classList.add('active');
-        }
+        this.switchVideo(videoElement, firstItem.getAttribute('data-video')!, index);
+        firstItem.classList.add('active');
       }
 
-      // Handle list item clicks
       listItems.forEach(item => {
         item.addEventListener('click', () => {
           listItems.forEach(li => li.classList.remove('active'));
           item.classList.add('active');
 
           const newSrc = item.getAttribute('data-video');
-          if (!newSrc) return;
-
-          if (!videoElement.src.includes(newSrc)) {
-            videoElement.pause();
-            videoElement.src = newSrc;
-            videoElement.load();
+          if (newSrc) {
+            this.switchVideo(videoElement, newSrc, index);
           }
-
-          videoElement.currentTime = 0;
-          videoElement.play().catch(err => console.warn('Play blocked:', err));
         });
       });
     });
   }
 
+  // =========================
+  // FINAL FIX — SAFE SWITCH
+  // =========================
+  private async switchVideo(video: HTMLVideoElement, src: string, index: number) {
+    this.loading[index] = true;
 
+    try {
+      await video.pause();  // WAIT before switching
+    } catch {}
 
+    video.src = src;
+    video.load();
+
+    video.onloadeddata = async () => {
+      try {
+        await video.play(); // play safely
+      } catch {}
+      this.loading[index] = false;
+    };
+  }
 }

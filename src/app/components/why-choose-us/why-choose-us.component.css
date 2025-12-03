@@ -555,3 +555,37 @@
         font-size: 1rem;
     }
 }
+/* Mobile: Keep all buttons in one line with horizontal scroll */
+@media (max-width: 768px) {
+
+    .why-tabs {
+        display: flex;
+        flex-wrap: nowrap;          /* Force in one line */
+        overflow-x: auto;           /* Enable horizontal scroll */
+        white-space: nowrap;        /* Prevent wrap */
+        gap: 8px;                   /* Reduced gap for compact look */
+        padding-bottom: 10px;        /* Reduced bottom space */
+        
+        /* Smooth scrolling for iOS */
+        -webkit-overflow-scrolling: touch; 
+
+        /* Hide scrollbar for clean UI */
+        -ms-overflow-style: none;   /* IE */
+        scrollbar-width: none;      /* Firefox */
+    }
+
+    .why-tabs::-webkit-scrollbar {
+        display: none;              /* Chrome/Safari */
+    }
+
+    .why-tab {
+        flex: 0 0 auto;             /* Keep natural size, don't shrink */
+        width: auto !important;     /* Override desktop width rules */
+        min-width: max-content;         /* Ensure text fits */
+        
+        /* SETTINGS FOR SMALL SIZE */
+        padding: 6px 0;          /* Reduced padding (Top/Bottom Left/Right) */
+        font-size: 12px;            /* Smaller font size */
+        line-height: 2.2;           /* tighter line height */
+    }
+}

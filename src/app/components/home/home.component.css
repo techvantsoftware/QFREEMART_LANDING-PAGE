@@ -5,6 +5,7 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .hero-section {
@@ -18,7 +19,6 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 @media (max-width: 768px) {
@@ -26,6 +26,7 @@ body {
     background-image: url("/assets/home.png");
     justify-content: center;
     padding: 0 20px;
+    height: 90vh;
   }
 }
 
@@ -69,18 +70,14 @@ body {
 .play-button-container {
   position: absolute;
   bottom: -60px;
-  /* adjust vertical position */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
-/* Circular play button */
 .play-button {
   background: #E7000B;
-  /* red background */
   border: 11px solid #fff;
-  /* white border */
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -88,43 +85,32 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 32px 51.1px -26px #FFFFFF87;
-  opacity: 1;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-/* Hover effect */
 .play-button:hover {
   transform: scale(1.05);
   box-shadow: 0px 40px 60px -20px #FFFFFFA0;
 }
 
-/* Play icon inside */
 .play-button i {
   color: #fff;
   font-size: 60px;
-  /* adjust for proportion */
   line-height: 1;
   padding-left: 5px;
 }
 
-/* ==================== RESPONSIVE ==================== */
+/* ==================== RESPONSIVE HERO ==================== */
 @media (max-width: 768px) {
   .play-button {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-width: 6px;
   }
 
   .play-button i {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    height: 90vh;
-    /* Slightly shorter hero on mobile */
+    font-size: 30px;
   }
 
   .hero-content .title {
@@ -134,225 +120,293 @@ body {
   .hero-content .description {
     font-size: 0.95rem;
   }
-
-  .play-button {
-    width: 60px;
-    height: 60px;
-  }
-
-  .play-button i {
-    font-size: 2em;
-  }
-
-  .oci-overlay {
-    padding: 20px 15px;
-    max-width: 90%;
-  }
-
-  .oci-header h1 {
-    font-size: 1.6rem;
-  }
-
-  .oci-header p {
-    font-size: 0.95rem;
-  }
-}
-
-/* For Small Mobile Phones */
-@media (max-width: 480px) {
-  .hero-content .title {
-    font-size: 1.5rem;
-  }
-
-  .hero-content .description {
-    font-size: 0.9rem;
-  }
-
-  .oci-header h1 {
-    font-size: 1.4rem;
-  }
-
-  .oci-header p {
-    font-size: 0.9rem;
-  }
-}
-
-
-
-@media (max-width: 992px) {
-
-  .hero-section,
-  .hero-overlay {
-    justify-content: flex-start;
-    padding-left: 50px;
-  }
-
+  
   .hero-content {
-    max-width: 450px;
+      padding: 20px;
+      width: 100%;
+  }
+}
+
+/* ==================== QFREEMART SECTION STYLING (UPDATED) ==================== */
+/* This section controls the Apps (Ordering, Seller, etc.) */
+
+.qfreemart-section {
+    padding: 80px 0; /* Standard desktop spacing */
+    background-color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    display: block; 
     text-align: left;
-    padding: 30px 40px;
-  }
-
-  .hero-content .title {
-    font-size: 2.6rem;
-  }
-
-  .hero-content .description {
-    font-size: 1.1rem;
-  }
-
-  .video-container {
-    height: 100vh;
-  }
-
-  .oci-overlay {
-    padding: 20px 30px;
-  }
+    margin-bottom: 60px; 
 }
 
-/* Prevent image/video distortion on very small screens */
-@media (max-width: 600px) {
-
-  .hero-section,
-  .video-container {
-    height: 100vh;
-  }
+.qfreemart-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* ============= RESPONSIVE FIXES ============= */
-@media (max-width: 992px) {
-  .oci-header h1 {
-    font-size: 2rem;
-  }
-
-  .oci-header p {
-    font-size: 1rem;
-  }
-
-  .oci-overlay {
-    max-width: 90%;
-    padding: 15px 20px;
-  }
+/* --- 1. Header & Text Styling --- */
+.qfreemart-section h3.section-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.3;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-@media (max-width: 768px) {
-  .video-container {
+/* Specific override for centering on mobile based on HTML classes */
+@media (max-width: 991px) {
+    .qfreemart-section h3.section-title {
+        text-align: center;
+        font-size: 26px;
+    }
+}
+
+.qfreemart-section p.text-muted {
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 100%;
+}
+
+/* --- 2. App Badge (Icon + Title) --- */
+.app-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    /* Alignment handled by Bootstrap classes in HTML (justify-content-...) */
+}
+
+.app-badge .app-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.05); */
+}
+
+.app-badge .app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.app-badge h5 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #555;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* --- 3. Buttons --- */
+.btn-explore {
+    background-color: #FB2C36;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 35px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.btn-explore:hover {
+    background-color: #d01f28;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 44, 54, 0.3);
+}
+
+/* --- 4. Video / Mockup Styling --- */
+/* Center the video within its column */
+.video-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+}
+
+.app-video-mockup {
+    width: 100%;
+    max-width: 350px; /* Looks like a phone on Desktop */
     height: auto;
-    min-height: 60vh;
-    flex-direction: column;
-  }
-
-  .video-container video {
+    border-radius: 24px;
+    object-fit: cover;
+    border: 4px solid #fff; /* Optional phone frame look */
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+}
+.video-wrapper {
     position: relative;
     width: 100%;
     height: auto;
-    transform: none;
-    object-fit: cover;
-  }
-
-  .oci-overlay {
-    position: relative;
-    background: rgba(0, 0, 0, 0.6);
-    max-width: 95%;
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .oci-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .oci-header p {
-    font-size: 0.9rem;
-  }
-
-  .oci-tag {
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-  }
 }
 
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 992px) {
-
-  .hero-section,
-  .hero-overlay {
+.video-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.6);
+    z-index: 10;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    border-top-color: #FB2C36;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- 5. Feature List (Right Side) --- */
+.feature-list {
     padding-left: 0;
-  }
-
-  .hero-content {
-    max-width: 90%;
-    text-align: center;
-    padding: 25px;
-  }
-
-  .hero-content .title {
-    font-size: 2rem;
-  }
-
-  .hero-content .description {
-    font-size: 1rem;
-  }
+    margin-bottom: 0;
 }
 
-@media (max-width: 576px) {
-  .hero-content {
-    padding: 20px;
-  }
-
-  .hero-content .title {
-    font-size: 1.6rem;
-  }
-
-  .hero-content .description {
-    font-size: 0.95rem;
-  }
-
-  .video-container {
-    height: 60vh;
-    /* Further reduce height for small phones */
-  }
-
-  .oci-integration-section {
-    padding: 40px 15px;
-  }
-
-  .oci-header h1 {
-    font-size: 1.8rem;
-  }
-
-  .oci-header p {
-    font-size: 0.9rem;
-  }
-
-  .oci-tag {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
+.feature-list .list-group-item {
+    border: none;
+    border-bottom: 1px solid #f0f0f0; 
+    padding: 18px 20px;
+    font-size: 16px;
+    color: #555;
+    background: transparent;
+    text-align: left;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Lato', sans-serif;
 }
 
-.plan-card .commission {
-  color: #6c757d;
-  font-size: 0.9rem;
-  margin-top: 20px;
-  text-align: center;
+/* Hover State */
+.feature-list .list-group-item:hover {
+    background-color: #fcfcfc;
+    color: #222;
 }
 
+/* Active State (Red Border on Right) */
+.feature-list .list-group-item.active {
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 5px solid #FB2C36; /* Distinct red accent */
+    z-index: 2;
+}
+
+/* Remove default Bootstrap active blue background if it leaks through */
+.list-group-item.active:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* --- App Section Main Header (Centered Title) --- */
+.app-header h2 {
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+.app-header .highlight {
+    color: #FB2C36;
+}
+
+/* ==================== MOBILE / TABLET OVERRIDES (The Critical Part) ==================== */
+/* Matches your "1st Code" logic: Text top, Video+List split below */
+
+@media (max-width: 991px) {
+    
+    .qfreemart-section {
+        padding: 40px 0;
+        /* text-align center handled by bootstrap class text-center in HTML */
+    }
+
+    /* 1. Header Adjustments */
+    .app-header h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .qfreemart-section h3.section-title {
+        font-size: 24px; 
+        margin-bottom: 15px;
+    }
+    
+    .qfreemart-section p.text-muted {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .app-badge {
+        margin-bottom: 15px;
+    }
+
+    /* 2. Video Layout (Left side of the split grid) */
+    .video-wrapper {
+        justify-content: center;
+        align-items: flex-start; /* Align with top of list */
+        margin-bottom: 0;
+    }
+
+    .app-video-mockup {
+        max-width: 100%; /* Fill the col-5 width */
+        border-radius: 12px;
+        border: 2px solid #fff;
+    }
+
+    /* 3. Feature List Layout (Right side of the split grid) */
+    .feature-list .list-group-item {
+        padding: 10px 5px; /* Tighter padding */
+        font-size: 13px; /* Smaller text for split layout */
+        line-height: 1.4;
+    }
+    
+    .feature-list .list-group-item.active {
+        border-right: 3px solid #FB2C36; 
+    }
+    
+    /* 4. Button spans full width */
+    .btn-explore {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* ==================== SUBSCRIPTION & TESTIMONIALS & FAQ ==================== */
+
+/* Subscription Section */
 .subscription-section {
   padding: 50px 0;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 30px;
+.card.plan-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  height: 100%;
+  padding: 20px;
 }
 
 .plan-type-switcher .btn {
@@ -363,124 +417,58 @@ body {
 
 .plan-type-switcher .btn.active {
   background-color: #dc3545;
-  /* Red for active */
   border-color: #dc3545;
   color: white;
 }
-
-.plan-type-switcher .btn:not(.active) {
-  background-color: #f1f1f1;
-  color: #555;
-  border-color: #f1f1f1;
-}
-
-
-
-.features-section {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  padding: 30px;
-  margin-top: 40px;
-}
-
-.features-section h5 {
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.feature-item i {
-  color: #dc3545;
-  /* Red checkmark */
-  margin-right: 10px;
-  font-size: 1.1rem;
-}
-
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-
 
 /* Testimonials Section */
 .testimonials-section {
   background-color: #F8F9FA;
   padding: 60px 0;
-  position: relative;
   overflow: hidden;
-  /* To contain absolute arrows */
 }
 
-.testimonials-section .container {
-  position: relative;
+.testimonials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .testimonials-section .section-title {
-  grid-column: span 6;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 48px;
-  line-height: 63.98px;
-  letter-spacing: 0;
-  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 36px;
   color: #283646;
-  text-align: left;
   margin: 0;
 }
 
-
-.testimonials-header {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
-  margin-bottom: 40px;
-}
-
 .navigation-arrows {
-  grid-column: span 6;
   display: flex;
-  justify-content: flex-end;
   gap: 10px;
 }
 
 .arrow-btn {
   border: none;
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 18px;
   color: #E7000B;
-  background: none;
-  /* ✅ No background */
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.arrow-btn i {
-  font-size: 24px;
-  /* bigger arrow */
-  font-weight: 900;
-  /* make it thicker (Font Awesome solid style) */
-  color: #E7000B;
+  background: transparent;
+  transition: transform 0.3s ease;
 }
 
 .arrow-btn:hover {
-  background: none;
-  /* ✅ Still no background on hover */
-  transform: scale(1.1) rotate(-90deg);
-  /* ✅ Slight hover zoom effect */
+  transform: scale(1.1);
+}
+
+.arrow-btn i {
+  font-size: 20px;
 }
 
 /* Testimonials Grid */
@@ -488,1057 +476,24 @@ body {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
-  margin-top: 40px;
 }
 
-.testimonial-item h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.testimonial-item p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.stars .fas.fa-star {
-  color: #e0e0e0;
-  font-size: 16px;
-}
-
-.stars .fas.fa-star.filled {
-  color: #E7000B;
-  ;
-  /* Gold color for filled stars */
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.user-info .avatar {
-  width: 40px;
-  height: 40px;
-  background-color: #e0e0e0;
-  /* Placeholder for avatar */
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.user-info span {
-  font-weight: bold;
-  color: #444;
-}
-
-
-.faq-content {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-
-
-.faq-sidebar {
-  flex: 0 0 280px;
-  /* Fixed width for sidebar */
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  border: 1.2px solid #DDDDDD;
-  border-radius: 15px;
-  box-sizing: border-box;
-}
-
-.faq-sidebar h4 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.faq-sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.faq-sidebar li {
-  padding: 12px 15px;
-  margin-bottom: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  color: #555;
-}
-
-.faq-sidebar li:hover:not(.active) {
-  background-color: #f0f0f0;
-}
-
-.faq-sidebar li.active {
-  /* Light blue for active item */
-  color: #007bff;
-  /* Blue text for active item */
-  font-weight: bold;
-}
-
-.faq-accordion {
-  flex: 1;
-  /* Takes remaining space */
-  min-width: 300px;
-  /* Ensure accordion doesn't get too small */
-}
-
-.accordion-item {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  margin-bottom: 15px;
+.testimonial-card {
+  grid-column: span 6;
+  border-radius: 12px;
   overflow: hidden;
-  /* To hide content */
-}
-
-.accordion-header {
-  padding: 18px 25px;
-  font-size: 17px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.accordion-item.open .accordion-header {
-  border-bottom: none;
-}
-
-.accordion-header i {
-  transition: transform 0.3s ease;
-}
-
-.accordion-item.open .accordion-header i {
-  transform: rotate(0deg);
-  /* Down arrow when open */
-}
-
-.accordion-item:not(.open) .accordion-header i {
-  transform: rotate(-90deg);
-  /* Right arrow when closed */
-}
-
-.accordion-body {
-  padding: 0 25px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-}
-
-.accordion-item.open .accordion-body {
-  max-height: 200px;
-  /* Adjust based on expected content height */
-  padding-bottom: 20px;
-}
-
-.accordion-body p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #666;
-  margin: 0;
-}
-
-.accordion-body a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.accordion-body a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    /* Stack testimonials on smaller screens */
-  }
-
-  .app-showcase {
-    order: -1;
-    /* Place app showcase at the top on small screens */
-  }
-
-  .faq-content {
-    flex-direction: column;
-  }
-
-  .faq-sidebar {
-    flex: 0 0 auto;
-    /* Allow sidebar to take full width */
-    width: 100%;
-  }
-
-  .testimonials-section .section-title {
-    text-align: center;
-  }
-
-  .navigation-arrows {
-    position: static;
-    /* Remove absolute positioning */
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 28px;
-  }
-
-  .testimonial-item {
-    padding: 20px;
-  }
-
-  .accordion-header {
-    padding: 15px 20px;
-    font-size: 16px;
-  }
-
-  .accordion-body {
-    padding: 0 20px;
-  }
-
-  .accordion-item.open .accordion-body {
-    padding-bottom: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-title {
-    font-size: 24px;
-  }
-
-  .container {
-    padding: 15px;
-  }
-}
-
-/* ==================== QFREEMART SECTION & SPACING ==================== */
-
-.qfreemart-section {
-  display: flex;
-  align-items: center;
-  /* Vertically center content */
-  justify-content: center;
-  /* Horizontally center content */
-  min-height: 100vh;
-  /* Makes each section at least the height of the screen */
-  /* ✅ ADJUSTED PADDING: Top/Bottom 100px, Left/Right 20px */
-  padding: 100px 20px;
-  /* ✅ ADDED MARGIN: This creates the gap between sections */
-  margin-bottom: 60px;
-  background-color: #fff;
-  font-family: "Poppins", Arial, sans-serif;
-  flex-direction: column;
-  text-align: center;
-  position: relative;
-}
-
-/* Removes the margin from the very last section so the footer sits correctly */
-.qfreemart-section:last-of-type {
-  margin-bottom: 0;
-}
-
-.qfreemart-section .row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
-  /* Ensure row takes full width */
-}
-
-/* ==================== RESPONSIVE SPACING ==================== */
-
-@media (max-width: 992px) {
-  .qfreemart-section {
-    /* On tablets/laptops, remove full screen height requirement for better scrolling */
-    min-height: auto;
-
-    /* Reduce the distance slightly for smaller screens */
-    padding: 80px 20px;
-    margin-bottom: 80px;
-  }
-}
-
-@media (max-width: 768px) {
-  .qfreemart-section {
-    /* On mobile, standard padding is better than full screen height */
-    padding: 60px 15px;
-
-    /* Smaller gap between sections on mobile */
-    margin-bottom: 60px;
-  }
-}
-
-.qfreemart-section .col-lg-4,
-.qfreemart-section .col-lg-3 {
-  flex: 1 1 300px;
-  /* allow responsive scaling */
-}
-
-
-.qfreemart-section .badge {
-  background-color: #f8f9fa;
-  color: #333;
-  font-weight: 500;
-  font-size: 0.95rem;
-  border-radius: 30px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.qfreemart-section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-}
-
-.qfreemart-section h2 span {
-  color: #dc3545;
-  /* Red color */
-}
-
-/* ==================== Left Column ==================== */
-.qfreemart-section .col-lg-4 h5 {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
-.qfreemart-section h3 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 57.68px;
-  letter-spacing: 0;
-  color: #0A0A0A;
-  margin-top: 10px;
-  margin-bottom: 8px;
-  vertical-align: middle;
-  text-align: left;
-  /* ✅ Added for left alignment */
-}
-
-.qfreemart-section p {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 0;
-  margin-top: 0;
-  /* ⬅ Remove top margin */
-  margin-bottom: 16px;
-  /* Optional: keep small bottom gap */
-  vertical-align: middle;
-  color: #5C5C5C;
-  text-align: left;
-}
-
-.qfreemart-section {
-  text-align: left;
-  padding-left: 85px;
-}
-
-.qfreemart-section .btn-explore {
-  background-color: #FB2C36;
-  /* Button background color */
-  border: none;
-  /* Remove default border */
-  color: #FFFFFF;
-  /* Text color */
-  width: 180px;
-  height: 44px;
-  border-radius: 4px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  /* Regular style */
-  font-size: 16px;
-  line-height: 25.6px;
-  letter-spacing: 0;
-  text-align: center;
-  /* Center the text inside button */
-  vertical-align: middle;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 1;
-}
-
-/* Hover effect */
-.qfreemart-section .btn-explore:hover {
-  background-color: #e3252e;
-  /* Slightly darker red on hover */
-  transform: translateY(-2px);
-}
-
-
-
-/* ==================== Center Image ==================== */
-.qfreemart-section img {
-  max-height: 550px;
-  width: auto;
-  border-radius: 20px;
-  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); */
-}
-
-/* ==================== Right Column ==================== */
-/* Right column main title/feature heading */
-.qfreemart-section h5 {
-  font-weight: 900;
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-
-.qfreemart-section ul {
-  padding-left: 0;
-  list-style: none;
-}
-
-.qfreemart-section ul li {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-.qfreemart-section ul li i {
-  color: #dc3545;
-  font-size: 1.2rem;
-  margin-right: 10px;
-  flex-shrink: 0;
-}
-
-/* ==================== FAQ Section ==================== */
-
-.faq-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.faq-section .section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.faq-section .section-description {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #666;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.faq-content {
-  display: flex;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.faq-sidebar {
-  flex: 0 0 280px;
-  /* Fixed width on larger screens */
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  align-self: flex-start;
-  /* Prevents sidebar from stretching */
-}
-
-.faq-sidebar h4 {
-  font-size: 1.1rem;
-  color: #333;
-  font-weight: 600;
-}
-
-.faq-sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.faq-sidebar li {
-  padding: 12px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-.faq-sidebar li::after {
-  content: "";
-  display: block;
-  height: 1px;
-  background-color: #DDDDDD;
-  margin: 5px 0;
-}
-
-.faq-sidebar li:hover:not(.active) {
-  background-color: #f0f0f0;
-}
-
-.faq-sidebar li.active {
-  color: #EF4444;
-  font-weight: 600;
-  padding: 12px 15px;
-}
-
-.faq-accordion {
-  flex: 1;
-  /* Takes remaining space */
-}
-
-.app-badge {
-  display: flex;
-  align-items: center;
-  /* Vertically centers the items */
-  margin-bottom: 1rem;
-  gap: 12px;
-  text-align: center;
-  /* Ensures the text itself is centered if it wraps */
-}
-
-.app-icon {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.app-icon img {
-  width: 60px;
-  /* It's generally better for the image to not be larger than its container */
-  height: 60px;
-  /* Consider adjusting this if needed */
-}
-
-
-.app-badge h5 {
-  font-size: 0.9rem;
-  color: #515151;
-  font-weight: 700;
-  margin: 0;
-  /* Removes unwanted spacing */
-  line-height: 1;
-  /* Keeps text centered nicely */
-  margin-bottom: 10px;
-}
-
-.accordion-item {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  margin-bottom: 15px;
-  overflow: hidden;
-  border: 1.2px solid #DDDDDD;
-  border-radius: 15px;
-  box-sizing: border-box;
-}
-
-.accordion-header {
-  padding: 18px 25px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid transparent;
-  /* Prepare for transition */
-  transition: border-color 0.3s ease;
-}
-
-.accordion-item.open .accordion-header {
-  border-bottom-color: #eee;
-}
-
-
-.accordion-header i {
-  transition: transform 0.3s ease;
-}
-
-.accordion-item.open .accordion-header i {
-  transform: rotate(0deg);
-}
-
-.accordion-item:not(.open) .accordion-header i {
-  transform: rotate(-90deg);
-}
-
-.accordion-body {
-  padding: 0 25px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-}
-
-.accordion-item.open .accordion-body {
-  max-height: 300px;
-  /* Increased max-height for more content */
-  padding-bottom: 20px;
-}
-
-.accordion-body p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #666;
-  margin: 0;
-}
-
-.accordion-body a {
-  color: #EF4444;
-  text-decoration: none;
-}
-
-.accordion-body a:hover {
-  text-decoration: underline;
-}
-
-/* ==================== FAQ RESPONSIVE ADJUSTMENTS ==================== */
-
-/* For Tablets and Smaller Laptops */
-@media (max-width: 992px) {
-  .faq-content {
-    flex-direction: column;
-  }
-
-  .faq-sidebar {
-    flex: 1 1 auto;
-    /* Allow sidebar to take full width */
-    width: 100%;
-  }
-
-  .faq-section .section-title {
-    font-size: 2rem;
-  }
-}
-
-/* For Mobile Phones */
-@media (max-width: 768px) {
-  .faq-section {
-    padding: 40px 15px;
-  }
-
-  .faq-section .section-title {
-    font-size: 1.8rem;
-  }
-
-  .faq-section .section-description {
-    font-size: 0.95rem;
-  }
-
-  .accordion-header {
-    padding: 15px 20px;
-    font-size: 1rem;
-  }
-
-  .accordion-body p {
-    font-size: 0.9rem;
-  }
-
-  .accordion-item.open .accordion-body {
-    padding-bottom: 15px;
-  }
-}
-
-/* For Small Mobile Phones */
-@media (max-width: 480px) {
-  .faq-section .section-title {
-    font-size: 1.6rem;
-  }
-
-  .accordion-header {
-    font-size: 0.95rem;
-  }
-}
-
-/* ==================== RESPONSIVE DESIGN ==================== */
-@media (max-width: 1200px) {
-  .qfreemart-section h3 {
-    font-size: 1.6rem;
-  }
-
-  .qfreemart-section h2 {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .qfreemart-section .row {
-    text-align: center;
-  }
-
-  /* Override to make left column content centered on smaller screens */
-  .qfreemart-section .col-lg-4 {
-    text-align: center !important;
-  }
-
-  .qfreemart-section img {
-    max-height: 420px;
-  }
-
-  /* To properly center the unstyled list on mobile */
-  .qfreemart-section ul {
-    text-align: left;
-    display: inline-block;
-  }
-
-  /* Change the feature heading border from left to top on mobile */
-  .qfreemart-section h5 {
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
-    padding-top: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .qfreemart-section {
-    padding: 60px 15px;
-  }
-
-  .qfreemart-section img {
-    max-height: 380px;
-  }
-
-  .qfreemart-section h3 {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .qfreemart-section h2 {
-    font-size: 1.6rem;
-  }
-
-  .qfreemart-section h3 {
-    font-size: 1.3rem;
-  }
-
-  .qfreemart-section img {
-    max-height: 300px;
-  }
-
-  .qfreemart-section p {
-    font-size: 0.95rem;
-  }
-
-  .qfreemart-section ul li {
-    font-size: 0.9rem;
-  }
-}
-
-.qfreemart-section .list-group {
-  border: none;
-  /* Removes the box border around the whole list */
-  border-radius: 0;
-}
-
-.feature-list .list-group-item {
-  border: none;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 15px 10px;
-  font-size: 15px;
-  color: #444;
-  background: transparent;
-  text-align: left;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.qfreemart-section .list-group-item {
-  /* Light grey background for all items */
-  color: #333;
-  padding: 18px 20px;
-  /* Adjust padding as needed */
-  border: none;
-  /* Remove individual borders */
-  border-bottom: 1px solid #e9ecef;
-  /* Add a separator line at the bottom */
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: 500;
-  position: relative;
-  /* Needed for the active indicator */
-}
-
-.qfreemart-section .list-group-item.active {
-  background-color: #f8f9fa;
-  /* Keep the background the same as others */
-  color: #000;
-  /* Make text slightly darker for emphasis */
-  font-weight: bold;
-
-  /* This creates the red bar on the right side */
-  border-right: 4px solid #E7000B;
-}
-
-.qfreemart-section .list-group-item:not(.active):hover {
-  background-color: #f1f3f5;
-}
-
-/* Remove border-radius from individual items to make it look like one block */
-/* Add a top border to the very first item */
-.qfreemart-section .list-group-item:first-child {
-  border-top: 1px solid #e9ecef;
-}
-
-.qfreemart-section .list-group-item:last-child {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .contact-fullscreen {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .half-screen {
-    width: 100%;
-    height: auto;
-  }
-
-  .form-wrapper {
-    max-width: 90%;
-    margin: 2rem auto;
-  }
-}
-
-@media (max-width: 992px) {
-  .video-container {
-    width: 100%;
-    height: auto;
-    min-height: 60vh;
-  }
-
-  .video-container video {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    position: relative;
-    transform: none;
-  }
-}
-
-
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-.card.plan-card {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-  height: 100%;
-}
-
-
-
-
-/* ------------------------------
-   LARGE DEVICES (≤ 1200px)
--------------------------------- */
-@media (max-width: 1200px) {
-  .hero-content {
-    max-width: 500px;
-    padding: 25px 35px;
-  }
-
-  .subscription-card {
-    padding: 25px;
-  }
-
-  .faq-section .accordion-button {
-    font-size: 1rem;
-  }
-}
-
-/* ------------------------------
-   MEDIUM DEVICES (≤ 992px)
-   Tablets and small laptops
--------------------------------- */
-@media (max-width: 992px) {
-  .hero-section {
-    height: 90vh;
-    justify-content: center;
-    padding: 0 30px;
-    background-position: center;
-  }
-
-  .hero-content {
-    text-align: center;
-    padding: 20px 25px;
-    max-width: 420px;
-  }
-
-  .hero-content .title {
-    font-size: 2rem;
-  }
-
-  .oci-overlay {
-    padding: 40px 20px;
-  }
-
-  .subscription-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .subscription-card {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .testimonials-section .card {
-    margin-bottom: 15px;
-  }
-
-  .contact-fullscreen {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .qfreemart-section {
-    height: auto;
-    padding: 60px 20px;
-  }
-
-  .qfreemart-section .text-container {
-    max-width: 100%;
-    text-align: center;
-  }
-}
-
-/* ------------------------------
-   SMALL DEVICES (≤ 768px)
-   Landscape phones & small tablets
--------------------------------- */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 80vh;
-    padding: 0 20px;
-    background-image: url("/assets/home.png");
-    background-position: center;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    padding: 15px 20px;
-  }
-
-  .hero-content .title {
-    font-size: 1.8rem;
-  }
-
-  .oci-tag {
-    font-size: 0.9rem;
-    padding: 5px 12px;
-  }
-
-  .subscription-card {
-    width: 90%;
-  }
-
-  .faq-section .accordion-button {
-    font-size: 0.95rem;
-    padding: 12px;
-  }
-
-  .contact-fullscreen {
-    height: auto;
-  }
-
-  .qfreemart-section h1 {
-    font-size: 2rem;
-  }
-}
-
-/* ------------------------------
-   EXTRA SMALL DEVICES (≤ 576px)
-   Portrait phones
--------------------------------- */
-
-/* ------------------------------
-   EXTRA NARROW DEVICES (≤ 480px)
--------------------------------- */
-@media (max-width: 480px) {
-  .hero-content {
-    padding: 15px;
-  }
-
-  .hero-content .title {
-    font-size: 1.3rem;
-  }
-
-  .hero-content .subtitle {
-    font-size: 0.9rem;
-  }
-
-  .subscription-card h4 {
-    font-size: 1rem;
-  }
-
-  .faq-section h2 {
-    font-size: 1.3rem;
-  }
-
-  .qfreemart-section h1 {
-    font-size: 1.6rem;
-  }
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .card-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* 3 + 3 */
-  background-color: #F2F4F5;
-  width: 100%;
+  display: flex;
+  background-color: #fff; /* changed to white for clean look or #F2F4F5 */
+  height: 100%;
 }
 
 .card-image {
+  flex: 1;
+  background-color: #ECE3F4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1546,220 +501,167 @@ body {
 }
 
 .card-image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  object-fit: cover;
 }
 
-/* Right side — content */
 .card-content {
+  flex: 1;
   padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.card-content h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.card-content p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-/* Other testimonial cards */
 .testimonial-item {
   grid-column: span 3;
-  background-color: #F2F4F5;
+  background-color: #fff;
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.testimonial-card {
-  grid-column: span 6;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  display: flex;
+.stars .fas.fa-star.filled {
+  color: #E7000B;
+}
+.stars .fas.fa-star {
+  color: #e0e0e0;
 }
 
-.testimonial-image {
-  max-width: 230px;
-  height: auto;
-}
-
-.testimonial-content h3 {
-  font-size: 1.5rem;
-  margin-top: 15px;
-}
-
-.testimonial-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-  margin: 15px 0;
-}
-
+/* Testimonials Responsive */
 @media (max-width: 992px) {
   .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .navigation-arrows {
-    position: static;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .arrow-btn {
-    width: 36px;
-    height: 36px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .testimonial-card,
-  .testimonial-item {
-    max-width: 100%;
-    padding: 25px;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  .navigation-arrows {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 992px) {
-  .testimonials-grid {
-    /* Stack all items into a single column */
-    grid-template-columns: 1fr;
-  }
-
-  .testimonial-card,
-  .testimonial-item {
-    /* Ensure all cards take up the full width of the new single column */
-    grid-column: span 1;
-  }
-
-  .testimonials-section .section-title {
-    text-align: center;
-  }
-
-  .navigation-arrows {
-    /* Move arrows below the title in the center */
-    position: static;
-    justify-content: center;
-    margin-top: 20px;
-  }
-}
-
-/* --- For Mobile Phones (≤ 768px) --- */
-@media (max-width: 768px) {
-  .testimonials-section {
-    padding: 60px 15px;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .card-inner {
-    /* Stack the image and content vertically on the main card */
-    grid-template-columns: 1fr;
-  }
-
-  .card-image {
-    padding: 30px;
-  }
-
-  .card-image img {
-    max-width: 200px;
-    /* Control image size */
-  }
-
-  .card-content,
-  .testimonial-item {
-    padding: 25px;
-  }
-}
-
-@media (max-width: 991px) {
-
-  .qfreemart-section {
-    padding: 30px 15px;
-    /* Less padding on mobile */
-  }
-
-  /* 1. Header Adjustments */
-  .qfreemart-section h3.section-title {
-    font-size: 24px;
-    /* Smaller title */
-    margin-bottom: 10px;
-  }
-
-  .qfreemart-section p.text-muted {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-
-  /* 2. Video Layout (Left Side) */
-  .video-wrapper {
     display: flex;
-    justify-content: center;
-    /* Center in the col-5 */
-    align-items: flex-start;
+    flex-direction: column;
   }
-
-
-  /* Video Styling (Desktop Defaults) */
-  .app-video-mockup {
+  
+  .testimonial-card, .testimonial-item {
     width: 100%;
-    max-width: 280px;
-    /* Standard phone width on desktop */
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
   }
 
-  /* 3. Feature List Layout (Right Side) */
-  .feature-list .list-group-item {
-    padding: 10px 5px;
-    /* Tighter padding */
-    font-size: 12px;
-    /* Smaller text to fit side-by-side */
-    line-height: 1.4;
+  .testimonials-header {
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
   }
-
-  .feature-list .list-group-item.active {
-    border-right: 3px solid #FB2C36;
-    /* Thinner accent line */
+  
+  .card-inner {
+      flex-direction: column;
   }
+}
 
-  /* Optional: Button Adjustment on Mobile */
-  .btn-explore {
-    padding: 10px 0;
-    font-size: 14px;
+/* FAQ Section */
+.faq-section {
+    padding: 60px 0;
+}
 
-  }
+.faq-section .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.faq-section .section-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.faq-content {
+    display: flex;
+    gap: 30px;
+}
+
+.faq-sidebar {
+    flex: 0 0 280px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    height: fit-content;
+}
+
+.faq-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-sidebar li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    transition: 0.3s;
+}
+
+.faq-sidebar li.active, .faq-sidebar li:hover {
+    color: #007bff;
+    font-weight: bold;
+    background: #f9f9f9;
+}
+
+.faq-accordion {
+    flex: 1;
+}
+
+.accordion-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.accordion-body {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.accordion-item.open .accordion-body {
+    max-height: 300px;
+    padding-bottom: 20px;
+}
+
+.accordion-item.open .accordion-header {
+    border-bottom: 1px solid #eee;
+}
+
+/* FAQ Responsive */
+@media (max-width: 992px) {
+    .faq-content {
+        flex-direction: column;
+    }
+    .faq-sidebar {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+    
+    .faq-section .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 40px 15px;
+    }
+    .faq-section .section-title {
+        font-size: 1.8rem;
+    }
 }
