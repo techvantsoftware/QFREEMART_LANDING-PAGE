@@ -16,7 +16,7 @@
 
       <!-- Sub-heading Text -->
       <p class="subscription-description">
-        Transform your business with QFreemart's comprehensive marketplace solutions.
+        Transform your business with QFREEMART's comprehensive marketplace solutions.
         <br>
         <span class="text-highlight">Join 10,000+ successful businesses</span> already growing with us.
       </p>
@@ -24,12 +24,23 @@
       <!-- B2C / B2B Toggle Buttons -->
       <div class="toggle-container">
         <div class="btn-group subscription-toggle">
-          <button type="button" class="btn-custom active">
+          
+          <!-- B2C Button -->
+          <button type="button" 
+                  class="btn-custom" 
+                  [class.active]="selectedMode === 'B2C'"
+                  (click)="setMode('B2C')">
             <i class="fas fa-store"></i> B2C
           </button>
-          <button type="button" class="btn-custom">
+          
+          <!-- B2B Button -->
+          <button type="button" 
+                  class="btn-custom" 
+                  [class.active]="selectedMode === 'B2B'"
+                  (click)="setMode('B2B')">
             <i class="fas fa-handshake"></i> B2B
           </button>
+          
         </div>
       </div>
 
@@ -38,119 +49,54 @@
 
   <!-- Pricing Plans -->
   <div class="plans-wrapper">
+    
+    <!-- Dynamic Pricing Cards Loop -->
     <div class="plans">
-      <div class="plan">
-        <h3>Monthly</h3>
-        <p class="price">₹289</p>
+      <div class="plan" *ngFor="let plan of displayPlans">
+        <h3>{{ plan.name }}</h3>
+        <!-- Pipe number to format with commas if needed, e.g., 1,799 -->
+        <p class="price">₹{{ plan.currentPrice }}</p> 
         <p class="original-price">
-          <span class="strikethrough">₹599</span>
-          <span class="discount">50% OFF</span>
-        </p>
-        <button class="subscribe-btn">Subscribe</button>
-      </div>
-      <div class="plan">
-        <h3>Quarterly</h3>
-        <p class="price">₹899</p>
-        <p class="original-price">
-          <span class="strikethrough">₹1799</span>
-          <span class="discount">50% OFF</span>
-        </p>
-        <button class="subscribe-btn">Subscribe</button>
-      </div>
-      <div class="plan">
-        <h3>Semi-Annual</h3>
-        <p class="price">₹1799</p>
-        <p class="original-price">
-          <span class="strikethrough">₹3599</span>
-          <span class="discount">50% OFF</span>
-        </p>
-        <button class="subscribe-btn">Subscribe</button>
-      </div>
-      <div class="plan">
-        <h3>Annual</h3>
-        <p class="price">₹3599</p>
-        <p class="original-price">
-          <span class="strikethrough">₹7199</span>
+          <span class="strikethrough">₹{{ plan.currentOriginalPrice }}</span>
           <span class="discount">50% OFF</span>
         </p>
         <button class="subscribe-btn">Subscribe</button>
       </div>
     </div>
+
     <hr class="section-divider" style="border: none; border-top: 2px solid #E5E7EB; margin: 30px 0;">
 
     <h4 class="section-title">Plans Include different Features</h4>
 
-    <hr class="section-divider" style="border: none; border-top: 2px solid #E5E7EB; margin: 30px 0;">
-
-
-   <div class="features-grid">
-  <div class="feature-list">
-    <ul>
-      <li><span class="tick-icon">✔</span> Commission: 5%</li>
-      <li><span class="cross-icon">✘</span> dummy text</li>
-      <li><span class="cross-icon">✘</span> dummy text</li>
-    </ul>
-  </div>
-  <div class="feature-list">
-    <ul>
-      <li><span class="tick-icon">✔</span> Commission: 4%</li>
-      <li><span class="cross-icon">✘</span> dummy text</li>
-      <li><span class="cross-icon">✘</span> dummy text</li>
-    </ul>
-  </div>
-  <div class="feature-list">
-    <ul>
-      <li><span class="tick-icon">✔</span> Commission: 3%</li>
-      <li><span class="tick-icon">✔</span> dummy text</li>
-      <li><span class="tick-icon">✔</span> dummy text</li>
-    </ul>
-  </div>
-  <div class="feature-list">
-    <ul>
-      <li><span class="tick-icon">✔</span> Commission: 2%</li>
-      <li><span class="tick-icon">✔</span> dummy text</li>
-      <li><span class="tick-icon">✔</span> dummy text</li>
-    </ul>
-  </div>
-</div>
-
-  </div>
-
-
-  <!-- Features Comparison -->
-  <!-- <div class="features-section">
-    <h4 class="section-title">Plans Include different Features</h4>
+    <!-- Dynamic Features Grid Loop -->
     <div class="features-grid">
-      <div class="feature-list">
+      <div class="feature-list" *ngFor="let plan of displayPlans">
         <ul>
-          <li><span class="tick-icon">✔</span> Commission: 5%</li>
-          <li><span class="cross-icon">✘</span> dummy text</li>
-          <li><span class="cross-icon">✘</span> dummy text</li>
-        </ul>
-      </div>
-      <div class="feature-list">
-        <ul>
-          <li><span class="tick-icon">✔</span> Commission: 4%</li>
-          <li><span class="cross-icon">✘</span> dummy text</li>
-          <li><span class="cross-icon">✘</span> dummy text</li>
-        </ul>
-      </div>
-      <div class="feature-list">
-        <ul>
-          <li><span class="tick-icon">✔</span> Commission: 3%</li>
-          <li><span class="tick-icon">✔</span> dummy text</li>
-          <li><span class="tick-icon">✔</span> dummy text</li>
-        </ul>
-      </div>
-      <div class="feature-list">
-        <ul>
-          <li><span class="tick-icon">✔</span> Commission: 2%</li>
-          <li><span class="tick-icon">✔</span> dummy text</li>
-          <li><span class="tick-icon">✔</span> dummy text</li>
+          <li>
+            <span class="tick-icon">✔</span> 
+            <!-- Shows calculated commission -->
+            Commission: {{ plan.currentCommission }}%
+          </li>
+          
+          <!-- Conditional checks for dummy text based on plans if needed -->
+          <!-- Example logic: "Semi" and "Annual" get extra checks -->
+          <li>
+            <span [class]="(plan.id === 'semi' || plan.id === 'annual') ? 'tick-icon' : 'cross-icon'">
+              {{ (plan.id === 'semi' || plan.id === 'annual') ? '✔' : '✘' }}
+            </span> 
+            dummy text
+          </li>
+          <li>
+            <span [class]="(plan.id === 'annual') ? 'tick-icon' : 'cross-icon'">
+               {{ (plan.id === 'annual') ? '✔' : '✘' }}
+            </span> 
+            dummy text
+          </li>
         </ul>
       </div>
     </div>
-  </div> -->
+
+  </div>
 
   <!-- All Plans Features -->
   <div class="all-plans-features">
@@ -170,4 +116,5 @@
       </ul>
     </div>
   </div>
+  
 </div>

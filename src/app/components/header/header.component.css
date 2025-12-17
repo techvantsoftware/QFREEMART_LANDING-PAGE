@@ -18,7 +18,7 @@
   box-shadow: 0px 2px 3px 0px #60606021;
 
   font-family: "Lato", sans-serif;
-
+  height: 70px;
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +35,7 @@
 }
 
 .logo {
-  height: 50px;
+  height: 36px;
   width: auto;
   margin-right: 15px;
 }
