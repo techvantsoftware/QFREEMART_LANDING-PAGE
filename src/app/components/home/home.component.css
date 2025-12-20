@@ -700,3 +700,230 @@ body {
     font-size: 1.8rem;
   }
 }
+/* ==================== FLOW SECTION STYLING (NEW) ==================== */
+
+.flow-section {
+  padding: 100px 0;
+  background-color: #ffffff;
+  font-family: "Lato", sans-serif;
+}
+
+.text-red {
+  color: #fb2c36;
+}
+
+/* Main Titles */
+.flow-main-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.flow-description {
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Operating System Side */
+.os-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+  padding-left: 25px;
+  color: #1a1a1a;
+}
+
+/* The Red Dot in front of the title */
+.red-dot {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 12px;
+  height: 12px;
+  background-color: #fb2c36;
+  border-radius: 50%;
+}
+
+.os-text {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.outcome-box h6 {
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 5px;
+  color: #1a1a1a;
+}
+
+.outcome-box p {
+  color: #777;
+  font-size: 1rem;
+}
+
+/* 2x2 Feature Cards */
+.feature-card {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border-color: #fb2c36;
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  color: #fb2c36;
+  margin-bottom: 15px;
+}
+
+.feature-card h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0;
+}
+
+/* ==================== RESPONSIVE FLOW SECTION ==================== */
+
+@media (max-width: 991px) {
+  .flow-main-title {
+    font-size: 2.4rem;
+  }
+
+  .flow-section {
+    padding: 60px 0;
+  }
+
+  .os-title {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .flow-main-title {
+    font-size: 2rem;
+  }
+
+  .feature-card {
+    padding: 20px 15px;
+  }
+}
+/* Container for the text on the left */
+.hero-content-container {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: left;
+}
+
+.hero-text-wrapper {
+  /* Optional: semi-transparent background for better readability over the image */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(2px);
+}
+
+.top-tagline {
+  color: #ff4d4d; /* Matching the red from image 1 */
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+
+.main-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  max-width: 90%;
+}
+
+/* CTA Button Group */
+.cta-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-cta {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-red {
+  background-color: #d63031;
+  color: white;
+  border: 2px solid #d63031;
+}
+
+.btn-red:hover {
+  background-color: #b32424;
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: #333;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2.5rem;
+  }
+  .hero-content-container {
+    text-align: center;
+  }
+  .cta-group {
+    justify-content: center;
+  }
+}

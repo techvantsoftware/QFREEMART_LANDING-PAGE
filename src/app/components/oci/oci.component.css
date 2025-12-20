@@ -22,6 +22,7 @@
   font-weight: 700;
   color: #333;
   margin-bottom: 15px;
+  margin-top: 20px;
 }
 
 .oci-description {
@@ -352,7 +353,9 @@
     animation-name: showFeatureMobile, fadeOutFeature;
   }
 }
-
+.highlight-red {
+  color: #e7000b; /* Red from image */
+}
 /* --- Sparkle Effect --- */
 .sparkle {
   position: absolute;

@@ -11,9 +11,14 @@ import { CommonModule } from '@angular/common';
 export class OciComponent {
   allFeatures = [
     {
+      icon: '🛒',
+      text: 'Multi-Channel Commerce',
+      details: 'Sell online, offline, and locally from one system.',
+    },
+    {
       icon: '📦',
       text: 'Stock Toggle System',
-      details: 'Go out of stock or live instantly — stay fully in control.',
+      details: 'Go out of stock or live instantly ,stay fully in control.',
     },
     {
       icon: '🙏',
@@ -21,24 +26,9 @@ export class OciComponent {
       details: 'Buyers see clear conditions. Sellers earn lasting trust.',
     },
     {
-      icon: '🎁',
-      text: 'Products + Services Together',
-      details: 'Sell products and services together — without complexity.',
-    },
-    {
-      icon: '📅',
-      text: 'Online Appointment Booking',
-      details: 'Let customers book slots instantly, without calls.',
-    },
-    {
-      icon: '🚚',
-      text: 'Remote Queue Management',
-      details: 'Customers wait remotely. You serve smoothly.',
-    },
-    {
-      icon: '🛒',
-      text: 'Multi-Channel Commerce',
-      details: 'Sell online, offline, and locally — from one system.',
+      icon: '💳',
+      text: 'Payments & Deliveries',
+      details: 'Track orders, deliveries, and settlements in one flow.',
     },
     {
       icon: '🌍',
@@ -48,18 +38,27 @@ export class OciComponent {
     {
       icon: '🏪',
       text: 'Smart Store Setup',
-      details:
-        'Launch your digital store in minutes — no tech skills required.',
+      details: 'Launch your digital store in minutes ,no tech skills required.',
+    },
+    {
+      icon: '🚚',
+      text: 'Remote Queue Management',
+      details: 'Customers wait remotely. You serve smoothly.',
+    },
+    {
+      icon: '📅',
+      text: 'Online Appointment Booking',
+      details: 'Let customers book slots instantly, without calls.',
+    },
+    {
+      icon: '🎁',
+      text: 'Not only Products but Services as well',
+      details: 'Sell products and services together ,without complexity.',
     },
     {
       icon: '📊',
       text: 'Vendor Analytics',
       details: 'See what sells, what stalls, and where to grow next.',
-    },
-    {
-      icon: '💳',
-      text: 'Payments & Deliveries',
-      details: 'Track orders, deliveries, and settlements in one flow.',
     },
   ];
 

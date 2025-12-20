@@ -1,13 +1,18 @@
 <!-- OCI HEADER SECTION -->
 <div class="oci-header-section">
   <div class="oci-tag">
-    <span><i class="bi bi-gear-fill" style="padding:5px;"></i> OCI Technology</span>
+    <span
+      ><i class="bi bi-gear-fill" style="padding: 5px"></i> OCI Technology</span
+    >
   </div>
 
-  <h1 class="oci-title">The Power of Integration with OCI™</h1>
+  <h1 class="oci-title">
+    One Intelligent Core.
+    <span class="highlight-red">Endless Possibilities.</span>
+  </h1>
   <p class="oci-description">
-    OCI™ transforms the way businesses and customers interact. By connecting every touchpoint—retail, supply chain,
-    services, and analytics—it creates a single, powerful ecosystem for commerce.
+    At the center of QFREEMART is a unified engine that connects every function
+    of commerce. Each capability strengthens the others.
   </p>
 </div>
 
@@ -27,15 +32,22 @@
   <!-- Dynamic cards -->
   <div class="features-wrapper">
     <div class="lines-wrapper">
-      <div class="feature-line" *ngFor="let feature of features; let i = index" [style.--i]="i"
-        [style.--count]="features.length">
+      <div
+        class="feature-line"
+        *ngFor="let feature of features; let i = index"
+        [style.--i]="i"
+        [style.--count]="features.length"
+      >
         <div class="sparkle"></div>
       </div>
     </div>
 
-
-    <div class="feature-item" *ngFor="let feature of features; let i = index" [style.--i]="i"
-      [style.--count]="features.length">
+    <div
+      class="feature-item"
+      *ngFor="let feature of features; let i = index"
+      [style.--i]="i"
+      [style.--count]="features.length"
+    >
       <div class="icon">{{ feature.icon }}</div>
       <div class="text">{{ feature.text }}</div>
       <div class="more-details">
