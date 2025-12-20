@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .play-button {
-  background: #E7000B;
+  background: #e7000b;
   border: 11px solid #fff;
   width: 140px;
   height: 140px;
@@ -84,14 +84,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 32px 51.1px -26px #FFFFFF87;
+  box-shadow: 0px 32px 51.1px -26px #ffffff87;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .play-button:hover {
   transform: scale(1.05);
-  box-shadow: 0px 40px 60px -20px #FFFFFFA0;
+  box-shadow: 0px 40px 60px -20px #ffffffa0;
 }
 
 .play-button i {
@@ -120,10 +120,10 @@ body {
   .hero-content .description {
     font-size: 0.95rem;
   }
-  
+
   .hero-content {
-      padding: 20px;
-      width: 100%;
+    padding: 20px;
+    width: 100%;
   }
 }
 
@@ -131,298 +131,299 @@ body {
 /* This section controls the Apps (Ordering, Seller, etc.) */
 
 .qfreemart-section {
-    padding: 80px 0; /* Standard desktop spacing */
-    background-color: #fff;
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-    display: block; 
-    text-align: left;
-    margin-bottom: 60px; 
+  padding: 80px 0; /* Standard desktop spacing */
+  background-color: #fff;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin-bottom: 60px;
 }
 
 .qfreemart-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* --- 1. Header & Text Styling --- */
 .qfreemart-section h3.section-title {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 1.3;
-    color: #222;
-    margin-bottom: 20px;
-    text-align: left;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.3;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 /* Specific override for centering on mobile based on HTML classes */
 @media (max-width: 991px) {
-    .qfreemart-section h3.section-title {
-        text-align: center;
-        font-size: 26px;
-    }
+  .qfreemart-section h3.section-title {
+    text-align: center;
+    font-size: 26px;
+  }
 }
 
 .qfreemart-section p.text-muted {
-    font-family: 'Lato', sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #666;
-    margin-bottom: 30px;
-    max-width: 100%;
+  font-family: "Lato", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 100%;
 }
 
 /* --- 2. App Badge (Icon + Title) --- */
 .app-badge {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    /* Alignment handled by Bootstrap classes in HTML (justify-content-...) */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  /* Alignment handled by Bootstrap classes in HTML (justify-content-...) */
 }
 
 .app-badge .app-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    border-radius: 50%;
-    /* box-shadow: 0 4px 10px rgba(0,0,0,0.05); */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  /* box-shadow: 0 4px 10px rgba(0,0,0,0.05); */
 }
 
 .app-badge .app-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .app-badge h5 {
-    font-size: 14px;
-    font-weight: 800;
-    color: #555;
-    text-transform: uppercase;
-    margin: 0;
-    letter-spacing: 0.5px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #555;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 /* --- 3. Buttons --- */
 .btn-explore {
-    background-color: #FB2C36;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 35px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: capitalize;
+  background-color: #fb2c36;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 35px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
 }
 
 .btn-explore:hover {
-    background-color: #d01f28;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(251, 44, 54, 0.3);
+  background-color: #d01f28;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(251, 44, 54, 0.3);
 }
 
 /* --- 4. Video / Mockup Styling --- */
 /* Center the video within its column */
 .video-wrapper {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .app-video-mockup {
-    width: 100%;
-    max-width: 350px; /* Looks like a phone on Desktop */
-    height: auto;
-    border-radius: 24px;
-    object-fit: cover;
-    border: 4px solid #fff; /* Optional phone frame look */
-    /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+  width: 100%;
+  max-width: 350px; /* Looks like a phone on Desktop */
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 4px solid #fff; /* Optional phone frame look */
+  /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
 }
 .video-wrapper {
-    position: relative;
-    width: 100%;
-    height: auto;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .video-loader {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255,255,255,0.6);
-    z-index: 10;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 10;
 }
 
 .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ddd;
-    border-top-color: #FB2C36;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top-color: #fb2c36;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 .why-choose-tag {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    justify-content: center;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 10px 25px;
-    background:  #F3F4F6;
-    border: 2px solid #E5E7EB;
-    border-radius: 50px;
-    box-shadow: 0 2px 6px rgba(255, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 25px;
+  background: #f3f4f6;
+  border: 2px solid #e5e7eb;
+  border-radius: 50px;
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.05);
 }
 
 .why-choose-tag i {
-    font-size: 1.1rem;
-    color: #1E2939;
+  font-size: 1.1rem;
+  color: #1e2939;
 }
 
 .tag-text {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0.35px;
-    color: #1E2939;
-    text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.35px;
+  color: #1e2939;
+  text-align: center;
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* --- 5. Feature List (Right Side) --- */
 .feature-list {
-    padding-left: 0;
-    margin-bottom: 0;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 .feature-list .list-group-item {
-    border: none;
-    border-bottom: 1px solid #f0f0f0; 
-    padding: 18px 20px;
-    font-size: 16px;
-    color: #555;
-    background: transparent;
-    text-align: left;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    position: relative;
-    font-family: 'Lato', sans-serif;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 18px 20px;
+  font-size: 16px;
+  color: #555;
+  background: transparent;
+  text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  font-family: "Lato", sans-serif;
 }
 
 /* Hover State */
 .feature-list .list-group-item:hover {
-    background-color: #fcfcfc;
-    color: #222;
+  background-color: #fcfcfc;
+  color: #222;
 }
 
 /* Active State (Red Border on Right) */
 .feature-list .list-group-item.active {
-    background-color: #fff;
-    color: #000;
-    font-weight: 700;
-    border: none;
-    border-bottom: 1px solid #f0f0f0;
-    border-right: 5px solid #FB2C36; /* Distinct red accent */
-    z-index: 2;
+  background-color: #fff;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  border-right: 5px solid #fb2c36; /* Distinct red accent */
+  z-index: 2;
 }
 
 /* Remove default Bootstrap active blue background if it leaks through */
 .list-group-item.active:hover {
-    background-color: #fff;
-    color: #000;
+  background-color: #fff;
+  color: #000;
 }
 
 /* --- App Section Main Header (Centered Title) --- */
 .app-header h2 {
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
 }
 .app-header .highlight {
-    color: #FB2C36;
+  color: #fb2c36;
 }
 
 /* ==================== MOBILE / TABLET OVERRIDES (The Critical Part) ==================== */
 /* Matches your "1st Code" logic: Text top, Video+List split below */
 
 @media (max-width: 991px) {
-    
-    .qfreemart-section {
-        padding: 40px 0;
-        /* text-align center handled by bootstrap class text-center in HTML */
-    }
+  .qfreemart-section {
+    padding: 40px 0;
+    /* text-align center handled by bootstrap class text-center in HTML */
+  }
 
-    /* 1. Header Adjustments */
-    .app-header h2 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
+  /* 1. Header Adjustments */
+  .app-header h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
 
-    .qfreemart-section h3.section-title {
-        font-size: 24px; 
-        margin-bottom: 15px;
-    }
-    
-    .qfreemart-section p.text-muted {
-        font-size: 15px;
-        margin-bottom: 20px;
-    }
-    
-    .app-badge {
-        margin-bottom: 15px;
-    }
+  .qfreemart-section h3.section-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
 
-    /* 2. Video Layout (Left side of the split grid) */
-    .video-wrapper {
-        justify-content: center;
-        align-items: flex-start; /* Align with top of list */
-        margin-bottom: 0;
-    }
+  .qfreemart-section p.text-muted {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
 
-    .app-video-mockup {
-        max-width: 100%; /* Fill the col-5 width */
-        border-radius: 12px;
-        border: 2px solid #fff;
-    }
+  .app-badge {
+    margin-bottom: 15px;
+  }
 
-    /* 3. Feature List Layout (Right side of the split grid) */
-    .feature-list .list-group-item {
-        padding: 10px 5px; /* Tighter padding */
-        font-size: 13px; /* Smaller text for split layout */
-        line-height: 1.4;
-    }
-    
-    .feature-list .list-group-item.active {
-        border-right: 3px solid #FB2C36; 
-    }
-    
-    /* 4. Button spans full width */
-    .btn-explore {
-        width: 100%;
-        margin-top: 10px;
-    }
+  /* 2. Video Layout (Left side of the split grid) */
+  .video-wrapper {
+    justify-content: center;
+    align-items: flex-start; /* Align with top of list */
+    margin-bottom: 0;
+  }
+
+  .app-video-mockup {
+    max-width: 100%; /* Fill the col-5 width */
+    border-radius: 12px;
+    border: 2px solid #fff;
+  }
+
+  /* 3. Feature List Layout (Right side of the split grid) */
+  .feature-list .list-group-item {
+    padding: 10px 5px; /* Tighter padding */
+    font-size: 13px; /* Smaller text for split layout */
+    line-height: 1.4;
+  }
+
+  .feature-list .list-group-item.active {
+    border-right: 3px solid #fb2c36;
+  }
+
+  /* 4. Button spans full width */
+  .btn-explore {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 /* ==================== SUBSCRIPTION & TESTIMONIALS & FAQ ==================== */
@@ -455,7 +456,7 @@ body {
 
 /* Testimonials Section */
 .testimonials-section {
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
   padding: 60px 0;
   overflow: hidden;
 }
@@ -469,7 +470,7 @@ body {
 }
 
 .testimonials-section .section-title {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 36px;
   color: #283646;
@@ -490,7 +491,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #E7000B;
+  color: #e7000b;
   background: transparent;
   transition: transform 0.3s ease;
 }
@@ -514,7 +515,7 @@ body {
   grid-column: span 6;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .card-inner {
@@ -525,7 +526,7 @@ body {
 
 .card-image {
   flex: 1;
-  background-color: #ECE3F4;
+  background-color: #ece3f4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -550,14 +551,14 @@ body {
   background-color: #fff;
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .stars .fas.fa-star.filled {
-  color: #E7000B;
+  color: #e7000b;
 }
 .stars .fas.fa-star {
   color: #e0e0e0;
@@ -569,131 +570,133 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
-  .testimonial-card, .testimonial-item {
+
+  .testimonial-card,
+  .testimonial-item {
     width: 100%;
   }
 
   .testimonials-header {
-      justify-content: center;
-      text-align: center;
-      gap: 20px;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
   }
-  
+
   .card-inner {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
 /* FAQ Section */
 .faq-section {
-    padding: 60px 0;
+  padding: 60px 0;
 }
 
 .faq-section .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .faq-section .section-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
 }
 
 .faq-content {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
 }
 
 .faq-sidebar {
-    flex: 0 0 280px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid #ddd;
-    height: fit-content;
+  flex: 0 0 280px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  height: fit-content;
 }
 
 .faq-sidebar ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .faq-sidebar li {
-    padding: 12px 15px;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-    color: #555;
-    transition: 0.3s;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  transition: 0.3s;
 }
 
-.faq-sidebar li.active, .faq-sidebar li:hover {
-    color: #007bff;
-    font-weight: bold;
-    background: #f9f9f9;
+.faq-sidebar li.active,
+.faq-sidebar li:hover {
+  color: #007bff;
+  font-weight: bold;
+  background: #f9f9f9;
 }
 
 .faq-accordion {
-    flex: 1;
+  flex: 1;
 }
 
 .accordion-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    overflow: hidden;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .accordion-header {
-    padding: 15px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
+  padding: 15px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
 }
 
 .accordion-body {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .accordion-item.open .accordion-body {
-    max-height: 300px;
-    padding-bottom: 20px;
+  max-height: 300px;
+  padding-bottom: 20px;
 }
 
 .accordion-item.open .accordion-header {
-    border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 /* FAQ Responsive */
 @media (max-width: 992px) {
-    .faq-content {
-        flex-direction: column;
-    }
-    .faq-sidebar {
-        width: 100%;
-        flex: 0 0 auto;
-    }
-    
-    .faq-section .section-title {
-        font-size: 2rem;
-    }
+  .faq-content {
+    flex-direction: column;
+  }
+  .faq-sidebar {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .faq-section .section-title {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .faq-section {
-        padding: 40px 15px;
-    }
-    .faq-section .section-title {
-        font-size: 1.8rem;
-    }
+  .faq-section {
+    padding: 40px 15px;
+  }
+  .faq-section .section-title {
+    font-size: 1.8rem;
+  }
 }

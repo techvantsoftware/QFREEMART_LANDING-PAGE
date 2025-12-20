@@ -5,7 +5,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 40px;
-
 }
 
 .pricing-container {
@@ -104,8 +103,7 @@ body {
 /* --- Plans Section --- */
 .plans-wrapper {
   max-width: 1156px;
-  background: #F9FAFB;
-  ;
+  background: #f9fafb;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(60, 60, 60, 0.14);
   padding: 32px;
@@ -221,11 +219,10 @@ body {
   /* space between columns */
   width: 0;
   height: 100%;
-  border-right: 2px solid #E5E7EB;
+  border-right: 2px solid #e5e7eb;
   /* <-- solid line instead of dashed */
   pointer-events: none;
 }
-
 
 .feature-list ul {
   list-style: none;
@@ -279,7 +276,6 @@ body {
   }
 }
 
-
 /* --- Features Sections --- */
 .features-section,
 .all-plans-features {
@@ -291,7 +287,6 @@ body {
   position: relative;
   padding-top: 40px;
   max-width: 1156px;
-
 }
 
 .features-grid,
@@ -346,7 +341,6 @@ body {
 }
 /* --- Mobile Fix for Pricing Cards --- */
 @media (max-width: 600px) {
-  
   .plans {
     flex-direction: column;
     gap: 25px;
@@ -358,7 +352,7 @@ body {
     max-width: 350px;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     text-align: center;
   }
 
@@ -439,4 +433,31 @@ body {
     font-size: 0.9rem;
     padding: 6px 14px;
   }
+}
+/* Color for the checkmark */
+.tick-icon {
+  color: white; /* Green */
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* Color for the cross and disabled state */
+.cross-icon {
+  color: #9ca3af; /* Grey */
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* Class to grey out the text */
+.disabled-text {
+  color: #9ca3af !important;
+  /* Optional: text-decoration: line-through; if you want it to look very excluded */
+}
+
+/* Ensure list items have some spacing */
+.feature-list ul li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
 }

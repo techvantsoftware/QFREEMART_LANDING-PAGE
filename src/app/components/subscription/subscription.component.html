@@ -1,9 +1,7 @@
 <div class="pricing-container">
-
   <!-- Subscription Intro Section -->
   <div class="subscription-intro">
     <div class="subscription-box">
-
       <!-- Top "Choose Plan" Badge -->
       <div class="badge-pill-container">
         <i class="fas fa-crown"></i>
@@ -16,46 +14,48 @@
 
       <!-- Sub-heading Text -->
       <p class="subscription-description">
-        Transform your business with QFREEMART's comprehensive marketplace solutions.
-        <br>
-        <span class="text-highlight">Join 10,000+ successful businesses</span> already growing with us.
+        Transform your business with QFREEMART's comprehensive marketplace
+        solutions.
+        <br />
+        <span class="text-highlight">Join 10,000+ successful businesses</span>
+        already growing with us.
       </p>
 
       <!-- B2C / B2B Toggle Buttons -->
       <div class="toggle-container">
         <div class="btn-group subscription-toggle">
-          
           <!-- B2C Button -->
-          <button type="button" 
-                  class="btn-custom" 
-                  [class.active]="selectedMode === 'B2C'"
-                  (click)="setMode('B2C')">
+          <button
+            type="button"
+            class="btn-custom"
+            [class.active]="selectedMode === 'B2C'"
+            (click)="setMode('B2C')"
+          >
             <i class="fas fa-store"></i> B2C
           </button>
-          
+
           <!-- B2B Button -->
-          <button type="button" 
-                  class="btn-custom" 
-                  [class.active]="selectedMode === 'B2B'"
-                  (click)="setMode('B2B')">
+          <button
+            type="button"
+            class="btn-custom"
+            [class.active]="selectedMode === 'B2B'"
+            (click)="setMode('B2B')"
+          >
             <i class="fas fa-handshake"></i> B2B
           </button>
-          
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- Pricing Plans -->
   <div class="plans-wrapper">
-    
     <!-- Dynamic Pricing Cards Loop -->
     <div class="plans">
       <div class="plan" *ngFor="let plan of displayPlans">
         <h3>{{ plan.name }}</h3>
         <!-- Pipe number to format with commas if needed, e.g., 1,799 -->
-        <p class="price">₹{{ plan.currentPrice }}</p> 
+        <p class="price">₹{{ plan.currentPrice }}</p>
         <p class="original-price">
           <span class="strikethrough">₹{{ plan.currentOriginalPrice }}</span>
           <span class="discount">50% OFF</span>
@@ -64,38 +64,60 @@
       </div>
     </div>
 
-    <hr class="section-divider" style="border: none; border-top: 2px solid #E5E7EB; margin: 30px 0;">
+    <hr
+      class="section-divider"
+      style="border: none; border-top: 2px solid #e5e7eb; margin: 30px 0"
+    />
 
     <h4 class="section-title">Plans Include different Features</h4>
 
     <!-- Dynamic Features Grid Loop -->
+    <!-- Dynamic Features Grid Loop -->
     <div class="features-grid">
       <div class="feature-list" *ngFor="let plan of displayPlans">
         <ul>
+          <!-- Commission Row -->
           <li>
-            <span class="tick-icon">✔</span> 
-            <!-- Shows calculated commission -->
+            <span class="tick-icon">✔</span>
             Commission: {{ plan.currentCommission }}%
           </li>
-          
-          <!-- Conditional checks for dummy text based on plans if needed -->
-          <!-- Example logic: "Semi" and "Annual" get extra checks -->
-          <li>
-            <span [class]="(plan.id === 'semi' || plan.id === 'annual') ? 'tick-icon' : 'cross-icon'">
-              {{ (plan.id === 'semi' || plan.id === 'annual') ? '✔' : '✘' }}
-            </span> 
-            dummy text
+
+          <!-- Appointment Feature: Quarterly onwards (Quarterly, Semi, Annual) -->
+          <li [class.disabled-text]="plan.id === 'monthly'">
+            <span [class]="plan.id !== 'monthly' ? 'tick-icon' : 'cross-icon'">
+              {{ plan.id !== "monthly" ? "✔" : "✘" }}
+            </span>
+            Appointment feature
           </li>
-          <li>
-            <span [class]="(plan.id === 'annual') ? 'tick-icon' : 'cross-icon'">
-               {{ (plan.id === 'annual') ? '✔' : '✘' }}
-            </span> 
-            dummy text
+
+          <!-- Negotiation: Semi-annual onwards (Semi, Annual) -->
+          <li
+            [class.disabled-text]="
+              plan.id === 'monthly' || plan.id === 'quarterly'
+            "
+          >
+            <span
+              [class]="
+                plan.id === 'semi' || plan.id === 'annual'
+                  ? 'tick-icon'
+                  : 'cross-icon'
+              "
+            >
+              {{ plan.id === "semi" || plan.id === "annual" ? "✔" : "✘" }}
+            </span>
+            Negotiation
+          </li>
+
+          <!-- Analytics: Annual only -->
+          <li [class.disabled-text]="plan.id !== 'annual'">
+            <span [class]="plan.id === 'annual' ? 'tick-icon' : 'cross-icon'">
+              {{ plan.id === "annual" ? "✔" : "✘" }}
+            </span>
+            Analytics
           </li>
         </ul>
       </div>
     </div>
-
   </div>
 
   <!-- All Plans Features -->
@@ -104,9 +126,18 @@
     <div class="included-features-grid">
       <ul>
         <li><span class="tick-icon">✔</span> Online Presence for your Store</li>
-        <li><span class="tick-icon">✔</span> Listing of Products as well as Services</li>
-        <li><span class="tick-icon">✔</span> Multiple Categories of Products as well as Services</li>
-        <li><span class="tick-icon">✔</span> Monitoring Multiple Stores at one place</li>
+        <li>
+          <span class="tick-icon">✔</span> Listing of Products as well as
+          Services
+        </li>
+        <li>
+          <span class="tick-icon">✔</span> Multiple Categories of Products as
+          well as Services
+        </li>
+        <li>
+          <span class="tick-icon">✔</span> Monitoring Multiple Stores at one
+          place
+        </li>
       </ul>
       <ul>
         <li><span class="tick-icon">✔</span> Hyper Local Listing</li>
@@ -116,5 +147,4 @@
       </ul>
     </div>
   </div>
-  
 </div>

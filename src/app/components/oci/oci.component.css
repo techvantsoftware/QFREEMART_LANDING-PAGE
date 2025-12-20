@@ -3,12 +3,13 @@
   flex-direction: column;
   align-items: center;
   background-color: #f8f9fe;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 60px 20px;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* --- Header --- */
+/* --- Header Section --- */
 .oci-header-section {
   text-align: center;
   margin-bottom: 60px;
@@ -29,12 +30,11 @@
   line-height: 1.7;
 }
 
-/* --- Diagram container --- */
+/* --- Diagram Container --- */
 .diagram-container {
   position: relative;
   width: 100%;
   max-width: 800px;
-  /* Max width for desktop */
   height: auto;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -80,14 +80,13 @@
   margin: 0;
 }
 
-
 .text-tech {
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
 }
 
-/* --- Rings --- */
+/* --- Background Rings --- */
 .ring {
   position: absolute;
   border-radius: 50%;
@@ -103,31 +102,23 @@
   width: 70vw;
   height: 70vw;
   max-width: 400px;
-  /* Adjusted for larger desktop view */
   max-height: 400px;
-  /* Adjusted for larger desktop view */
   animation: showRing 0.4s 0.1s ease forwards,
-    rotate-clockwise 12s linear infinite,
-    /* Slower rotation */
-    fadeOutFeature 6s linear infinite;
+    rotate-clockwise 12s linear infinite, fadeOutFeature 6s linear infinite;
 }
 
 .middle-ring {
   width: 50vw;
   height: 50vw;
   max-width: 260px;
-  /* Adjusted for larger desktop view */
   max-height: 260px;
-  /* Adjusted for larger desktop view */
   border-style: solid;
   border-color: rgba(180, 160, 255, 0.2);
   animation: showRing 0.4s 0.2s ease forwards,
-    rotate-anticlockwise 12s linear infinite,
-    /* Slower rotation */
-    fadeOutFeature 6s linear infinite;
+    rotate-anticlockwise 12s linear infinite, fadeOutFeature 6s linear infinite;
 }
 
-/* --- Features --- */
+/* --- Features Wrapper --- */
 .features-wrapper {
   position: absolute;
   width: 100%;
@@ -157,14 +148,14 @@
   animation-delay: calc(0.6s + var(--i) * 0.1s);
 }
 
-/* Default Desktop Styles */
+/* --- Feature Items (Cards) --- */
 .feature-item {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: -65px;
   margin-left: -65px;
-  width: 130px;
+  width: 150px;
   height: 130px;
   background: white;
   border-radius: 20px;
@@ -178,31 +169,81 @@
   opacity: 0;
   z-index: 5;
   pointer-events: auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: showFeatureDesktop 0.4s ease forwards, fadeOutFeature 6s linear infinite;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: showFeatureDesktop 0.4s ease forwards,
+    fadeOutFeature 6s linear infinite;
   animation-delay: calc(0.8s + var(--i) * 0.1s);
+  overflow: hidden;
 }
 
-.feature-icon {
-  margin-bottom: 10px;
-  color: #7f5eff;
+/* Default state for Icon & Title */
+.feature-item .icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.feature-text {
-  font-size: 0.9rem;
-  font-weight: 600;
+.feature-item .text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hidden state for Details */
+.feature-item .more-details {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px); /* Start lower */
   color: #444;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 15px;
+  transition: all 0.4s ease;
+  pointer-events: none;
 }
 
+/* 🔥 HOVER STATE: Hide Icon/Text, Lift Details Up */
+.feature-item:hover {
+  transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(350px)
+    rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.15);
+  z-index: 50;
+  box-shadow: 0 15px 40px rgba(231, 0, 11, 0.15);
+  border: 2px solid #e7000b;
+}
+
+.feature-item:hover .icon,
+.feature-item:hover .text {
+  opacity: 0;
+  transform: scale(0.3); /* Shrink while fading */
+  position: absolute; /* Removes them from flex centering flow */
+}
+
+.feature-item:hover .more-details {
+  opacity: 1;
+  /* Moved "a little bit above" center using a negative translateY */
+  transform: translateY(-15px);
+  position: relative;
+  pointer-events: auto;
+}
+
+/* --- Decorative Tag --- */
 .oci-tag {
   display: inline-block;
-  background: linear-gradient(90deg, #FEF2F2 0%, rgba(255, 226, 226, 0.5) 50%, #FEF2F2 100%);
-  border: 1px solid #FFC9C9;
+  background: linear-gradient(
+    90deg,
+    #fef2f2 0%,
+    rgba(255, 226, 226, 0.5) 50%,
+    #fef2f2 100%
+  );
+  border: 1px solid #ffc9c9;
   border-radius: 50px;
   padding: 10px 25px;
   font-weight: 600;
   font-size: 1rem;
-  color: #E7000B;
+  color: #e7000b;
   box-shadow: 0 2px 6px rgba(255, 0, 0, 0.05);
   display: flex;
   align-items: center;
@@ -212,11 +253,6 @@
   margin: 0 auto;
 }
 
-.oci-tag i {
-  font-size: 1.1rem;
-  color: #E7000B;
-}
-
 /* --- Animations --- */
 @keyframes fadeInCenter {
   to {
@@ -224,77 +260,63 @@
     transform: scale(1);
   }
 }
-
 @keyframes showRing {
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 }
-
 @keyframes showLine {
   to {
     opacity: 0.8;
   }
 }
 
-/* Desktop animation */
-/* Desktop animation – cards slightly farther */
 @keyframes showFeatureDesktop {
   to {
     opacity: 1;
     transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(340px)
-      /* increased from 300px */
       rotate(calc(-1 * var(--i) * (360deg / var(--count))));
   }
 }
 
-/* Rotation */
 @keyframes rotate-clockwise {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
-
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
 @keyframes rotate-anticlockwise {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
-
   to {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
 }
 
 @keyframes fadeOutFeature {
-
   0%,
   75% {
     opacity: 1;
   }
-
   85%,
   100% {
     opacity: 0;
   }
 }
-
 @keyframes restartLoop {
   0% {
     opacity: 0;
     transform: scale(0.95);
   }
-
   5%,
   85% {
     opacity: 1;
     transform: scale(1);
   }
-
   90%,
   100% {
     opacity: 0;
@@ -302,153 +324,36 @@
   }
 }
 
-
-/* --- Responsive Adjustments for Tablets (e.g., iPads) --- */
-@media (max-width: 992px) {
-  .feature-item {
-    animation-name: showFeatureTablet;
-    /* Use tablet animation */
-  }
-
-  .feature-item:hover {
-    transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(230px)
-      /* Hover distance for tablet */
-      rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.05);
-  }
-
-  @keyframes showFeatureTablet {
-    to {
-      opacity: 1;
-      transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(220px)
-        /* Distance for tablet */
-        rotate(calc(-1 * var(--i) * (360deg / var(--count))));
-    }
-  }
-}
-
-
-/* --- Responsive Adjustments for Mobile --- */
+/* --- Mobile Adjustments --- */
 @media (max-width: 768px) {
   .diagram-container {
-    position: relative;
-    width: 90vw;
-    height: 90vw;
-    overflow: visible;
-    /* ✅ prevents ring clipping */
-  }
-
-  .inner-circle {
-    width: 75%;
-    height: 75%;
-    border-width: 6px;
-  }
-
-  .text-oci {
-    font-size: 1.8rem;
-  }
-
-  .text-tech {
-    font-size: 0.9rem;
-  }
-
-  .oci-title {
-    font-size: 1.8rem;
-  }
-
-  .oci-description {
-    font-size: 1rem;
-  }
-
-  .diagram-container {
     width: 90vw;
     height: 90vw;
   }
-
-  .center-circle {
-    width: 25vw;
-    height: 25vw;
-    max-width: 150px;
-    max-height: 150px;
-  }
-
-  .outer-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 75vw;
-    height: 75vw;
-    max-width: 150px;
-    max-height: 150px;
-    border: 2px dashed #d0cde4;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-
-  /* ✅ Middle ring proportional to outer ring */
-  .middle-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 55vw;
-    height: 55vw;
-    max-width: 130px;
-    max-height: 130px;
-    border: 2px solid rgba(180, 160, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-
   .feature-item {
-    width: 100px;
-    height: 120px;
-    margin-top: -45px;
-    margin-left: -45px;
+    width: 105px;
+    height: 105px;
+    margin-top: -52px;
+    margin-left: -52px;
+  }
+  .feature-item:hover .more-details {
+    transform: translateY(-10px); /* Slightly less shift on small screens */
+    font-size: 0.75rem;
     padding: 10px;
-    border-radius: 12px;
-    animation-name: showFeatureMobile;
   }
-
-  .feature-text {
-    font-size: 0.8rem;
-  }
-
   @keyframes showFeatureMobile {
     to {
       opacity: 1;
-      transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(140px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
+      transform: rotate(calc(var(--i) * (360deg / var(--count))))
+        translate(140px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
     }
+  }
+  .feature-item {
+    animation-name: showFeatureMobile, fadeOutFeature;
   }
 }
 
-.feature-item .more-details {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  color: #555;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  transition: all 0.4s ease;
-  margin-top: 8px;
-}
-
-/* Hover effect for all cards */
-.feature-item:hover {
-  transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(350px) rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.1);
-  z-index: 50;
-  box-shadow: 0 12px 35px rgba(100, 100, 150, 0.15);
-  border: 2px solid #E7000B;
-  /* 🔥 Red border on hover */
-}
-
-/* Show hidden details when hovered */
-.feature-item:hover .more-details {
-  opacity: 1;
-  max-height: 100px;
-}
-
-/* ✨ Decorative Sparkle Bubble */
+/* --- Sparkle Effect --- */
 .sparkle {
   position: absolute;
   top: 50%;
@@ -457,114 +362,59 @@
   border-radius: 50%;
   opacity: 0;
   filter: blur(1px) drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
-  animation: sparkleMove 6s ease-in-out infinite, sparkleColor 4s linear infinite;
+  animation: sparkleMove 6s ease-in-out infinite,
+    sparkleColor 4s linear infinite;
 }
-
-/* Alternate direction for even lines */
 .feature-line:nth-child(even) .sparkle {
   animation-name: sparkleMoveReverse, sparkleColor;
 }
 
-/* Add variation in timing */
-.feature-line:nth-child(1) .sparkle {
-  animation-delay: 0s, 0s;
-}
-
-.feature-line:nth-child(2) .sparkle {
-  animation-delay: 0.8s, 0.8s;
-}
-
-.feature-line:nth-child(3) .sparkle {
-  animation-delay: 1.6s, 1.6s;
-}
-
-.feature-line:nth-child(4) .sparkle {
-  animation-delay: 2.4s, 2.4s;
-}
-
-.feature-line:nth-child(5) .sparkle {
-  animation-delay: 3.2s, 3.2s;
-}
-
-.feature-line:nth-child(6) .sparkle {
-  animation-delay: 4s, 4s;
-}
-
-/* 🌈 Gentle sparkle motion (left to right) */
 @keyframes sparkleMove {
   0% {
     left: 0%;
     opacity: 0;
     transform: translateY(-50%) scale(0.5);
   }
-
   10% {
     opacity: 1;
-    filter: blur(1px) brightness(1.3);
   }
-
-  50% {
-    transform: translateY(-55%) scale(1.3);
-  }
-
-  90% {
-    opacity: 1;
-  }
-
   100% {
     left: 100%;
     opacity: 0;
     transform: translateY(-50%) scale(0.5);
   }
 }
-
-/* 🌈 Gentle sparkle motion (right to left) */
 @keyframes sparkleMoveReverse {
   0% {
     left: 100%;
     opacity: 0;
     transform: translateY(-50%) scale(0.5);
   }
-
   10% {
     opacity: 1;
-    filter: blur(1px) brightness(1.3);
   }
-
-  50% {
-    transform: translateY(-45%) scale(1.3);
-  }
-
-  90% {
-    opacity: 1;
-  }
-
   100% {
     left: 0%;
     opacity: 0;
     transform: translateY(-50%) scale(0.5);
   }
 }
-
-/* ✨ Soft glowing color shifts — no white center */
 @keyframes sparkleColor {
-  0% {
-    background: radial-gradient(circle, #ff6ec7 0%, #ffa8e2 60%, rgba(255, 174, 233, 0.6) 100%);
-  }
-
-  25% {
-    background: radial-gradient(circle, #5ef1ff 0%, #8fdcff 60%, rgba(143, 220, 255, 0.6) 100%);
-  }
-
-  50% {
-    background: radial-gradient(circle, #7cffcb 0%, #a5ffd6 60%, rgba(165, 255, 214, 0.6) 100%);
-  }
-
-  75% {
-    background: radial-gradient(circle, #ffd97d 0%, #ffe6a7 60%, rgba(255, 230, 167, 0.6) 100%);
-  }
-
+  0%,
   100% {
-    background: radial-gradient(circle, #ff6ec7 0%, #ffa8e2 60%, rgba(255, 174, 233, 0.6) 100%);
+    background: radial-gradient(
+      circle,
+      #ff6ec7 0%,
+      #ffa8e2 60%,
+      rgba(255, 174, 233, 0.6) 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle,
+      #5ef1ff 0%,
+      #8fdcff 60%,
+      rgba(143, 220, 255, 0.6) 100%
+    );
   }
 }

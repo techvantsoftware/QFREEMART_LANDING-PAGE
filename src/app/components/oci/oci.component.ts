@@ -6,21 +6,61 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './oci.component.html',
-  styleUrls: ['./oci.component.css']
+  styleUrls: ['./oci.component.css'],
 })
 export class OciComponent {
   allFeatures = [
-    { icon: '📦', text: 'Stock Toggle System',details:"Stock" },
-    { icon: '🙏', text: 'Local Trust Ecosystem',details: ""},
-    { icon: '∞', text: 'Truly Omniversal' ,details:""},
-    { icon: '🎁', text: 'Products + Services Together',details: ""},
-    { icon: '📅', text: 'Online Appointment Booking',details:"" },
-    { icon: '🚚', text: 'Remote Queue Management' ,details: ""},
-    { icon: '🛒', text: 'Multi-Channel Commerce' ,details:"" },
-    { icon: '🌍', text: 'Hyperlocal → Global Reach' ,details:"" },
-    { icon: '🏪', text: 'Smart Store Setup' ,details: ""},
-    { icon: '📊', text: 'Vendor Analytics' ,details: ""},
-    { icon: '💳', text: 'Payments & Deliveries',details:"" },
+    {
+      icon: '📦',
+      text: 'Stock Toggle System',
+      details: 'Go out of stock or live instantly — stay fully in control.',
+    },
+    {
+      icon: '🙏',
+      text: 'Local Trust Ecosystem',
+      details: 'Buyers see clear conditions. Sellers earn lasting trust.',
+    },
+    {
+      icon: '🎁',
+      text: 'Products + Services Together',
+      details: 'Sell products and services together — without complexity.',
+    },
+    {
+      icon: '📅',
+      text: 'Online Appointment Booking',
+      details: 'Let customers book slots instantly, without calls.',
+    },
+    {
+      icon: '🚚',
+      text: 'Remote Queue Management',
+      details: 'Customers wait remotely. You serve smoothly.',
+    },
+    {
+      icon: '🛒',
+      text: 'Multi-Channel Commerce',
+      details: 'Sell online, offline, and locally — from one system.',
+    },
+    {
+      icon: '🌍',
+      text: 'Hyperlocal → Global Reach',
+      details: 'Global Reach Start local. Expand your reach anytime.',
+    },
+    {
+      icon: '🏪',
+      text: 'Smart Store Setup',
+      details:
+        'Launch your digital store in minutes — no tech skills required.',
+    },
+    {
+      icon: '📊',
+      text: 'Vendor Analytics',
+      details: 'See what sells, what stalls, and where to grow next.',
+    },
+    {
+      icon: '💳',
+      text: 'Payments & Deliveries',
+      details: 'Track orders, deliveries, and settlements in one flow.',
+    },
   ];
 
   features = this.allFeatures; // will be filtered based on screen width
