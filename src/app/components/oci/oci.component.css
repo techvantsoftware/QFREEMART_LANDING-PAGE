@@ -326,31 +326,147 @@
 }
 
 /* --- Mobile Adjustments --- */
+/* --- Desktop Styles (Keep existing or use these optimized ones) --- */
+.feature-list-container {
+  display: contents; /* Allows children to use parent's absolute positioning */
+}
+
+/* --- MOBILE RESPONSIVE FIX --- */
 @media (max-width: 768px) {
+  /* 1. Allow the container to grow vertically instead of being a fixed square */
   .diagram-container {
-    width: 90vw;
-    height: 90vw;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    display: block; /* Change from flex to block for natural flow */
+    padding-bottom: 40px;
+    animation: none !important;
   }
+
+  /* 2. Make the wrapper relative so cards stay in the document flow */
+  .features-wrapper {
+    position: relative !important;
+    height: auto !important;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* 3. The Center Branding: Transform it into a simple banner for mobile */
+  .center-circle {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .inner-circle {
+    width: 100% !important;
+    max-width: 300px;
+    height: 80px !important; /* Thinner horizontal bar instead of circle */
+    border-radius: 15px !important;
+    border-width: 4px !important;
+    flex-direction: row !important; /* Side by side text */
+    gap: 10px;
+  }
+
+  .text-oci {
+    font-size: 1.8rem !important;
+  }
+  .text-tech {
+    font-size: 1rem !important;
+  }
+
+  /* 4. Hide Desktop elements */
+  .lines-wrapper,
+  .ring {
+    display: none !important;
+  }
+
+  /* 5. The Grid: Force all cards to show in a list */
+  .feature-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
   .feature-item {
-    width: 105px;
-    height: 105px;
-    margin-top: -52px;
-    margin-left: -52px;
+    position: relative !important; /* Crucial: removes absolute positioning */
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 80px;
+    opacity: 1 !important;
+    transform: none !important; /* Stop the circular rotation */
+    display: flex !important;
+    flex-direction: row !important; /* Icon on left, text on right */
+    align-items: center;
+    text-align: left;
+    padding: 15px 20px;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    animation: slideInMobile 0.5s ease forwards;
+    animation-delay: calc(var(--i) * 0.05s);
   }
-  .feature-item:hover .more-details {
-    transform: translateY(-10px); /* Slightly less shift on small screens */
-    font-size: 0.75rem;
-    padding: 10px;
+
+  /* 6. Layout inside the card */
+  .icon-box {
+    margin-bottom: 0 !important;
+    margin-right: 15px;
+    font-size: 1.5rem;
+    min-width: 40px;
   }
-  @keyframes showFeatureMobile {
-    to {
-      opacity: 1;
-      transform: rotate(calc(var(--i) * (360deg / var(--count))))
-        translate(140px) rotate(calc(-1 * var(--i) * (360deg / var(--count))));
-    }
+
+  .feature-item .text {
+    font-size: 1rem !important;
+    margin-bottom: 4px;
   }
-  .feature-item {
-    animation-name: showFeatureMobile, fadeOutFeature;
+
+  .feature-item .more-details {
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 0 !important;
+    display: block !important;
+    color: #666;
+    font-size: 0.85rem;
+    pointer-events: auto;
+  }
+
+  /* Disable hover effects on mobile to prevent layout jumps */
+  .feature-item:hover {
+    transform: none !important;
+    border-color: #e7000b;
+  }
+}
+
+/* New animation for mobile appearance */
+@keyframes slideInMobile {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 .highlight-red {

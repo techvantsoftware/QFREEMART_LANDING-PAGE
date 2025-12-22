@@ -260,7 +260,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .plans {
     flex-direction: column;
     gap: 20px;
@@ -274,8 +274,107 @@ body {
   .feature-list {
     width: 100%;
   }
-}
+} */
+/* --- Optimized Mobile View (Horizontal Scroll) --- */
+@media (max-width: 768px) {
+  /* Allow the container to scroll horizontally */
+  .plans,
+  .features-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 10px 5px 20px 5px;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
 
+  /* Hide scrollbar for Chrome/Safari */
+  .plans::-webkit-scrollbar,
+  .features-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Force cards to stay side-by-side */
+  .plan,
+  .feature-list {
+    flex: 0 0 85% !important; /* Shows 85% of card + hint of next card */
+    max-width: 85% !important;
+    width: 85% !important;
+    scroll-snap-align: center;
+    margin-bottom: 0;
+  }
+
+  /* Adjust vertical lines in features for mobile */
+  .feature-list:not(:last-child)::after {
+    display: none; /* Remove lines as they break the scroll look */
+  }
+
+  /* Centering Intro text for mobile */
+  .subscription-title {
+    font-size: 1.8rem !important;
+  }
+
+  .subscription-box {
+    padding: 0 15px;
+  }
+
+  /* Fix Toggle Buttons on Mobile */
+  .subscription-toggle {
+    display: flex;
+    width: 100%;
+  }
+
+  .subscription-toggle .btn-custom {
+    flex: 1;
+    padding: 12px 5px;
+    font-size: 0.9rem;
+  }
+
+  /* Fix common features list for mobile */
+  .included-features-grid {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 10px !important;
+  }
+
+  .included-features-grid ul {
+    width: 100%;
+  }
+
+  /* --- Centered and Small Toggle Buttons --- */
+  .toggle-container {
+    display: flex;
+    justify-content: center; /* Centers the button group horizontally */
+    width: 100%;
+    margin: 10px 0 20px 0;
+  }
+
+  .subscription-toggle {
+    display: inline-flex !important; /* Shrinks to fit content instead of full width */
+    width: auto !important; /* Overrides 100% width */
+    background: #f1f1f1; /* Optional: light background for the track */
+    border-radius: 50px; /* Pill shape */
+    padding: 4px; /* Padding between border and buttons */
+    border: 1px solid #ddd;
+  }
+
+  .subscription-toggle .btn-custom {
+    flex: none !important; /* Prevents buttons from stretching */
+    padding: 6px 16px !important; /* Smaller padding for "small" look */
+    font-size: 0.8rem !important; /* Smaller font size */
+    border-radius: 40px !important; /* Keeps buttons rounded */
+    min-width: 80px; /* Ensures a consistent small width */
+    height: auto;
+  }
+
+  /* Optional: Adjust icon size inside small buttons */
+  .subscription-toggle .btn-custom i {
+    font-size: 0.75rem;
+    margin-right: 4px;
+  }
+}
 /* --- Features Sections --- */
 .features-section,
 .all-plans-features {

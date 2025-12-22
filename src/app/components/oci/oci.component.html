@@ -1,36 +1,33 @@
 <!-- OCI HEADER SECTION -->
 <div class="oci-header-section">
   <div class="oci-tag">
-    <span
-      ><i class="bi bi-gear-fill" style="padding: 5px"></i> OCI Technology</span
-    >
+    <span><i class="bi bi-gear-fill"></i> OCI Technology</span>
   </div>
-
   <h1 class="oci-title">
     One Intelligent Core.
     <span class="highlight-red">Endless Possibilities.</span>
   </h1>
   <p class="oci-description">
     At the center of QFREEMART is a unified engine that connects every function
-    of commerce. Each capability strengthens the others.
+    of commerce.
   </p>
 </div>
 
-<!-- DIAGRAM SECTION -->
+<!-- MAIN CONTAINER -->
 <div class="diagram-container">
-  <!-- Center with rings -->
-  <div class="center-circle show">
+  <!-- OCI BRAND CARD (Static on Mobile, Circle Center on Desktop) -->
+  <div class="center-circle">
     <div class="inner-circle">
       <div class="text-oci">OCI</div>
       <div class="text-tech">Technology</div>
     </div>
-
     <div class="ring outer-ring"></div>
     <div class="ring middle-ring"></div>
   </div>
 
-  <!-- Dynamic cards -->
+  <!-- FEATURES SECTION -->
   <div class="features-wrapper">
+    <!-- Background Lines (Desktop Only) -->
     <div class="lines-wrapper">
       <div
         class="feature-line"
@@ -42,16 +39,20 @@
       </div>
     </div>
 
-    <div
-      class="feature-item"
-      *ngFor="let feature of features; let i = index"
-      [style.--i]="i"
-      [style.--count]="features.length"
-    >
-      <div class="icon">{{ feature.icon }}</div>
-      <div class="text">{{ feature.text }}</div>
-      <div class="more-details">
-        {{ feature.details }}
+    <!-- The Bento Grid / Feature List -->
+    <div class="feature-list-container">
+      <div
+        class="feature-item"
+        *ngFor="let feature of features; let i = index"
+        [style.--i]="i"
+        [style.--count]="features.length"
+      >
+        <div class="icon-box">{{ feature.icon }}</div>
+        <div class="card-content">
+          <div class="text">{{ feature.text }}</div>
+          <!-- Details are now always visible on mobile -->
+          <div class="more-details">{{ feature.details }}</div>
+        </div>
       </div>
     </div>
   </div>
