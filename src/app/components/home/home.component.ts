@@ -5,7 +5,7 @@ import {
   ViewChild,
   QueryList,
   ElementRef,
-  ChangeDetectorRef // Import this
+  ChangeDetectorRef, // Import this
 } from '@angular/core';
 import { ContactformComponent } from '../contactform/contactform.component';
 import { OciComponent } from '../oci/oci.component';
@@ -21,13 +21,12 @@ import { CommonModule } from '@angular/common';
     SubscriptionComponent,
     ContactformComponent,
     WhyChooseUsComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements AfterViewInit {
-
   @ViewChildren('appVideo') videoRefs!: QueryList<ElementRef<HTMLVideoElement>>;
   @ViewChild('ociVideo') ociVideoRef!: ElementRef<HTMLVideoElement>;
 
@@ -57,9 +56,13 @@ export class HomeComponent implements AfterViewInit {
     ociVideo.load();
 
     ociVideo.play().catch(() => {
-      document.body.addEventListener('click', () => {
-        ociVideo.play().catch(() => {});
-      }, { once: true });
+      document.body.addEventListener(
+        'click',
+        () => {
+          ociVideo.play().catch(() => {});
+        },
+        { once: true }
+      );
     });
   }
 
@@ -67,62 +70,49 @@ export class HomeComponent implements AfterViewInit {
   // UPDATED: AUTO-ROTATION (LOOP BACK TO START)
   // ===================================
   private initSectionVideos() {
-    const sections = document.querySelectorAll<HTMLElement>('section.qfreemart-section');
+    const sections = document.querySelectorAll<HTMLElement>(
+      'section.qfreemart-section'
+    );
     const videoElements = this.videoRefs.toArray();
 
     sections.forEach((section, sectionIndex) => {
-      const videoElement = videoElements[sectionIndex]?.nativeElement;
-      const listItems = section.querySelectorAll<HTMLLIElement>('.list-group-item');
+      const video = videoElements[sectionIndex]?.nativeElement;
+      const listItems =
+        section.querySelectorAll<HTMLLIElement>('.list-group-item');
 
-      if (!videoElement || listItems.length === 0) return;
+      if (!video || listItems.length === 0) return;
 
-      // Initialize loading state
-      this.loading[sectionIndex] = false;
+      // Ensure autoplay compatibility
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = false;
 
-      // CRITICAL: Disable video-level loop so 'ended' event fires
-      videoElement.loop = false; 
+      let currentIndex = 0;
 
-      let currentItemIndex = 0;
-
-      // --- 1. Define Play Function ---
       const playIndex = (index: number) => {
-        // Update Visuals (Active Class)
-        listItems.forEach(li => li.classList.remove('active'));
+        listItems.forEach((li) => li.classList.remove('active'));
         listItems[index].classList.add('active');
 
-        // Update State
-        currentItemIndex = index;
+        currentIndex = index;
+        const src = listItems[index].dataset['video'];
+        if (!src) return;
 
-        // Play Video
-        const src = listItems[index].getAttribute('data-video');
-        if (src) {
-          this.switchVideo(videoElement, src, sectionIndex);
-        }
+        this.switchVideoInstant(video, src, sectionIndex);
       };
 
-      // --- 2. Event: Video Ends (Logic to Restart) ---
-      // We use 'onended' to ensure we don't stack multiple listeners if this runs twice
-      videoElement.onended = () => {
-        // Calculate the next index
-        let nextIndex = currentItemIndex + 1;
-
-        // LOGIC: If we reached the end, go back to 0 (First video)
-        if (nextIndex >= listItems.length) {
-          nextIndex = 0; 
-        }
-
-        console.log(`Section ${sectionIndex}: Video ended. Playing index ${nextIndex}`);
-        playIndex(nextIndex);
+      // Auto-rotate when video ends
+      video.onended = () => {
+        const next = (currentIndex + 1) % listItems.length;
+        playIndex(next);
       };
 
-      // --- 3. Event: Manual Click ---
+      // Manual click
       listItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-          playIndex(index);
-        });
+        item.addEventListener('click', () => playIndex(index));
       });
 
-      // --- 4. Start Flow ---
+      // Start first video
       playIndex(0);
     });
   }
@@ -130,31 +120,35 @@ export class HomeComponent implements AfterViewInit {
   // =========================
   // SAFE SWITCH LOGIC
   // =========================
-  private switchVideo(video: HTMLVideoElement, src: string, index: number) {
-    // 1. Show Loading
+  private switchVideoInstant(
+    video: HTMLVideoElement,
+    src: string,
+    index: number
+  ) {
     this.loading[index] = true;
-    this.cdr.detectChanges(); // Force UI update
+    this.cdr.detectChanges();
 
-    // 2. Pause current
+    // Stop everything cleanly
     video.pause();
+    video.currentTime = 0;
 
-    // 3. Set up listener for when data is ready
-    // We use 'onloadeddata' property to avoid stacking listeners
-    video.onloadeddata = async () => {
-      // Hide Loading
+    // Remove old listeners
+    video.oncanplay = null;
+
+    // Set source
+    video.src = src;
+    video.load();
+
+    // 🔥 KEY FIX: wait for canplay
+    video.oncanplay = async () => {
       this.loading[index] = false;
       this.cdr.detectChanges();
 
-      // Attempt Play
       try {
         await video.play();
-      } catch (err) {
-        console.warn('Autoplay prevented:', err);
+      } catch (e) {
+        console.warn('Play blocked, retrying on user gesture');
       }
     };
-
-    // 4. Change Source and Load
-    video.src = src;
-    video.load();
   }
 }
