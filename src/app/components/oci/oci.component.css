@@ -148,7 +148,55 @@
   animation: showLine 0.3s ease forwards, fadeOutFeature 6s linear infinite;
   animation-delay: calc(0.6s + var(--i) * 0.1s);
 }
+.icon-box {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
 
+.feature-item .text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2d3436;
+  text-align: center;
+}
+
+.more-details {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  font-size: 0.85rem;
+  color: #636e72;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* --- HOVER STATE (Cleaner UX) --- */
+.feature-item:hover {
+  z-index: 100;
+  box-shadow: 0 20px 40px rgba(231, 0, 11, 0.15);
+  border: 1.5px solid #e7000b;
+}
+
+.feature-item:hover .icon-box,
+.feature-item:hover .text {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.feature-item:hover .more-details {
+  opacity: 1;
+  transform: scale(1);
+}
 /* --- Feature Items (Cards) --- */
 .feature-item {
   position: absolute;
@@ -156,8 +204,8 @@
   left: 50%;
   margin-top: -65px;
   margin-left: -65px;
-  width: 150px;
-  height: 130px;
+  width: 165px;
+  height: 165px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
@@ -175,59 +223,6 @@
     fadeOutFeature 6s linear infinite;
   animation-delay: calc(0.8s + var(--i) * 0.1s);
   overflow: hidden;
-}
-
-/* Default state for Icon & Title */
-.feature-item .icon {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.feature-item .text {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #333;
-  line-height: 1.2;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Hidden state for Details */
-.feature-item .more-details {
-  position: absolute;
-  opacity: 0;
-  transform: translateY(20px); /* Start lower */
-  color: #444;
-  font-size: 0.82rem;
-  font-weight: 500;
-  line-height: 1.4;
-  padding: 15px;
-  transition: all 0.4s ease;
-  pointer-events: none;
-}
-
-/* 🔥 HOVER STATE: Hide Icon/Text, Lift Details Up */
-.feature-item:hover {
-  transform: rotate(calc(var(--i) * (360deg / var(--count)))) translate(350px)
-    rotate(calc(-1 * var(--i) * (360deg / var(--count)))) scale(1.15);
-  z-index: 50;
-  box-shadow: 0 15px 40px rgba(231, 0, 11, 0.15);
-  border: 2px solid #e7000b;
-}
-
-.feature-item:hover .icon,
-.feature-item:hover .text {
-  opacity: 0;
-  transform: scale(0.3); /* Shrink while fading */
-  position: absolute; /* Removes them from flex centering flow */
-}
-
-.feature-item:hover .more-details {
-  opacity: 1;
-  /* Moved "a little bit above" center using a negative translateY */
-  transform: translateY(-15px);
-  position: relative;
-  pointer-events: auto;
 }
 
 /* --- Decorative Tag --- */
