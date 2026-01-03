@@ -2,21 +2,20 @@ import {
   Component,
   AfterViewInit,
   ViewChildren,
-  ViewChild,
   QueryList,
   ElementRef,
-  ChangeDetectorRef, // Import this
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ContactformComponent } from '../contactform/contactform.component';
 import { OciComponent } from '../oci/oci.component';
 import { SubscriptionComponent } from '../subscription/subscription.component';
 import { WhyChooseUsComponent } from '../why-choose-us/why-choose-us.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
+    CommonModule,
     OciComponent,
     SubscriptionComponent,
     ContactformComponent,
@@ -27,128 +26,80 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements AfterViewInit {
-  @ViewChildren('appVideo') videoRefs!: QueryList<ElementRef<HTMLVideoElement>>;
-  @ViewChild('ociVideo') ociVideoRef!: ElementRef<HTMLVideoElement>;
-
-  loading: boolean[] = [];
-
-  // Inject ChangeDetectorRef to handle UI updates smoothly
-  constructor(private cdr: ChangeDetectorRef) {}
+  @ViewChildren('appVideo') videos!: QueryList<ElementRef<HTMLVideoElement>>;
 
   ngAfterViewInit(): void {
-    this.initOCIVideo();
-    this.initSectionVideos();
-    this.cdr.detectChanges(); // Apply changes immediately
+    this.setupLazyVideoPlayback();
   }
 
-  // =========================
-  // FIXED MAIN HERO VIDEO
-  // =========================
-  private initOCIVideo() {
-    const ociVideo = this.ociVideoRef?.nativeElement;
-    if (!ociVideo) return;
+  // ================================
+  // PRODUCTION SAFE VIDEO HANDLING
+  // ================================
+  private setupLazyVideoPlayback() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
 
-    ociVideo.muted = true;
-    ociVideo.autoplay = true;
-    ociVideo.playsInline = true;
-    ociVideo.loop = true; // Hero video loops itself
+          if (entry.isIntersecting) {
+            video.muted = true;
+            video.playsInline = true;
 
-    ociVideo.load();
-
-    ociVideo.play().catch(() => {
-      document.body.addEventListener(
-        'click',
-        () => {
-          ociVideo.play().catch(() => {});
-        },
-        { once: true }
-      );
-    });
-  }
-
-  // ===================================
-  // UPDATED: AUTO-ROTATION (LOOP BACK TO START)
-  // ===================================
-  private initSectionVideos() {
-    const sections = document.querySelectorAll<HTMLElement>(
-      'section.qfreemart-section'
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
     );
-    const videoElements = this.videoRefs.toArray();
 
-    sections.forEach((section, sectionIndex) => {
-      const video = videoElements[sectionIndex]?.nativeElement;
-      const listItems =
-        section.querySelectorAll<HTMLLIElement>('.list-group-item');
-
-      if (!video || listItems.length === 0) return;
-
-      // Ensure autoplay compatibility
-      video.muted = true;
-      video.playsInline = true;
-      video.autoplay = true;
-      video.loop = false;
-
-      let currentIndex = 0;
-
-      const playIndex = (index: number) => {
-        listItems.forEach((li) => li.classList.remove('active'));
-        listItems[index].classList.add('active');
-
-        currentIndex = index;
-        const src = listItems[index].dataset['video'];
-        if (!src) return;
-
-        this.switchVideoInstant(video, src, sectionIndex);
-      };
-
-      // Auto-rotate when video ends
-      video.onended = () => {
-        const next = (currentIndex + 1) % listItems.length;
-        playIndex(next);
-      };
-
-      // Manual click
-      listItems.forEach((item, index) => {
-        item.addEventListener('click', () => playIndex(index));
-      });
-
-      // Start first video
-      playIndex(0);
+    this.videos.forEach((videoRef) => {
+      observer.observe(videoRef.nativeElement);
+      this.setupFeatureSwitch(videoRef.nativeElement);
     });
   }
 
-  // =========================
-  // SAFE SWITCH LOGIC
-  // =========================
-  private switchVideoInstant(
-    video: HTMLVideoElement,
-    src: string,
-    index: number
-  ) {
-    this.loading[index] = true;
-    this.cdr.detectChanges();
+  // ===================================
+  // SMOOTH SOURCE SWITCHING
+  // ===================================
+  private setupFeatureSwitch(video: HTMLVideoElement) {
+    const section = video.closest('section');
+    if (!section) return;
 
-    // Stop everything cleanly
-    video.pause();
-    video.currentTime = 0;
+    const items = section.querySelectorAll<HTMLLIElement>('.list-group-item');
 
-    // Remove old listeners
-    video.oncanplay = null;
+    let currentIndex = 0;
 
-    // Set source
-    video.src = src;
-    video.load();
+    const playIndex = (index: number) => {
+      const src = items[index].dataset['video'];
+      if (!src) return;
 
-    // 🔥 KEY FIX: wait for canplay
-    video.oncanplay = async () => {
-      this.loading[index] = false;
-      this.cdr.detectChanges();
+      items.forEach((li) => li.classList.remove('active'));
+      items[index].classList.add('active');
 
-      try {
-        await video.play();
-      } catch (e) {
-        console.warn('Play blocked, retrying on user gesture');
-      }
+      const source = video.querySelector('source')!;
+      if (source.src.includes(src)) return;
+
+      video.pause();
+      source.src = src;
+      video.load();
+
+      video.onloadeddata = () => {
+        video.play().catch(() => {});
+      };
+
+      currentIndex = index;
     };
+
+    video.onended = () => {
+      playIndex((currentIndex + 1) % items.length);
+    };
+
+    items.forEach((item, i) => {
+      item.addEventListener('click', () => playIndex(i));
+    });
+
+    playIndex(0);
   }
 }
