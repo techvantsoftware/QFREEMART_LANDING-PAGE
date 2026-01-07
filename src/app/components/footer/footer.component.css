@@ -27,7 +27,7 @@
 }
 
 .logo {
-  height: 40px;
+  height: 33px;
 }
 
 /* Social Media Links */
@@ -308,3 +308,41 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+/* Styling for the new branding lines */
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.brand-tagline {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.brand-description {
+  font-size: 15px;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Update footer-top to handle vertical spacing on mobile */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .brand-tagline {
+    font-size: 16px;
+  }
+  .brand-description {
+    font-size: 14px;
+  }
+}
+
+/* Rest of your existing CSS remains the same... */
