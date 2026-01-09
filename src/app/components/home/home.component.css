@@ -821,6 +821,7 @@ body {
 /* FAQ Section */
 .faq-section {
   padding: 0px 0;
+  padding-bottom: 50px;
 }
 
 .faq-section .section-title {

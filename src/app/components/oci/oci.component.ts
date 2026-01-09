@@ -13,7 +13,7 @@ export class OciComponent {
     {
       icon: '🛒',
       text: 'Multi-Channel Commerce',
-      details: 'Sell online, offline, and locally from one system.',
+      details: 'Sell online, offline, and locally from one system.B2C, B2B, O2O — Offline + Online, Local to Global',
     },
     {
       icon: '📦',

@@ -601,7 +601,7 @@
   </div>
 </div>
 
-<div class="faq-section">
+<!-- <div class="faq-section">
   <div class="container">
     <h2 class="section-title">Frequently Asked Questions</h2>
     <p class="section-description">
@@ -682,8 +682,65 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<div class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-description">
+      Find quick answers to the most common queries about shopping, selling, and
+      delivering with QFREEMART.
+    </p>
 
+    <div class="faq-content">
+      <!-- SIDEBAR: TABLE OF CONTENTS -->
+      <div class="faq-sidebar">
+        <div class="table-of-content">
+          <h4>Table of content</h4>
+          <ul>
+            <li *ngFor="let category of faqCategories" [class.active]="activeCategory === category"
+              (click)="activeCategory = category; openIndex = 0">
+              {{ category }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ACCORDION: DYNAMIC QUESTIONS -->
+      <!-- ACCORDION: DYNAMIC QUESTIONS -->
+      <div class="faq-accordion position-relative">
+
+        <!-- This internal style hides the scrollbar for Chrome/Safari while keeping it scrollable -->
+        <style>
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        </style>
+
+        <div class="overflow-y-auto no-scrollbar"
+          style="max-height: 75vh; scrollbar-width: none; -ms-overflow-style: none;">
+
+          <div *ngFor="let faq of getFilteredFAQs(); let i = index" class="accordion-item"
+            [class.open]="openIndex === i">
+
+            <div class="accordion-header" (click)="toggleAccordion(i)">
+              {{ faq.q }}
+              <i class="fas" [ngClass]="openIndex === i ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+            </div>
+
+            <div class="accordion-body" *ngIf="openIndex === i">
+              <p>{{ faq.a }}</p>
+            </div>
+          </div>
+
+          <!-- Empty state if no FAQs in category -->
+          <div *ngIf="getFilteredFAQs().length === 0" class="p-4 text-muted">
+            Detailed FAQs for this section coming soon.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <section id="contactSection">
   <app-contactform></app-contactform>
 </section>
