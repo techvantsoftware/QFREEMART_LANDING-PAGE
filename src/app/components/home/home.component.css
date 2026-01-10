@@ -268,14 +268,14 @@ body {
 /* This section controls the Apps (Ordering, Seller, etc.) */
 
 .qfreemart-section {
-  padding: 80px 0; /* Standard desktop spacing */
+  padding: 60px 0; /* Standard desktop spacing */
   background-color: #fff;
   overflow-x: hidden;
   position: relative;
   width: 100%;
   display: block;
   text-align: left;
-  margin-bottom: 60px;
+  /* margin-bottom: 0px; */
 }
 
 .qfreemart-section .container {

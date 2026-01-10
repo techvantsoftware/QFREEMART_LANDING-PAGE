@@ -132,11 +132,11 @@ export class HomeComponent implements AfterViewInit {
       q: 'Who is QFREEMART for?',
       a: 'QFREEMART is for customers, sellers/service providers, and delivery/executor partners. Customers can buy locally, sellers can digitize operations, and executors can earn through local deliveries and services.'
     },
-    {
-      category: 'About QFREEMART',
-      q: 'How is QFREEMART different from Amazon or Swiggy?',
-      a: 'Unlike large marketplaces, QFREEMART focuses on local commerce instead of centralized warehouses. It supports queue-based services, appointment booking, negotiation, and direct local fulfillment designed specifically for neighborhood businesses.'
-    },
+    // {
+    //   category: 'About QFREEMART',
+    //   q: 'How is QFREEMART different from Amazon or Swiggy?',
+    //   a: 'Unlike large marketplaces, QFREEMART focuses on local commerce instead of centralized warehouses. It supports queue-based services, appointment booking, negotiation, and direct local fulfillment designed specifically for neighborhood businesses.'
+    // },
     {
       category: 'About QFREEMART',
       q: 'Is QFREEMART a seller or service provider?',
