@@ -268,7 +268,7 @@ body {
 /* This section controls the Apps (Ordering, Seller, etc.) */
 
 .qfreemart-section {
-  padding: 60px 0; /* Standard desktop spacing */
+  padding: 20px 0; /* Standard desktop spacing */
   background-color: #fff;
   overflow-x: hidden;
   position: relative;
@@ -498,7 +498,8 @@ body {
 .app-header h2 {
   font-weight: 700;
   color: #222;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 2.5rem;
 }
 .app-header .highlight {
@@ -935,7 +936,7 @@ body {
 /* ==================== FLOW SECTION STYLING (NEW) ==================== */
 
 .flow-section {
-  padding: 100px 0;
+  padding: 50px 0;
   background-color: #ffffff;
   font-family: "Lato", sans-serif;
 }
