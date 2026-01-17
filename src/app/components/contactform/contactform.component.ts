@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from '../../services/contact.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-contactform',
@@ -13,7 +14,11 @@ import { ContactService } from '../../services/contact.service';
 export class ContactformComponent {
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService,
+    private toastService: ToastService
+  ) {
     this.contactForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -32,11 +37,11 @@ export class ContactformComponent {
 
     try {
       await this.contactService.submitContactForm(formValues);
-      alert('Message sent successfully!');
+      this.toastService.success('Message sent successfully!', 'Success');
       this.contactForm.reset();
     } catch (error) {
       console.error('Error sending message:', error);
-      alert('Failed to send message. Please try again.');
+      this.toastService.error('Failed to send message. Please try again.', 'Error');
     }
   }
 }

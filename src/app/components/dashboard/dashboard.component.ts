@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
 import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toast.service';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -27,7 +28,8 @@ export class DashboardComponent implements OnInit {
 
     constructor(
         private contactService: ContactService,
-        private authService: AuthService
+        private authService: AuthService,
+        private toastService: ToastService
     ) { }
 
     async ngOnInit() {
@@ -44,6 +46,7 @@ export class DashboardComponent implements OnInit {
             });
         } catch (error) {
             console.error('Error loading contacts:', error);
+            this.toastService.error('Failed to load contacts');
         } finally {
             this.loading = false;
         }
@@ -93,11 +96,12 @@ export class DashboardComponent implements OnInit {
     }
 
     public async deleteContact(id: string) {
-        if (confirm('Are you sure you want to delete this contact?')) {
+        const confirmed = await this.toastService.confirm('You won\'t be able to revert this!', 'Are you sure?');
+        if (confirmed) {
             try {
                 await this.contactService.deleteContact(id);
                 this.contacts = this.contacts.filter(c => c.id !== id);
-                alert('Contact deleted successfully');
+                this.toastService.success('Contact has been deleted.', 'Deleted!');
 
                 // Adjust pagination if page becomes empty
                 if (this.paginatedContacts.length === 0 && this.currentPage > 1) {
@@ -105,7 +109,7 @@ export class DashboardComponent implements OnInit {
                 }
             } catch (error) {
                 console.error('Error deleting contact:', error);
-                alert('Failed to delete contact');
+                this.toastService.error('Failed to delete contact.');
             }
         }
     }

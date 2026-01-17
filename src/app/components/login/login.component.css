@@ -10,9 +10,29 @@
   padding: 1rem;
   /* Fallback color */
   background-color: #f0f2f5;
+  position: relative;
+  /* Needed for the overlay */
 }
 
+/* Dark Overlay */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* semi-transparent black */
+  z-index: 1;
+  /* Sit on top of the image */
+}
+
+/* Ensure card sits above overlay */
+/* Ensure card sits above overlay */
 .login-card {
+  position: relative;
+  z-index: 2;
   background: rgba(255, 255, 255, 0.95);
   padding: 2.5rem;
   border-radius: 16px;
