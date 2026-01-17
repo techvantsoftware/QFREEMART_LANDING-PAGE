@@ -1,6 +1,6 @@
 <app-header *ngIf="!isDashboardRoute"></app-header>
 
-<main>
+<main [style.padding-top]="isDashboardRoute ? '0' : null">
   <router-outlet></router-outlet>
 </main>
 
