@@ -1,13 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import {Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, // Include RouterModule here
-    CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -20,8 +19,10 @@ export class HeaderComponent {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private router: Router
-  ) {}
+    private router: Router,
+    private authService: AuthService
+  ) { }
+
 
 
   scrollTo(sectionId: string) {

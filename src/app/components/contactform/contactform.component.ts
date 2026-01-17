@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contactform',
@@ -12,7 +13,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class ContactformComponent {
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
     this.contactForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -21,37 +22,21 @@ export class ContactformComponent {
     });
   }
 
-  public sendEmail() {
-    // 1. Mark all fields as touched to trigger validation errors if empty
+  public async sendEmail() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
-      return; 
+      return;
     }
 
     const formValues = this.contactForm.value;
 
-    // 2. Corrected Email Address (Removed the extra 'l' in gmail)
-    const recipientEmail = 'vaishnaviitape9005@gmail.com'; 
-
-    // 3. Construct the email content safely
-    const subject = encodeURIComponent(formValues.subject);
-    const fullName = `${formValues.firstName} ${formValues.lastName}`;
-    
-    // Formatting the body with new lines (%0D%0A is the code for new line in mailto)
-    const body = encodeURIComponent(
-      `Name: ${fullName}\n` +
-      `Email Request from Website\n\n` +
-      `Message:\n${formValues.message}`
-    );
-
-    // 4. Create the mailto link
-    const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-
-    // 5. Open the email client
-    // We use window.open usually to prevent current page navigation issues
-    window.location.href = mailtoLink;
-    
-    // Optional: Reset form
-    this.contactForm.reset();
+    try {
+      await this.contactService.submitContactForm(formValues);
+      alert('Message sent successfully!');
+      this.contactForm.reset();
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    }
   }
 }

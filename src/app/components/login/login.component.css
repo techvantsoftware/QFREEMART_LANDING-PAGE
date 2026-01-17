@@ -1,0 +1,100 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  /* More vibrant option */
+  padding: 1rem;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+.login-logo {
+  height: 60px;
+  width: auto;
+}
+
+.brand-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Input Styles */
+.input-group-text {
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #dee2e6;
+}
+
+.input-group:focus-within {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.input-group:focus-within .form-control,
+.input-group:focus-within .input-group-text {
+  border-color: #86b7fe;
+}
+
+.input-group:focus-within .input-group-text i {
+  color: #0d6efd;
+}
+
+/* Button Styles */
+.btn-login {
+  background: linear-gradient(45deg, #0d6efd, #0099ff);
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-login:hover:not(:disabled) {
+  background: linear-gradient(45deg, #0b5ed7, #0088e3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+}
+
+.btn-login:disabled {
+  background: #ccc;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Error Styles */
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.input-group:has(.is-invalid) .input-group-text {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.input-group:has(.is-invalid) .text-muted {
+  color: #dc3545 !important;
+}
