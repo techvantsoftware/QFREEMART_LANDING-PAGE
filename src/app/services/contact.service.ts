@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-<<<<<<< Updated upstream
-import { getDatabase, ref, push, set } from 'firebase/database';
-=======
-import { getDatabase, ref, push, set, get, child } from 'firebase/database';
->>>>>>> Stashed changes
+import { getDatabase, ref, push, set, get, child, remove } from 'firebase/database';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -32,8 +28,6 @@ export class ContactService {
             throw e;
         }
     }
-<<<<<<< Updated upstream
-=======
 
     async getContacts(): Promise<any[]> {
         try {
@@ -55,5 +49,14 @@ export class ContactService {
             throw error;
         }
     }
->>>>>>> Stashed changes
+
+    async deleteContact(id: string): Promise<void> {
+        try {
+            const contactRef = ref(this.db, 'contacts/' + id);
+            await remove(contactRef);
+        } catch (error) {
+            console.error("Error deleting contact:", error);
+            throw error;
+        }
+    }
 }

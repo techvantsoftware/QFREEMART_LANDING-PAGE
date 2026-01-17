@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactService } from '../../services/contact.service';
 import { AuthService } from '../../services/auth.service';
+import * as XLSX from 'xlsx';
 
 @Component({
     selector: 'app-dashboard',
@@ -38,7 +39,26 @@ export class DashboardComponent implements OnInit {
         }
     }
 
-    logout() {
+    public async deleteContact(id: string) {
+        if (confirm('Are you sure you want to delete this contact?')) {
+            try {
+                await this.contactService.deleteContact(id);
+                this.contacts = this.contacts.filter(c => c.id !== id);
+                alert('Contact deleted successfully');
+            } catch (error) {
+                console.error('Error deleting contact:', error);
+                alert('Failed to delete contact');
+            }
+        }
+    }
+
+    public downloadExcel() {
+        const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.contacts);
+        const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        XLSX.writeFile(workbook, 'contacts.xlsx');
+    }
+
+    public logout() {
         this.authService.logout();
     }
 }
