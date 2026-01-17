@@ -21,6 +21,8 @@ export class DashboardComponent implements OnInit {
     // UI State
     searchTerm: string = '';
     isCardView: boolean = false;
+    startDate: string = '';
+    endDate: string = '';
 
     // Pagination
     currentPage: number = 1;
@@ -54,16 +56,36 @@ export class DashboardComponent implements OnInit {
 
     // Getters for filtered and paginated data
     get filteredContacts() {
+        let contacts = this.contacts;
+
+        // Date Filter
+        if (this.startDate) {
+            contacts = contacts.filter(c => new Date(c.timestamp) >= new Date(this.startDate));
+        }
+        if (this.endDate) {
+            // Set end date to end of day to be inclusive
+            const end = new Date(this.endDate);
+            end.setHours(23, 59, 59, 999);
+            contacts = contacts.filter(c => new Date(c.timestamp) <= end);
+        }
+
         if (!this.searchTerm.trim()) {
-            return this.contacts;
+            return contacts;
         }
         const term = this.searchTerm.toLowerCase();
-        return this.contacts.filter(contact =>
+        return contacts.filter(contact =>
             (contact.firstName?.toLowerCase() || '').includes(term) ||
             (contact.lastName?.toLowerCase() || '').includes(term) ||
             (contact.subject?.toLowerCase() || '').includes(term) ||
             (contact.message?.toLowerCase() || '').includes(term)
         );
+    }
+
+    clearFilters() {
+        this.startDate = '';
+        this.endDate = '';
+        this.searchTerm = '';
+        this.currentPage = 1;
     }
 
     get paginatedContacts() {
