@@ -3,10 +3,13 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-  /* More vibrant option */
+  background-image: url("/assets/home.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 1rem;
+  /* Fallback color */
+  background-color: #f0f2f5;
 }
 
 .login-card {
