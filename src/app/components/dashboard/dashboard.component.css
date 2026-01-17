@@ -150,6 +150,136 @@
     background-color: #f8f9fa;
 }
 
+/* Search and Controls */
+.search-box {
+    position: relative;
+    min-width: 250px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.search-box .form-control {
+    padding-left: 35px;
+    border-radius: 20px;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Empty State */
+.empty-state {
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Card View */
+.contact-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.date-badge {
+    background: #f8f9fa;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.delete-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #fff0f0;
+    color: #dc3545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.message-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Pagination */
+.pagination-container {
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.page-link {
+    color: #007bff;
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.page-link:hover {
+    background-color: #f0f7ff;
+    color: #0056b3;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+}
+
+.page-item.disabled .page-link {
+    color: #ccc;
+    pointer-events: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .sidebar {
@@ -169,5 +299,22 @@
     .nav-item {
         justify-content: center;
         padding: 1rem;
+    }
+
+    .card-header .d-flex {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .btn-group {
+        width: 100%;
+    }
+
+    .btn-group .btn {
+        flex: 1;
     }
 }
