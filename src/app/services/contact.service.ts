@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
+<<<<<<< Updated upstream
 import { getDatabase, ref, push, set } from 'firebase/database';
+=======
+import { getDatabase, ref, push, set, get, child } from 'firebase/database';
+>>>>>>> Stashed changes
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -28,4 +32,28 @@ export class ContactService {
             throw e;
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    async getContacts(): Promise<any[]> {
+        try {
+            const dbRef = ref(this.db);
+            const snapshot = await get(child(dbRef, 'contacts'));
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                // Convert object of objects to array of objects
+                return Object.keys(data).map(key => ({
+                    id: key,
+                    ...data[key]
+                }));
+            } else {
+                console.log("No data available");
+                return [];
+            }
+        } catch (error) {
+            console.error("Error getting data:", error);
+            throw error;
+        }
+    }
+>>>>>>> Stashed changes
 }
