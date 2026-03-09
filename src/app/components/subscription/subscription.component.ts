@@ -28,7 +28,7 @@ export class SubscriptionComponent {
     {
       id: 'monthly',
       name: 'Monthly',
-      b2cPrice: 289,
+      b2cPrice: 299,
       b2cOriginalPrice: 599,
       b2cCommission: 5,
       b2bDeduction: 1,
@@ -72,11 +72,11 @@ export class SubscriptionComponent {
       return {
         ...plan,
         // Price: if B2B, double the price
-        currentPrice: isB2B ? plan.b2cPrice * 2 : plan.b2cPrice,
+        currentPrice: isB2B ? plan.b2cPrice * 2 + 1 : plan.b2cPrice,
 
         // Original Price: if B2B, double the original price
         currentOriginalPrice: isB2B
-          ? plan.b2cOriginalPrice * 2
+          ? plan.b2cOriginalPrice * 2 + 1
           : plan.b2cOriginalPrice,
 
         // Commission: if B2B, subtract the deduction
