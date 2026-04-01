@@ -84,7 +84,7 @@
             Commission: {{ plan.currentCommission }}%
           </li>
 
-          <!-- Appointment Feature: Quarterly onwards (Quarterly, Semi, Annual) -->
+          <!-- Appointment Feature: Quarterly onwards (Quarterly, Semi, Annual, Master) -->
           <li [class.disabled-text]="plan.id === 'monthly'">
             <span [class]="plan.id !== 'monthly' ? 'tick-icon' : 'cross-icon'">
               {{ plan.id !== "monthly" ? "✔" : "✘" }}
@@ -92,7 +92,7 @@
             Appointment feature
           </li>
 
-          <!-- Negotiation: Semi-annual onwards (Semi, Annual) -->
+          <!-- Negotiation: Semi-annual onwards (Semi, Annual, Master) -->
           <li
             [class.disabled-text]="
               plan.id === 'monthly' || plan.id === 'quarterly'
@@ -100,20 +100,20 @@
           >
             <span
               [class]="
-                plan.id === 'semi' || plan.id === 'annual'
+                plan.id === 'semi' || plan.id === 'annual' || plan.id === 'master'
                   ? 'tick-icon'
                   : 'cross-icon'
               "
             >
-              {{ plan.id === "semi" || plan.id === "annual" ? "✔" : "✘" }}
+              {{ plan.id === "semi" || plan.id === "annual" || plan.id === "master" ? "✔" : "✘" }}
             </span>
             Negotiation
           </li>
 
           <!-- Analytics: Annual only -->
-          <li [class.disabled-text]="plan.id !== 'annual'">
-            <span [class]="plan.id === 'annual' ? 'tick-icon' : 'cross-icon'">
-              {{ plan.id === "annual" ? "✔" : "✘" }}
+          <li [class.disabled-text]="plan.id !== 'annual' && plan.id !== 'master'">
+            <span [class]="plan.id === 'annual' || plan.id === 'master' ? 'tick-icon' : 'cross-icon'">
+              {{ plan.id === "annual" || plan.id === "master" ? "✔" : "✘" }}
             </span>
             Analytics
           </li>
