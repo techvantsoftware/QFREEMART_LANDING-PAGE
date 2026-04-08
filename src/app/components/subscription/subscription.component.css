@@ -135,8 +135,15 @@ body {
 .price {
   font-size: 2rem;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 10px 0 5px;
   color: #000;
+}
+
+.validity-text {
+  font-size: 0.9rem;
+  color: #ef4444;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .original-price {
@@ -278,30 +285,39 @@ body {
 /* --- Optimized Mobile View (Horizontal Scroll) --- */
 @media (max-width: 768px) {
   /* Allow the container to scroll horizontally */
+  .plans-wrapper {
+    padding: 20px 10px;
+  }
+
+  .scrollable-plans-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    padding-bottom: 20px;
+  }
+
+  .scrollable-plans-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .plans,
   .features-grid {
     display: flex !important;
     flex-direction: row !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap !important;
     gap: 15px;
-    padding: 10px 5px 20px 5px;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    width: max-content;
+    padding: 0 5px;
+    overflow: visible !important; /* Let the parent handle scrolling */
   }
 
-  /* Hide scrollbar for Chrome/Safari */
-  .plans::-webkit-scrollbar,
-  .features-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Force cards to stay side-by-side */
+  /* Force cards to stay side-by-side and keep consistent width for alignment */
   .plan,
   .feature-list {
-    flex: 0 0 85% !important; /* Shows 85% of card + hint of next card */
-    max-width: 85% !important;
-    width: 85% !important;
+    flex: 0 0 280px !important; 
+    max-width: 280px !important;
+    width: 280px !important;
     scroll-snap-align: center;
     margin-bottom: 0;
   }
@@ -509,18 +525,18 @@ body {
   }
 
   .plan {
-    flex: 1 1 90%;
-    max-width: 90%;
+    flex: 0 0 280px !important;
+    max-width: 280px !important;
   }
 
   .features-grid,
   .included-features-grid {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 
   .feature-list {
-    width: 100%;
+    flex: 0 0 280px !important;
   }
 
   .section-title {

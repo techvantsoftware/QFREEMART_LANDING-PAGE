@@ -52,72 +52,75 @@
 
   <!-- Pricing Plans -->
   <div class="plans-wrapper">
-    <!-- Dynamic Pricing Cards Loop -->
-    <div class="plans">
-      <div class="plan" *ngFor="let plan of displayPlans">
-        <h3>{{ plan.name }}</h3>
-        <!-- Pipe number to format with commas if needed, e.g., 1,799 -->
-        <p class="price">₹{{ plan.currentPrice }}</p>
-        <p class="original-price">
-          <span class="strikethrough">₹{{ plan.currentOriginalPrice }}</span>
-          <span class="discount">50% OFF</span>
-        </p>
-        <button class="subscribe-btn">Subscribe</button>
+    <!-- Scrollable container to sync cards and features on mobile -->
+    <div class="scrollable-plans-container">
+      <!-- Dynamic Pricing Cards Loop -->
+      <div class="plans">
+        <div class="plan" *ngFor="let plan of displayPlans">
+          <h3>{{ plan.name }}</h3>
+          <!-- Pipe number to format with commas if needed, e.g., 1,799 -->
+          <p class="price">₹{{ plan.currentPrice }}</p>
+          <p class="validity-text">Valid for {{ plan.validityMonths }} {{ plan.validityMonths === 1 ? 'Month' : 'Months' }}</p>
+          <p class="original-price">
+            <span class="strikethrough">₹{{ plan.currentOriginalPrice }}</span>
+            <span class="discount">50% OFF</span>
+          </p>
+          <button class="subscribe-btn">Subscribe</button>
+        </div>
       </div>
-    </div>
 
-    <hr
-      class="section-divider"
-      style="border: none; border-top: 2px solid #e5e7eb; margin: 30px 0"
-    />
+      <hr
+        class="section-divider"
+        style="border: none; border-top: 2px solid #e5e7eb; margin: 30px 0"
+      />
 
-    <h4 class="section-title">Plans Include different Features</h4>
+      <h4 class="section-title">Plans Include different Features</h4>
 
-    <!-- Dynamic Features Grid Loop -->
-    <!-- Dynamic Features Grid Loop -->
-    <div class="features-grid">
-      <div class="feature-list" *ngFor="let plan of displayPlans">
-        <ul>
-          <!-- Commission Row -->
-          <li>
-            <span class="tick-icon">✔</span>
-            Commission: {{ plan.currentCommission }}%
-          </li>
+      <!-- Dynamic Features Grid Loop -->
+      <div class="features-grid">
+        <div class="feature-list" *ngFor="let plan of displayPlans">
+          <ul>
+            <!-- Commission Row -->
+            <li>
+              <span class="tick-icon">✔</span>
+              Commission: {{ plan.currentCommission }}%
+            </li>
 
-          <!-- Appointment Feature: Quarterly onwards (Quarterly, Semi, Annual, Master) -->
-          <li [class.disabled-text]="plan.id === 'monthly'">
-            <span [class]="plan.id !== 'monthly' ? 'tick-icon' : 'cross-icon'">
-              {{ plan.id !== "monthly" ? "✔" : "✘" }}
-            </span>
-            Appointment feature
-          </li>
+            <!-- Appointment Feature: Quarterly onwards (Quarterly, Semi, Annual, Master) -->
+            <li [class.disabled-text]="plan.id === 'monthly'">
+              <span [class]="plan.id !== 'monthly' ? 'tick-icon' : 'cross-icon'">
+                {{ plan.id !== "monthly" ? "✔" : "✘" }}
+              </span>
+              Appointment feature
+            </li>
 
-          <!-- Negotiation: Semi-annual onwards (Semi, Annual, Master) -->
-          <li
-            [class.disabled-text]="
-              plan.id === 'monthly' || plan.id === 'quarterly'
-            "
-          >
-            <span
-              [class]="
-                plan.id === 'semi' || plan.id === 'annual' || plan.id === 'master'
-                  ? 'tick-icon'
-                  : 'cross-icon'
+            <!-- Negotiation: Semi-annual onwards (Semi, Annual, Master) -->
+            <li
+              [class.disabled-text]="
+                plan.id === 'monthly' || plan.id === 'quarterly'
               "
             >
-              {{ plan.id === "semi" || plan.id === "annual" || plan.id === "master" ? "✔" : "✘" }}
-            </span>
-            Negotiation
-          </li>
+              <span
+                [class]="
+                  plan.id === 'semi' || plan.id === 'annual' || plan.id === 'master'
+                    ? 'tick-icon'
+                    : 'cross-icon'
+                "
+              >
+                {{ plan.id === "semi" || plan.id === "annual" || plan.id === "master" ? "✔" : "✘" }}
+              </span>
+              Negotiation
+            </li>
 
-          <!-- Analytics: Annual only -->
-          <li [class.disabled-text]="plan.id !== 'annual' && plan.id !== 'master'">
-            <span [class]="plan.id === 'annual' || plan.id === 'master' ? 'tick-icon' : 'cross-icon'">
-              {{ plan.id === "annual" || plan.id === "master" ? "✔" : "✘" }}
-            </span>
-            Analytics
-          </li>
-        </ul>
+            <!-- Analytics: Annual only -->
+            <li [class.disabled-text]="plan.id !== 'annual' && plan.id !== 'master'">
+              <span [class]="plan.id === 'annual' || plan.id === 'master' ? 'tick-icon' : 'cross-icon'">
+                {{ plan.id === "annual" || plan.id === "master" ? "✔" : "✘" }}
+              </span>
+              Analytics
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

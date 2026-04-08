@@ -10,6 +10,7 @@ interface Plan {
   b2cCommission: number;
   // B2B Logic (deduction amount)
   b2bDeduction: number;
+  validityMonths: number;
 }
 
 @Component({
@@ -26,28 +27,13 @@ export class SubscriptionComponent {
   // Prices are for B2C. B2B deduction is how much commission % drops in B2B mode.
   basePlans: Plan[] = [
     {
-      id: 'master',
-      name: 'Master Plan',
-      b2cPrice: 8999,
-      b2cOriginalPrice: 17998,
-      b2cCommission: 0,
-      b2bDeduction: 0,
-    },
-    {
-      id: 'annual',
-      name: 'Annual',
-      b2cPrice: 3599,
-      b2cOriginalPrice: 7199,
-      b2cCommission: 2,
-      b2bDeduction: 0.25,
-    },
-    {
-      id: 'semi',
-      name: 'Semi-Annual',
-      b2cPrice: 1799,
-      b2cOriginalPrice: 3599,
-      b2cCommission: 3,
-      b2bDeduction: 0.5,
+      id: 'monthly',
+      name: 'Monthly',
+      b2cPrice: 299,
+      b2cOriginalPrice: 599,
+      b2cCommission: 5,
+      b2bDeduction: 1,
+      validityMonths: 1,
     },
     {
       id: 'quarterly',
@@ -56,14 +42,34 @@ export class SubscriptionComponent {
       b2cOriginalPrice: 1799,
       b2cCommission: 4,
       b2bDeduction: 0.75,
+      validityMonths: 3,
     },
     {
-      id: 'monthly',
-      name: 'Monthly',
-      b2cPrice: 299,
-      b2cOriginalPrice: 599,
-      b2cCommission: 5,
-      b2bDeduction: 1,
+      id: 'semi',
+      name: 'Semi-Annual',
+      b2cPrice: 1799,
+      b2cOriginalPrice: 3599,
+      b2cCommission: 3,
+      b2bDeduction: 0.5,
+      validityMonths: 6,
+    },
+    {
+      id: 'annual',
+      name: 'Annual',
+      b2cPrice: 3599,
+      b2cOriginalPrice: 7199,
+      b2cCommission: 2,
+      b2bDeduction: 0.25,
+      validityMonths: 12,
+    },
+    {
+      id: 'master',
+      name: 'Master Plan',
+      b2cPrice: 8999,
+      b2cOriginalPrice: 17998,
+      b2cCommission: 0,
+      b2bDeduction: 0,
+      validityMonths: 24,
     },
   ];
 
